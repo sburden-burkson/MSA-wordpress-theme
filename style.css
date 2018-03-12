@@ -1,0 +1,469 @@
+/*
+Theme Name: msawheels
+Author: Burkson
+Author URI: https://www.burkson.com/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: msa-wheels
+*/
+
+
+/*!
+ * Admin Bar Fix
+ */
+
+.admin-bar .affix {
+  margin-top: 32px;
+}
+
+@media only screen and (max-width: 767px) {
+  .admin-bar .affix {
+    margin-top: 46px;
+  }
+}
+
+.page-numbers {
+  padding: 3px;
+}
+
+/* End */
+
+h1, h2, h3, h4 {
+  font-family: monospace;
+}
+
+p {
+  font-weight: sans-serif;
+}
+
+header, nav, footer, .btn, .oswald {
+  font-family: "Oswald", sans-serif;
+}
+
+.roboto h1, .roboto h2, .roboto h3, .roboto h4 {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+header {
+  height: 40px;
+  padding: 10px 0;
+  border-bottom: 2px solid #e7e7e7;
+}
+
+header a {
+  color: #777;
+  letter-spacing: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 12px;
+}
+
+header .icon {
+  font-size: 14px;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+header .icon ~ .icon {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+header a:hover, header a:focus {
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+header a:first-of-type {
+  padding-left: 0 !important;
+}
+
+header a:last-of-type {
+  padding-right: 0 !important;
+}
+
+header .navbar-divider {
+  color: #e7e7e7;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.nav li:last-of-type a {
+  padding-right: 100px;
+}
+
+input.form-control {
+  border-radius: 0;
+}
+
+.input-group span .btn {
+  border-radius: 0;
+}
+
+.pad-bottom {
+  padding-bottom: 30px;
+}
+
+footer {
+  padding-top: 100px;
+  padding-bottom: 20px;
+  letter-spacing: 0.15em;
+}
+
+footer .copyright {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid #e7e7e7;
+}
+
+footer .links {
+  padding-top: 50px;
+}
+
+footer .links [class*="col-"] {
+  padding-bottom: 20px;
+}
+
+footer a {
+  color: black;
+  font-weight: 200;
+}
+
+footer .links-heading {
+  font-weight: 400;
+  padding-bottom: 15px;
+}
+
+footer .footerLogo {
+  height: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center h1, .center h2, .center h3, .center h4, .center h5, .center p {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+nav .container-fluid, header .container-fluid {
+  padding-right: 45px;
+  padding-left: 45px;
+}
+
+.navbar-default {
+  background-color: white;
+  margin-bottom: 0;
+}
+
+.navbar-default.affix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-wrapper {
+  min-height: 60px;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:active {
+  background-color: #fff;
+}
+
+.navbar-toggle {
+  display: block;
+  margin: auto;
+}
+
+.toggle-wrapper {
+  position: absolute;
+  height: 60px;
+  top: 0;
+  right: 45px;
+}
+
+.toggle-wrapper .navbar-toggle {
+  height: 60px;
+  padding: 0;
+}
+
+nav, .nav-wrapper, .navbar-brand {
+  height: 60px;
+}
+
+.navbar-brand img {
+  height: 30px;
+}
+
+.navbar-nav li a {
+  line-height: 30px;
+  letter-spacing: 1px;
+}
+
+.nav > li > a {
+  padding: 15px 35px;
+}
+
+.half-section {
+  min-height: 500px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.full-section {
+  min-height: 600px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.half-bg {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+}
+
+.full-bg {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+}
+
+.row-section [class*="col-"] {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+
+.row-section a {
+  color: white;
+  text-decoration: none;
+}
+
+.dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg h4, .dark-bg p {
+  color: white;
+}
+
+.wp-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.wp-full-height {
+  height: 100%;
+}
+
+.wp-full-width {
+  width: 100%;
+}
+
+.wp-table-cell {
+  padding-top: 100px;
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+}
+
+.wp-table-cell-middle {
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
+
+.wp-table-cell-bottom {
+  display: table-cell;
+  vertical-align: bottom;
+  width: 100%;
+  height: 100%;
+}
+
+.section-info-wrap .pad-top-bottom {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.red-bg {
+  padding-bottom: 50px;
+}
+
+.standard-link {
+  font-family: oswald;
+  font-weight: 400;
+  color: black;
+}
+
+.standard-link .fa {
+  color: red;
+  font-size: 18px;
+  padding-left: 5px;
+}
+
+.spaced-section h1, .spaced-section h2, .spaced-section h3, .spaced-section h4 {
+  line-height: 50px;
+  letter-spacing: 0.15em;
+}
+
+.spaced-section p {
+  line-height: 28px;
+  letter-spacing: 0.15em;
+  font-weight: 300;
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.restricted-width {
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.restricted-width-lg {
+  max-width: 840px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header {
+  font-size: 36px;
+}
+.opaque-lg {
+  font-family: oswald;
+  opacity: .4;
+  font-size: 100px;
+  letter-spacing: 30px;
+}
+.wp-btn-transparent.wp-btn-white {
+  border-color: white;
+  color: white;
+}
+
+.wp-btn-extra-long {
+  padding: 7px 30px;
+  padding: 7px 30px 7px 20px;
+}
+
+.wp-btn-extra-long .fa {
+  padding-left: 15px;
+  margin-right: -15px;
+}
+
+.wp-btn-transparent {
+  background: transparent;
+  border-color: #888;
+  border-radius: 0;
+  color: #000;
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  margin: 10px auto;
+}
+
+.wp-btn-red {
+  background-image: url("/wp-content/uploads/2018/02/red-bg.png");
+  border-radius: 0;
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  margin: 10px auto;
+}
+
+.wp-btn-red:active {
+  background-image: url("/wp-content/uploads/2018/02/red-bg.png");
+}
+
+.wp-input-btn-red, .wp-input-btn-red:active {
+  background-image: url("/wp-content/uploads/2018/02/red-bg-sm.png");
+  color: white;
+}
+
+.wp-btn-red:hover, .wp-input-btn-red:hover, .wp-btn-red:focus, .wp-input-btn-red:focus {
+  color: white;
+}
+
+.section-header-sm {
+  font-size: 30px;
+}
+
+@media only screen and (min-width: 480px) {
+  .section-header {
+    font-size: 42px;
+  }
+  .section-header-sm {
+    font-size: 36px;
+  }
+}
+
+@media only screen and (min-width: 767px) {
+  .section-header {
+    font-size: 54px;
+  }
+  .section-header-sm {
+    font-size: 40px;
+  }
+  .wp-btn-extra-long {
+    padding: 10px 45px 10px 25px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .wp-btn-extra-long .fa {
+    padding-left: 20px;
+    margin-right: -20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  footer {
+    padding-top: 50px;
+  }
+  footer .links {
+    padding-top: 20px;
+  }
+  footer .links [class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .navbar-toggle {
+    display: block;
+  }
+  .half-bg, .full-bg, .half-section, .full-section {
+    height: auto;
+    min-height: 250px;
+    padding: 30px 0;
+  }
+  .half-bg .wp-full-height, .full-bg .wp-full-height, .half-section .wp-full-height, .full-section .wp-full-height {
+    min-height: 190px;
+  }
+  .row-section [class*="col-"] {
+    height: 200px;
+  }
+  .opaque-lg {
+    font-size: 60px;
+  }
+}
