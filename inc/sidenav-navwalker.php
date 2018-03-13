@@ -4,7 +4,7 @@ class Sidenav_Navwalker extends Walker_Nav_menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$depth = $depth + 10;
 		$indent = str_repeat( "\t", $depth );
-		$output .= "\n$indent<ul role=\"menu\" class=\"list-unstyled text-uppercase side-nav-sub\" >\n";
+		$output .= "\n$indent<ul role=\"menu\" class=\"nav flex-column\" >\n";
 	}
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ){
