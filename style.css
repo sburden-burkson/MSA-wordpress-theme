@@ -42,7 +42,7 @@ Text Domain: msa-wheels
 /* ===================================
             TABLE OF CONTENTS
    ===================================
-    1. Variables
+    1. SCSS Variables
     2. Globals (Modals, Forms, Text, Header, Footer, etc)
     3. Home page
     4. Accessories page
@@ -57,11 +57,9 @@ Text Domain: msa-wheels
     . Checkout pages (COMING SOON!)
 */
 /* ===================================
-   1) VARIABLES
+   1) SCSS VARIABLES
    =================================== */
-
 /* Magically empty! */
-
 /* ===================================
    2) GLOBALS, HEADER & FOOTER
    =================================== */
@@ -1638,7 +1636,7 @@ hr {
       font-weight: 300;
       letter-spacing: .15em;
       color: #888; }
-      .collection-item .collection-info-wrap .collection-sizes span {
+      .collection-item .collection-info-wrap .collection-sizes span.product-link {
         float: right; }
       .collection-item .collection-info-wrap .collection-sizes a {
         color: red; }
@@ -1839,7 +1837,6 @@ hr {
   .blog-item-container, .collection-item-container {
     margin: 0px auto 100px; }
   .collection-item-container {
-    padding-top: 50px;
     min-width: 320px;
     /* Just in case there's only one or two products */ }
     padding-top: 50px; }
@@ -1885,6 +1882,7 @@ hr {
   .sign-in-left {
     padding-right: 125px; }
   .collection-item-container {
+    padding-top: 50px;
     min-width: 940px;
     /* Just in case there are less than 3 products */ } }
 
@@ -1934,6 +1932,13 @@ hr {
   .collection-item-container {
     min-width: 1260px;
     /* Just in case there are less than 3 products */ } }
+
+/* MIN 1600px (Regular screen or larger)
+   ================== */
+@media screen and (min-width: 1600px) {
+  .collection-item-container {
+    min-width: 1580px;
+    /* Just in case there are less than 4 products */ } }
 
 /* MIN 1824px (Large screens)
    ================== */
@@ -2138,7 +2143,7 @@ hr {
       margin-bottom: 5px; }
     .collection-item .collection-info-wrap .collection-sizes {
       font-size: 12px; }
-      .collection-item .collection-info-wrap .collection-sizes span {
+      .collection-item .collection-info-wrap .collection-sizes span.product-link {
         padding-top: 10px;
         float: none;
         display: block;

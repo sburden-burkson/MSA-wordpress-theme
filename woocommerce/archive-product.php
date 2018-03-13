@@ -95,41 +95,47 @@ get_header( 'shop' );
 </div>
 <!-- /modal -->
 
+<?php
+    /* GET RESULTS COUNT */
+    $resultsCount = wc_get_loop_prop( 'total' );
+?>
 
 <div class="section collection-wrapper container-fluid" style="background-image: url('<?= content_url('uploads/2018/03/dirt-wheels-collection-1.png'); ?>');">
-      <div class="collection-item-container" style="">
-          
-        <div class="filter-container2" style="">
-          <div class="row">
-            <div class="col-xs-7">
-              <h5 class="">FILTER BY:
-              <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">VEHICLE
-                <i class="fal fa-plus fa-sm"></i>
-              </a>
-              <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">WHEEL SPECS
-                <i class="fal fa-plus fa-sm"></i>
-              </a>
-          </h5>
-            </div>
-            <div class="col-xs-5">
-              <h5 class="text-right" style="">208 RESULTS</h5>
-            </div>
-          </div>
+  <div class="collection-item-container" style="">
+
+    <div class="filter-container2" style="">
+      <div class="row">
+        <div class="col-xs-7">
+          <h5 class="">FILTER BY:
+          <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">VEHICLE
+            <i class="fal fa-plus fa-sm"></i>
+          </a>
+          <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">WHEEL SPECS
+            <i class="fal fa-plus fa-sm"></i>
+          </a>
+      </h5>
         </div>
+        <div class="col-xs-5">
+          <h5 class="text-right" style=""><?= $resultsCount ?> RESULT<?= ($resultsCount > 1)? 's' : '' ?></h5>
+        </div>
+      </div>
+    </div>
           
 
 <?php
 
 if ( have_posts() ) {
+    /* Added to get post ID for meta values */
+    global $post;
 
 	/**
 	 * Hook: woocommerce_before_shop_loop.
 	 *
-	 * @hooked wc_print_notices - 10
+	 * @hooked wc_print_notices - 10 (DO WE NEED THIS??)
 	 * @hooked woocommerce_result_count - 20
 	 * @hooked woocommerce_catalog_ordering - 30
 	 */
-	do_action( 'woocommerce_before_shop_loop' );
+	//do_action( 'woocommerce_before_shop_loop' );
 
 	woocommerce_product_loop_start();
 
@@ -145,24 +151,44 @@ if ( have_posts() ) {
 			do_action( 'woocommerce_shop_loop' );
 
 			//wc_get_template_part( 'content', 'product' );
+            
+            /* Get the product object */
+            global $product;
+            //print_r($product);
+            
+            // Is "NEW"
+            $isNewMeta = get_post_meta($post->ID, 'is_new', true);
+            $isNew = ( in_array($isNewMeta, array('true','True',true,'1',1), true ) )? true : false;
+            
+            // Photo
+            $thumbnailURL = get_the_post_thumbnail_url();
+            
+            // Sizes, etc
+            if(is_product_category('wheels')){
+                $details = str_replace(' | ', ', ', $product->get_attribute( 'Wheel Size' ));
+            }else if(is_product_category('accessories')){
+                $details = $product->get_price_html();
+            }else{
+                $details = strip_tags(wc_price($product->get_price()));
+            }
             ?>
           
         <div class="collection-item">
             <div class="row">
                 <div class="col-xs-6 col-sm-12 collection-col">
                   <div class="collection-img-wrap">
-                    <a href="javascript:void(0)"><img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt=""></a>
+                    <a href="<?php echo esc_url( get_permalink() ); ?>"><img src="<?= $thumbnailURL ?>" alt=""></a>
                   </div>
                 </div>
                 <div class="col-xs-6 col-sm-12 collection-col">
                   <div class="collection-info-wrap">
                     <div class="new-collection">
-                        <span class="new-box">NEW</span>
+                        <?php if($isNew) { ?><span class="new-box">NEW</span><?php } ?>
                     </div>
-                    <h5 class="collectionHeight"><a href="javascript:void(0)">M38 CHROME</a></h5>
-                    <p class="collection-sizes">Black & Chrome
-                      <span>
-                        <a href="javascript:void(0)">
+                    <h5 class="collectionHeight"><a href="javascript:void(0)"><?php the_title() ?></a></h5>
+                    <p class="collection-sizes"><?= $details ?>
+                      <span class="product-link">
+                        <a href="<?php echo esc_url( get_permalink() ); ?>">
                           <i class="fal fa-long-arrow-right fa-lg"></i>
                         </a>
                       </span>
