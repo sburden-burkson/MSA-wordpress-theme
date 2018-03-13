@@ -80,31 +80,11 @@
                      'container'         => false,
                      'container_class'   => false,
                      'container_id'      => false,
-                     'menu_class'        => 'nav flex-column',
+                     'menu_class'        => 'nav flex-column text-uppercase',
                      //'fallback_cb'       => '',
                      //'items_wrap'        => '%3$s'
                   ));
                 ?>
-				<!-- <ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>WHEELS</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>TIRES</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="#"><span>ACCESSORIES</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>ABOUT US</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>BLOG</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>GALLERY</span></a>
-					</li>
-				</ul>-->
 				<div class="sidenav-social-media">
 					<a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
 					<a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
@@ -116,7 +96,7 @@
     <div class="toggle-wrapper">
         <button type="button" class="navbar-toggle side-nav-close" data-sidenav="sidenav">
             <span class="sr-only">Toggle navigation</span>
-						<div class="close-icon"></div>
+            <div class="close-icon"></div>
         </button>
     </div>
   </div>
