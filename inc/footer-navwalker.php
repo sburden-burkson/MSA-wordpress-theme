@@ -41,36 +41,38 @@ class Footer_Navwalker extends Walker_Nav_menu {
 		$attributes = ! empty( $item->attr_title ) ? ' htitle="' . esc_attr($item->attr_title) . '"' : '';
 		$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr($item->target) . '"' : '';
 		$attributes .= ! empty( $item->xfn ) ? ' hrel="' . esc_attr($item->xfn) . '"' : '';
-		if ($args->walker->has_children) {
-			$output .= $indent . "<div class='panel col-sm-2'>\n" . $indent . "<div class='panel-heading' id='heading" . $item->ID ."' role='tab'> \n" . $indent . "<h4 class='panel-title'" . $id . $value . $class_names . $link_attributes . ">";
+		if ($depth == 0) {
+			$output .= $indent . "<div class='panel col-sm-3'>\n" . $indent . "<div class='panel-heading' id='heading" . $item->ID ."' role='tab'> \n" . $indent . "<h4 class='panel-title text-uppercase'" . $id . $value . $class_names . $link_attributes . ">";
 			$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr($item->url) . '"' : '';
 		} else {
-			$output .= $indent . '<li' . $id . $value . $class_names . $link_attributes . '>';
+			// $output .= $indent . '<li' . $id . $value . $class_names . $link_attributes . '>';
 			$attributes .= ! empty( $item->url ) ? ' href="' . esc_attr($item->url) . '"' : '';
+			$attributes .=  $id . $value . $class_names . $link_attributes;
 		}
 
 		// $attributes .= ( $args->walker->has_children ) ? ' data-bg-img="' . $sidemenu_image . '"' : '';
 
 		$item_output = $args->before;
-		$item_output .= '<a' . $attributes . '>';
+		$item_output .= $depth > 0 ? '<p' . $attributes .'>' : '<a' . $attributes . '>';
+		// $item_output .= '<a' . $attributes . '>';
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output .= ( $args->walker->has_children ) ? '</a> <span class="visible-xs pull-right"><a aria-controls="collapse1"
+		$item_output .= ( $args->walker->has_children ) ? '</a> <span class="visible-xs pull-right"><a aria-controls="collapse'.$item->ID.'"
 			aria-expanded="false" class="collapsed" data-parent="#footerAccordion" data-toggle="collapse" href="#collapse'.$item->ID.'" role=
 			"button"><i class="fal fa-plus"></i></a></span></h4></div>
-			<div aria-labelledby="heading1'.$item->ID.' class="panel-collapse collapse" id="collapse'.$item->ID.'" role="tabpanel">' : '</a>';
+			<div aria-labelledby="heading'.$item->ID.' class="panel-collapse collapse" id="collapse'.$item->ID.'" role="tabpanel"><div class="panel-body">' : '</a>';
 		$item_output .= $args->after;
 		$output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 
 	}
 
-	// function end_el( &$output, $item, $depth = 0, $args = array() ) {
-	//
-	// }
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "";
+	}
 
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$depth = $depth + 8;
 	    $indent = str_repeat("\t", $depth );
-	    $output .= "\t\t$indent</ul>\n$indent\t</div>\n$indent";
+	    $output .= "\t\t$indent</div>\n\t$indent</div>\n$indent</div>";
 	}
 
 }

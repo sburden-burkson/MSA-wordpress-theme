@@ -50,6 +50,7 @@
                       </div>
                     </div>
                   </div>
+
                   <div class="panel col-sm-2">
                     <div class="panel-heading" id="heading2" role="tab">
                       <h4 class="panel-title"><a href="javascript:void(0)">WHEELS</a> <span class="visible-xs pull-right"><a aria-controls="collapse2"
