@@ -88,6 +88,10 @@ function msawheels_theme_js() {
     if ( is_product() ) {
         wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }
+    
+    if ( is_product_category() ) {
+        wp_enqueue_script( 'collection_js', get_template_directory_uri() . '/js/collection-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+    }
 
     if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
         wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'chosen_js'), '', true );

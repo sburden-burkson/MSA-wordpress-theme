@@ -36,21 +36,23 @@ Text Domain: msa-wheels
     1. Variables
     2. Globals (Modals, Forms, Text, Header, Footer, etc)
     3. Home page
-    . FAQ page
-    . Product page
-    . Checkout pages
+    4. Accessories page
+    5. Warranty page
+    6. Product page
+    7. Collection page
+    8. Blog page and posts
+    9. FAQ page
+    10. About page
+    11. Media Queries (MIN)
+    12. Media Queries (MAX)
+    . Checkout pages (COMING SOON!)
 */
 /* ===================================
    1) VARIABLES
    =================================== */
-/* Colors
-   ================== */
-/* Fonts & Font Sizes
-   ================== */
-/* Header & Nav
-   ================== */
-/* Sidenav
-   ================== */
+
+/* Magically empty! */
+
 /* ===================================
    2) GLOBALS, HEADER & FOOTER
    =================================== */
@@ -133,7 +135,7 @@ input.form-control {
   margin: 10px auto; }
 
 .wp-btn-red {
-  background-image: url("/MSA/wp-content/uploads/2018/03/red-bg.png");
+  background-image: url("../images/red-bg.png");
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 0;
@@ -147,11 +149,11 @@ input.form-control {
   padding: 10px 35px; }
 
 .wp-btn-red:active {
-  background-image: url("/MSA/wp-content/uploads/2018/03/red-bg.png");
+  background-image: url("../images/red-bg.png");
   box-shadow: none; }
 
 .wp-input-btn-red, .wp-input-btn-red:active {
-  background-image: url("/MSA/wp-content/uploads/2018/03/red-bg-sm.png");
+  background-image: url("../images/red-bg-sm.png");
   color: rgba(255, 255, 255, 0.97); }
 
 .wp-btn-red:hover, .wp-input-btn-red:hover, .wp-btn-red:focus, .wp-input-btn-red:focus {
@@ -628,8 +630,7 @@ header {
   background-color: transparent; }
 
 .navbar-default .navbar-nav > li > a {
-  color: rgba(255, 255, 255, 0.97);
-  text-transform: uppercase; }
+  color: rgba(255, 255, 255, 0.97); }
 
 .navbar-default .navbar-toggle .icon-bar {
   background-color: rgba(255, 255, 255, 0.97); }
@@ -727,7 +728,7 @@ nav {
       .sidenav .toggle-wrapper .side-nav-close .close-icon {
         width: 50px;
         height: 50px;
-        background-image: url("/MSA/wp-content/uploads/2018/03/sidenav-close-icon.png");
+        background-image: url("../images/sidenav-close-icon.png");
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center center; }
@@ -758,13 +759,13 @@ nav {
     width: 90px;
     top: 0;
     left: -57px;
-    background-image: url("/MSA/wp-content/uploads/2018/03/texture-sidenav.png");
+    background-image: url("../images/textures/texture-sidenav.png");
     background-position: right center;
     background-size: contain;
     background-repeat: no-repeat; }
   #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media {
     display: none; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input::placeholder {
@@ -777,36 +778,35 @@ nav {
     box-shadow: none; }
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input::placeholder {
     text-transform: uppercase; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input::placeholder {
     font-family: "Barlow Condensed", sans-serif;
-    text-transform: uppercase;
     font-size: 26px;
     letter-spacing: 2px; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input {
     color: rgba(0, 0, 0, 0.97);
     background-color: transparent; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited {
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited {
     padding: 6px 45px;
     line-height: 80px; }
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form {
     padding-bottom: 17px;
     padding-right: 45px;
     margin-right: 0; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a.active span {
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a.active span {
     position: relative; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a.active span::after {
+  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a.active span::after {
     border-bottom: 1px solid rgba(0, 0, 0, 0.97);
     content: "";
     left: -20px;
@@ -1086,7 +1086,7 @@ hr {
     pointer-events: none; }
 
 /* ===================================
-   ) HOME PAGE
+   3) HOME PAGE
    =================================== */
 /* Video Banner (Home)
    ================== */
@@ -1116,10 +1116,10 @@ hr {
 /* Carousel
    ================== */
 #staggeredCarousel .slick-next:before {
-  content: url("/MSA/wp-content/uploads/2018/03/chevron-right.png"); }
+  content: url("../images/chevron-right.png"); }
 
 #staggeredCarousel .slick-prev:before {
-  content: url("/MSA/wp-content/uploads/2018/03/chevron-left.png"); }
+  content: url("../images/chevron-left.png"); }
 
 #staggeredCarousel .slick-next {
   right: -50px; }
@@ -1131,7 +1131,7 @@ hr {
   height: 300px; }
 
 /* ===================================
-   ) ACCESSORY PAGE
+   4) ACCESSORY PAGE
    =================================== */
 /* Row heights
    ================== */
@@ -1155,7 +1155,7 @@ hr {
     padding-top: 60px; }
 
 /* ===================================
-   ) WARRANTY PAGE
+   5) WARRANTY PAGE
    =================================== */
 /* Warranty heading
    ================== */
@@ -1170,7 +1170,7 @@ hr {
     margin-right: 5px; }
 
 /* ===================================
-   ) PRODUCT PAGE
+   6) PRODUCT PAGE
    =================================== */
 /* Product tabs
    ================== */
@@ -1183,7 +1183,7 @@ hr {
 /* Product Specs
    ================== */
 .product-specs-wrapper {
-  background-image: url("/MSA/wp-content/uploads/2018/03/dirt-blog-1.png");
+  background-image: url("../images/dirt-blog-1.png");
   background-repeat: no-repeat;
   background-position: center bottom; }
 
@@ -1346,7 +1346,7 @@ hr {
   color: rgba(0, 0, 0, 0.97); }
 
 /* ===================================
-   ) COLLECTION PAGES
+   7) COLLECTION PAGES
    =================================== */
 /* Grey background
    ================== */
@@ -1396,6 +1396,7 @@ hr {
 /* Collection Item (Product)
    ================== */
 .collection-item {
+  position: relative;
   margin-top: 20px;
   background-color: #fff;
   width: 300px;
@@ -1451,10 +1452,11 @@ hr {
       line-height: 1.3em; }
 
 .collection-item-container {
-  padding-top: 100px; }
+  padding-top: 100px;
+  position: relative; }
 
 /* ===================================
-   ) BLOG PAGE
+   8) BLOG PAGE
    =================================== */
 .featuredBlogHeight {
   min-height: 250px; }
@@ -1514,7 +1516,7 @@ hr {
   margin: 0px auto 50px; }
 
 /* ===================================
-   ) FAQ PAGE
+   9) FAQ PAGE
    =================================== */
 /* Accordion
    ================== */
@@ -1558,13 +1560,13 @@ hr {
     font-size: 14px; }
 
 /* ===================================
-   ) ABOUT PAGE
+   10) ABOUT PAGE
    =================================== */
 .about-top {
   max-width: 600px; }
 
 /* ===================================
-   ) MEDIA QUERIES (MIN)
+   11) MEDIA QUERIES (MIN)
    =================================== */
 /* MIN 480px (small mobile device or larger)
    ================== */
@@ -1612,7 +1614,9 @@ hr {
   .blog-item-container, .collection-item-container {
     margin: 0px auto 100px; }
   .collection-item-container {
-    padding-top: 50px; }
+    padding-top: 50px;
+    min-width: 320px;
+    /* Just in case there's only one or two products */ }
   .product-pairing-wrapper {
     padding: 30px;
     position: relative; }
@@ -1651,7 +1655,10 @@ hr {
   .sign-in-right {
     padding-left: 125px; }
   .sign-in-left {
-    padding-right: 125px; } }
+    padding-right: 125px; }
+  .collection-item-container {
+    min-width: 940px;
+    /* Just in case there are less than 3 products */ } }
 
 /* MIN 1000px (Tablet or larger)
    ================== */
@@ -1659,7 +1666,7 @@ hr {
   #sidenav .sidenav-left {
     position: relative;
     height: 100%;
-    background-image: url("/MSA/wp-content/uploads/2018/03/sidenav-bg.jpg");
+    background-image: url("../images/sidenav-bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover; }
@@ -1693,6 +1700,13 @@ hr {
   #product-specs-carousel {
     display: inline-block; } }
 
+/* MIN 1280px (Regular screen or larger)
+   ================== */
+@media screen and (min-width: 1280px) {
+  .collection-item-container {
+    min-width: 1260px;
+    /* Just in case there are less than 3 products */ } }
+
 /* MIN 1824px (Large screens)
    ================== */
 @media only screen and (min-width: 1824px) {
@@ -1700,7 +1714,7 @@ hr {
     min-height: 850px; } }
 
 /* ===================================
-   ) MEDIA QUERIES (MAX)
+   12) MEDIA QUERIES (MAX)
    =================================== */
 /* MAX 1213 (Average screen size or smaller)
    ================== */
@@ -1723,7 +1737,7 @@ hr {
       display: none; }
   #sidenav .sidenav-right .sidenav-right-texture {
     left: 0;
-    background-image: url("/MSA/wp-content/uploads/2018/03/sidenav-bg-mobile.jpg");
+    background-image: url("../images/sidenav-bg-mobile.jpg");
     background-position: -40px center;
     background-size: cover; } }
 
@@ -1938,10 +1952,10 @@ hr {
         padding: 20px 0 20px 20px; }
         #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fa, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fal, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .far, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fab, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fas, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a svg {
           color: rgba(0, 0, 0, 0.97); }
-    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
-    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
-    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
-    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited {
+    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
+    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
+    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
+    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited {
       padding: 0px 45px;
       line-height: 60px; }
     #sidenav .sidenav-right .sidenav-right-inner .navbar-form {
