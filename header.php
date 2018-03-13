@@ -53,20 +53,6 @@
   <!-- /Top Header Bar -->
 
   <!-- Side Navigation -->
-  <?php /*
-      wp_nav_menu( array(
-         'menu'              => 'sidenav',
-         'theme_location'    => 'sidenav',
-         'depth'             => 2,
-         'container'         => false,
-         'container_class'   => false,
-         'container_id'      => false,
-         'menu_class'        => false,
-         'fallback_cb'       => '',
-     	   'items_wrap'        => '%3$s',
-         'walker'            => new sidenav_navwalker()
-      )); */
-  ?>
   <div id="sidenav" class="sidenav full-screen">
 		<div class="sidenav-left col-sm-12 col-md-6 col-lg-8">
 			<div class="sidenav-logo-wrapper">
@@ -86,7 +72,20 @@
 							<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
 					</div>
 				</form>
-				<ul class="nav flex-column">
+                <?php
+                  wp_nav_menu( array(
+                     'menu'              => 'sidenav',
+                     'theme_location'    => 'sidenav',
+                     'depth'             => 2,
+                     'container'         => false,
+                     'container_class'   => false,
+                     'container_id'      => false,
+                     'menu_class'        => 'nav flex-column',
+                     //'fallback_cb'       => '',
+                     //'items_wrap'        => '%3$s'
+                  ));
+                ?>
+				<!-- <ul class="nav flex-column">
 					<li class="nav-item">
 						<a class="nav-link" href="#"><span>WHEELS</span></a>
 					</li>
@@ -105,7 +104,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#"><span>GALLERY</span></a>
 					</li>
-				</ul>
+				</ul>-->
 				<div class="sidenav-social-media">
 					<a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
 					<a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>

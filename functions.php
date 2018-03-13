@@ -4,7 +4,7 @@
  * Register Custom Navigation Walkers
  */
 require_once('inc/wp-bootstrap-navwalker.php');
-require_once('inc/sidenav-navwalker.php');
+//require_once('inc/sidenav-navwalker.php');
 require_once('inc/footer-navwalker.php');
 
 /**
@@ -148,10 +148,12 @@ add_action('admin_head', 'rim_icons_dashboard');
 /**
  * Custom function to register sidenav background images
  */
+/*
 function msawheels_nav_menu_objects( $items, $args ) {
 	return $items;
 }
 add_filter('wp_nav_menu_objects', 'msawheels_nav_menu_objects', 10, 2);
+*/
 
 
 /**
@@ -163,6 +165,7 @@ function msawheels_nav_menu_items( $items, $args ) {
 	$menu = wp_get_nav_menu_object('Side Menu');
 
 	// modify sidenav only
+    /*
 	if ( $args->theme_location == 'sidenav' ) {
   		// vars
   		$default_background = get_field('default_background_image', $menu);
@@ -202,7 +205,7 @@ function msawheels_nav_menu_items( $items, $args ) {
 
       // append html
       $items = $prepend_html . "\n" . $items . $append_html;
-	}
+	}*/
 	// return
 	return $items;
 }
