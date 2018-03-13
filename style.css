@@ -133,7 +133,7 @@ input.form-control {
   margin: 10px auto; }
 
 .wp-btn-red {
-  background-image: url("/MSA/wp-content/uploads/2018/03/red-bg.png");
+  background-image: url("/wp-content/uploads/2018/03/red-bg.png");
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 0;
@@ -147,11 +147,11 @@ input.form-control {
   padding: 10px 35px; }
 
 .wp-btn-red:active {
-  background-image: url("/MSA/wp-content/uploads/2018/03/red-bg.png");
+  background-image: url("/wp-content/uploads/2018/03/red-bg.png");
   box-shadow: none; }
 
 .wp-input-btn-red, .wp-input-btn-red:active {
-  background-image: url("/MSA/wp-content/uploads/2018/03/red-bg-sm.png");
+  background-image: url("/wp-content/uploads/2018/03/red-bg-sm.png");
   color: rgba(255, 255, 255, 0.97); }
 
 .wp-btn-red:hover, .wp-input-btn-red:hover, .wp-btn-red:focus, .wp-input-btn-red:focus {
@@ -727,7 +727,7 @@ nav {
       .sidenav .toggle-wrapper .side-nav-close .close-icon {
         width: 50px;
         height: 50px;
-        background-image: url("/MSA/wp-content/uploads/2018/03/sidenav-close-icon.png");
+        background-image: url("/wp-content/uploads/2018/03/sidenav-close-icon.png");
         background-size: 100%;
         background-repeat: no-repeat;
         background-position: center center; }
@@ -758,7 +758,7 @@ nav {
     width: 90px;
     top: 0;
     left: -57px;
-    background-image: url("/MSA/wp-content/uploads/2018/03/texture-sidenav.png");
+    background-image: url("/wp-content/uploads/2018/03/texture-sidenav.png");
     background-position: right center;
     background-size: contain;
     background-repeat: no-repeat; }
@@ -1119,10 +1119,10 @@ hr {
 /* Carousel
    ================== */
 #staggeredCarousel .slick-next:before {
-  content: url("/MSA/wp-content/uploads/2018/03/chevron-right.png"); }
+  content: url("/wp-content/uploads/2018/03/chevron-right.png"); }
 
 #staggeredCarousel .slick-prev:before {
-  content: url("/MSA/wp-content/uploads/2018/03/chevron-left.png"); }
+  content: url("/wp-content/uploads/2018/03/chevron-left.png"); }
 
 #staggeredCarousel .slick-next {
   right: -50px; }
@@ -1186,7 +1186,7 @@ hr {
 /* Product Specs
    ================== */
 .product-specs-wrapper {
-  background-image: url("/MSA/wp-content/uploads/2018/03/dirt-blog-1.png");
+  background-image: url("/wp-content/uploads/2018/03/dirt-blog-1.png");
   background-repeat: no-repeat;
   background-position: center bottom; }
 
@@ -1662,7 +1662,7 @@ hr {
   #sidenav .sidenav-left {
     position: relative;
     height: 100%;
-    background-image: url("/MSA/wp-content/uploads/2018/03/sidenav-bg.jpg");
+    background-image: url("/wp-content/uploads/2018/03/sidenav-bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover; }
@@ -1726,7 +1726,7 @@ hr {
       display: none; }
   #sidenav .sidenav-right .sidenav-right-texture {
     left: 0;
-    background-image: url("/MSA/wp-content/uploads/2018/03/sidenav-bg-mobile.jpg");
+    background-image: url("/wp-content/uploads/2018/03/sidenav-bg-mobile.jpg");
     background-position: -40px center;
     background-size: cover; } }
 
