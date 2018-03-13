@@ -85,6 +85,9 @@ function msawheels_theme_js() {
         wp_enqueue_script( 'blog_js', get_template_directory_uri() . '/js/blog-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }
 
+    if ( is_product() ) {
+        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+    }
 
     if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
         wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'chosen_js'), '', true );
@@ -385,3 +388,20 @@ add_action( 'rest_api_init', function () {
     'callback' => 'geo_ip_endpoint_func',
   ));
 });
+
+function mytheme_add_woocommerce_support() {
+	add_theme_support( 'woocommerce', array(
+		'thumbnail_image_width' => 150,
+		'single_image_width'    => 300,
+
+        'product_grid'          => array(
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 8,
+            'default_columns' => 4,
+            'min_columns'     => 2,
+            'max_columns'     => 5,
+        ),
+	) );
+}
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
