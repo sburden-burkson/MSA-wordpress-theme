@@ -44,8 +44,8 @@
 				<div class="pull-right">
 					  <a class="text-uppercase" href="<?php echo $right_link_1['url']; ?>" target="<?php echo $right_link_1['target']; ?>"><?php echo $right_link_1['title']; ?></a>
 					<span class="navbar-divider">|</span>
-					<a class="text-uppercase" href="<?php echo $facebook; ?>" class="icon"><i class="fa fa-facebook-official"></i></a>
-					<a class="text-uppercase" href="<?php echo $instagram; ?>" class="icon"><i class="fa fa-instagram"></i></a>
+					<a class="text-uppercase" href="<?php echo $facebook; ?>" class="icon"><i class="fab fa-facebook"></i></a>
+					<a class="text-uppercase" href="<?php echo $instagram; ?>" class="icon"><i class="fab fa-instagram"></i></a>
 				</div>
 			</div>
 		</div>
@@ -71,7 +71,7 @@
 
   <!-- Navigation -->
   <div class="nav-wrapper">
-    <nav class="navbar navbar-default navbar-static-top" data-spy="affix" data-offset-top="40">
+    <nav class="navbar navbar-default navbar-static-top" id="navColor" data-spy="affix" data-offset-top="40">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="<?php echo get_bloginfo( 'url' ); ?>">
@@ -82,7 +82,7 @@
                 global $display_logo;
                 $display_logo = esc_url( $logo[0] );
                 if ( has_custom_logo() ) {
-                    echo '<img src="'. $display_logo .'" alt="' . get_bloginfo( 'name' ) . '" class="navLogo">';
+                    echo '<img src="'. $display_logo .'" alt="' . get_bloginfo( 'name' ) . '" id="navLogo">';
                 } else {
                     echo get_bloginfo( 'name' );
                 }

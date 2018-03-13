@@ -1,0 +1,1 @@
+jQuery(document).ready(function($){var o=$(".collection-item-container").masonry({itemSelector:".collection-item",columnWidth:300,isFitWidth:!0,gutter:20,horizontalOrder:!0});o.imagesLoaded().progress(function(){o.masonry("layout")}),$(".collectionHeight").matchHeight({byRow:!1}),$(".collection-img-wrap").matchHeight({byRow:!1}),$(".collection-col").matchHeight({byRow:!1})});

@@ -31,14 +31,14 @@ add_filter('widget_text','do_shortcode');
  */
 function msawheels_theme_styles() {
     wp_enqueue_style( 'bootstrap_css', get_template_directory_uri() . '/css/bootstrap.min.css' );
-    wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Open+Sans:400,600|Oswald:300,400' );
+    wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500|Open+Sans:300' );
 
     if ( is_archive( 'gallery' ) || get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
         wp_enqueue_style( 'chosen_css', get_template_directory_uri() . '/inc/chosen/chosen.customized.css' );
     }
 
-    wp_enqueue_style( 'slick_css', get_template_directory_uri() . '/inc/slick/slick.css' );
-    wp_enqueue_style( 'slick-theme_css', get_template_directory_uri() . '/inc/slick/slick-theme.css' );
+    wp_enqueue_style( 'slick_css', get_template_directory_uri() . '/js/slick/slick.css' );
+    wp_enqueue_style( 'slick-theme_css', get_template_directory_uri() . '/js/slick/slick-theme.css' );
     wp_enqueue_style( 'msa-wheels-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'msawheels_theme_styles' );
@@ -57,11 +57,11 @@ function msawheels_theme_js() {
 
     wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '', true );
 
-    wp_enqueue_script( 'fontawesome_js', 'https://use.fontawesome.com/94b014e044.js', '', true );
+    wp_enqueue_script( 'fontawesome_js', get_template_directory_uri() . '/js/fontawesome-all.js', '', true );
 
-    if ( is_archive( 'gallery' ) || get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
-        wp_enqueue_script( 'chosen_js', get_template_directory_uri() . '/inc/chosen/chosen.jquery.min.js', array('jquery'), '', true );
-    }
+    // if ( is_archive( 'gallery' ) || get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
+    //     wp_enqueue_script( 'chosen_js', get_template_directory_uri() . '/inc/chosen/chosen.jquery.min.js', array('jquery'), '', true );
+    // }
 
     if ( is_archive( 'gallery' ) || is_home() ) {
         wp_enqueue_script( 'masonryimages_js', get_template_directory_uri() . '/inc/masonry/imagesloaded.pkgd.min.js', array('jquery'), '', true );
@@ -70,18 +70,22 @@ function msawheels_theme_js() {
 
     wp_enqueue_script( 'hammer_js', get_template_directory_uri() . '/inc/hammerjs/hammer.min.js', '', '', true );
 
-    wp_enqueue_script( 'msa_js', get_template_directory_uri() . '/js/msa.min.js', array('jquery', 'bootstrap_js' ), '', true );
+    wp_enqueue_script( 'matchHeight_js', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', '', '', true );
+
+    wp_enqueue_script( 'slick_js', get_template_directory_uri() . '/js/slick/slick.min.js', '', '', true );
+
+    wp_enqueue_script( 'msa_js', get_template_directory_uri() . '/js/msa-min.js', array('jquery', 'bootstrap_js' ), '', true );
 
     if ( is_post_type_archive( 'gallery' ) ) {
-        wp_enqueue_script( 'gallery_js', get_template_directory_uri() . '/js/gallery.min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
-    } else if ( is_home() ) {
-        wp_enqueue_script( 'blog_js', get_template_directory_uri() . '/js/blog-landing.min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
-    } else {
-        wp_enqueue_script( 'general_js', get_template_directory_uri() . '/js/general.min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+        wp_enqueue_script( 'gallery_js', get_template_directory_uri() . '/js/gallery-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+    }
+    if ( is_home() ) {
+        wp_enqueue_script( 'blog_js', get_template_directory_uri() . '/js/blog-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }
 
+
     if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
-        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product.min.js', array('jquery', 'chosen_js'), '', true );
+        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'chosen_js'), '', true );
     }
 
 }
