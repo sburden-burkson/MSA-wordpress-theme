@@ -79,7 +79,7 @@
                      'container'         => false,
                      'container_class'   => false,
                      'container_id'      => false,
-                     'menu_class'        => 'nav flex-column',
+                     'menu_class'        => 'nav flex-column text-uppercase',
                      //'fallback_cb'       => '',
                      //'items_wrap'        => '%3$s'
                   ));
@@ -95,7 +95,7 @@
     <div class="toggle-wrapper">
         <button type="button" class="navbar-toggle side-nav-close" data-sidenav="sidenav">
             <span class="sr-only">Toggle navigation</span>
-						<div class="close-icon"></div>
+            <div class="close-icon"></div>
         </button>
     </div>
   </div>

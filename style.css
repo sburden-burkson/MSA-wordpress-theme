@@ -964,7 +964,7 @@ nav {
     background-repeat: no-repeat; }
   #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media {
     display: none; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input::placeholder {
@@ -977,35 +977,35 @@ nav {
     box-shadow: none; }
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input::placeholder {
     text-transform: uppercase; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input::placeholder {
     font-family: "Barlow Condensed", sans-serif;
     font-size: 26px;
     letter-spacing: 2px; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited,
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form input {
     color: rgba(0, 0, 0, 0.97);
     background-color: transparent; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited {
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited {
     padding: 6px 45px;
     line-height: 80px; }
   #sidenav .sidenav-right .sidenav-right-inner .navbar-form {
     padding-bottom: 17px;
     padding-right: 45px;
     margin-right: 0; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a.active span {
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a.active span {
     position: relative; }
-  #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a.active span::after {
+  #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a.active span::after {
     border-bottom: 1px solid rgba(0, 0, 0, 0.97);
     content: "";
     left: -20px;
@@ -2190,10 +2190,10 @@ hr {
         padding: 20px 0 20px 20px; }
         #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fa, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fal, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .far, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fab, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a .fas, #sidenav .sidenav-right .sidenav-right-inner .sidenav-social-media a svg {
           color: rgba(0, 0, 0, 0.97); }
-    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a,
-    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:hover,
-    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:active,
-    #sidenav .sidenav-right .sidenav-right-inner .nav .nav-item a:visited {
+    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a,
+    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:hover,
+    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:active,
+    #sidenav .sidenav-right .sidenav-right-inner .nav .menu-item a:visited {
       padding: 0px 45px;
       line-height: 60px; }
     #sidenav .sidenav-right .sidenav-right-inner .navbar-form {
