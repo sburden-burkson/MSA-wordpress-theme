@@ -24,7 +24,18 @@
             <div class="col-sm-9 col-sm-pull-3">
               <div class="row">
                 <div aria-multiselectable="true" class="panel-group" id="footerAccordion" role="tablist">
-                  <div class="panel col-sm-2">
+                  <?php
+                    wp_nav_menu(array(
+                      'menu'          => 'footer',
+                      'theme_location' => 'footer',
+                      'items_wrap' => '%3$s',
+                      'walker' => new Footer_Navwalker(),
+                      'container' => false,
+                      'menu_class' => '',
+                      'fallback_cb' => false
+                    ));
+                  ?>
+                  <!-- <div class="panel col-sm-2">
                     <div class="panel-heading" id="heading1" role="tab">
                       <h4 class="panel-title"><a href="javascript:void(0)">WHEELS</a> <span class="visible-xs pull-right"><a aria-controls="collapse1"
                         aria-expanded="false" class="collapsed" data-parent="#footerAccordion" data-toggle="collapse" href="#collapse1" role=
@@ -113,7 +124,8 @@
                         <p><a href="javascript:void(0)">Link here</a></p>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
+
                 </div>
               </div>
             </div>
@@ -121,5 +133,7 @@
         </div>
   </footer>
   <?php wp_footer(); ?>
+
+
   </body>
 </html>

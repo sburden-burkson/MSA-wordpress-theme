@@ -5,6 +5,7 @@
  */
 require_once('inc/wp-bootstrap-navwalker.php');
 require_once('inc/sidenav-navwalker.php');
+require_once('inc/footer-navwalker.php');
 
 /**
  * Add theme support for customizing
@@ -98,7 +99,8 @@ function register_theme_menus() {
     register_nav_menus(
         array(
             'primary' => __( 'Primary Menu' ),
-            'sidenav' => __( 'Side Menu' )
+            'sidenav' => __( 'Side Menu' ),
+            'footer' => __( 'Footer Menu' )
         )
     );
 }

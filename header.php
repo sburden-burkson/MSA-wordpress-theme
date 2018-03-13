@@ -92,18 +92,18 @@
         <div class="navbar-right">
           <!-- .navbar-collapse -->
           <?php
-  		            wp_nav_menu( array(
-  		               'menu'              => 'primary',
-  		               'theme_location'    => 'primary',
-  		               'depth'             =>  1,
-  		               'container'         => 'div',
-  		               'container_class'   => 'collapse navbar-collapse',
-  		               'container_id'      => 'navbar',
-  		               'menu_class'        => 'nav navbar-nav',
-  		               'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-  		               'walker'            => new wp_bootstrap_navwalker())
-  		            );
-          		?>
+            wp_nav_menu( array(
+               'menu'              => 'primary',
+               'theme_location'    => 'primary',
+               'depth'             =>  1,
+               'container'         => 'div',
+               'container_class'   => 'collapse navbar-collapse',
+               'container_id'      => 'navbar',
+               'menu_class'        => 'nav navbar-nav',
+               'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+               'walker'            => new wp_bootstrap_navwalker())
+            );
+          ?>
           <!--/.nav-collapse -->
           <div class="toggle-wrapper">
             <button type="button" class="navbar-toggle side-nav-open">
