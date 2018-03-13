@@ -67,6 +67,60 @@
          'walker'            => new sidenav_navwalker()
       )); */
   ?>
+  <div id="sidenav" class="sidenav full-screen">
+		<div class="sidenav-left col-sm-12 col-md-6 col-lg-8">
+			<div class="sidenav-logo-wrapper">
+				<a href="#" class="sidenav-logo">
+					<img alt="MSA Logo" src="<?= content_url('uploads/2018/03/sidenav-logo.jpg'); ?>" />
+				</a>
+			</div>
+			<div class="sidenav-social-media">
+				<a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
+				<a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
+			</div>
+		</div>
+		<div class="sidenav-right col-sm-12 col-md-6 col-lg-4">
+			<div class="sidenav-right-inner sidenav-inner">
+				<form class="navbar-form" role="search">
+					<div class="input-wrapper">
+							<input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+					</div>
+				</form>
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link" href="#"><span>WHEELS</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><span>TIRES</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="#"><span>ACCESSORIES</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><span>ABOUT US</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><span>BLOG</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#"><span>GALLERY</span></a>
+					</li>
+				</ul>
+				<div class="sidenav-social-media">
+					<a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
+					<a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
+				</div>
+				<div class="sidenav-copyright">MSA COPYRIGHT &copy; 2018</div>
+			</div>
+			<div class="sidenav-right-texture"></div>
+		</div>
+    <div class="toggle-wrapper">
+        <button type="button" class="navbar-toggle side-nav-close" data-sidenav="sidenav">
+            <span class="sr-only">Toggle navigation</span>
+						<div class="close-icon"></div>
+        </button>
+    </div>
+  </div>
   <!-- /Side Navigation -->
 
   <!-- Navigation -->
@@ -106,7 +160,7 @@
           ?>
           <!--/.nav-collapse -->
           <div class="toggle-wrapper">
-            <button type="button" class="navbar-toggle side-nav-open">
+            <button type="button" class="navbar-toggle side-nav-open" data-sidenav="sidenav">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
