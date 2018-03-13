@@ -845,6 +845,9 @@ footer {
       font-size: 16px;
       margin-top: 5px;
       font-weight: 300; }
+    footer .footer-sub p, footer .footer-sub h5, footer .footer-sub h4, footer .footer-sub h3, footer .footer-sub h2, .footer-sub h1 {
+      color: rgba(255, 255, 255, 0.97);
+    }
     footer .footer-sub input {
       letter-spacing: .2em; }
     footer .footer-sub .input-group .form-control {
