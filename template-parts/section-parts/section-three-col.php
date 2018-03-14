@@ -33,9 +33,9 @@ if( have_rows('columns') ):
 <?php
   endwhile;
 ?>
-    <div class="texture-top" style="background-image: url('<?php echo $texture_top; ?>');"></div>
-    <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
   </div>
+  <div class="texture-top" style="background-image: url('<?php echo $texture_top; ?>');"></div>
+  <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
 </div>
 
 <?php
@@ -43,30 +43,4 @@ if( have_rows('columns') ):
     // no rows found
 endif;
 ?>
-<!-- /3 Column Section -->
-
-
-
-<!-- 3 Column Section -->
-<div class="container-fluid row-section texture-section">
-    <div class="row">
-      <div class="col-sm-4 dark-bg v-center-section-lg" style="background-image: url('images/blue-truck.jpg');">
-        <div class="text-center">
-          <h4 class=""><a href="javascript:void(0)">wheels</a></h4>
-        </div>
-      </div>
-      <div class="col-sm-4 dark-bg v-center-section-lg" style="background-image: url('images/blue-truck.jpg');">
-        <div class="text-center">
-          <h4 class=""><a href="javascript:void(0)">tires</a></h4>
-        </div>
-      </div>
-      <div class="col-sm-4 dark-bg v-center-section-lg" style="background-image: url('images/blue-truck.jpg');">
-        <div class="text-center">
-          <h4 class=""><a href="javascript:void(0)">accessories</a></h4>
-        </div>
-      </div>
-    </div>
-    <div class="texture-top" style="background-image: url('<?php echo $texture_top; ?>');"></div>
-    <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
-  </div>
 <!-- /3 Column Section -->
