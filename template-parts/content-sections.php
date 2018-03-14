@@ -6,7 +6,10 @@
     // loop through the rows of data
     while ( have_rows('sections') ) : the_row();
 
-	    if( get_row_layout() == 'full_section' ):
+			if( get_row_layout() == 'top_section' ):
+				get_template_part( 'template-parts/section-parts/section', 'top');
+
+	    elseif( get_row_layout() == 'full_section' ):
 				get_template_part( 'template-parts/section-parts/section', 'full');
 
 			elseif( get_row_layout() == 'three_column_section' ):

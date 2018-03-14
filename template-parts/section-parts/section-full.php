@@ -11,15 +11,8 @@
     $add_a_button = get_sub_field('add_a_button');
     $button_text = get_sub_field('button_text');
     $button_url = get_sub_field('button_url');
-    // $section_type = $section_background ? "-bg " : "-section ";
-    // $reduced_height = get_sub_field('reduced_height') ? "half" . $section_type : "full" . $section_type;
-
-    // $content_side = (get_sub_field('content_side') != "Center") ? get_sub_field('content_side') . " " : "";
-    // $vertical_arrangement = get_sub_field('vertical_arrangement');
-    // $content_width = get_sub_field('width_restricted_content') ? "restricted-width " : "";
-    // $texture_secttion = get_sub_field('centered_text') ? "text-center " : "";
-    // $spaced_out_text = get_sub_field('spaced_out_text') ? "spaced-section " : "";
-
+    $texture_top = get_sub_field('texture_top');
+    $texture_bottom = get_sub_field('texture_bottom');
 ?>
 
 <!-- Full Section -->
@@ -30,5 +23,7 @@
       <p class="text-center pad-top"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
     <?php endif; ?>
   </div>
+  <div class="texture-top" style="background-image: url('<?php echo $texture_top; ?>');"></div>
+  <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
 </div>
 <!-- /Full Section -->
