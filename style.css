@@ -20,9 +20,15 @@ Text Domain: msa-wheels
 
 @media only screen and (max-width: 767px) {
   .admin-bar .affix {
-    margin-top: 46px;
+    margin-top: 0px;
   }
 }
+@media only screen and (max-width: 480px) {
+  .admin-bar .affix-top {
+    top: 40px;
+  }
+}
+
 
 .page-numbers {
   padding: 3px;
@@ -992,7 +998,8 @@ hr {
     position: relative;
     z-index: 10; }
   .texture-section .texture-bottom {
-    background-position: 50% 101%;
+    /* background-position: 50% 101%; */
+    background-position: 50% 100%;
     background-size: contain;
     height: 100%;
     width: 100%;
@@ -1002,7 +1009,8 @@ hr {
     background-repeat: no-repeat;
     z-index: 1; }
   .texture-section .texture-top {
-    background-position: 50% -1%;
+    /* background-position: 50% -1%; */
+    background-position: 50% 0%;
     z-index: 1;
     background-size: contain;
     height: 100%;
