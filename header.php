@@ -132,7 +132,7 @@
                'container'         => 'div',
                'container_class'   => 'collapse navbar-collapse',
                'container_id'      => 'navbar',
-               'menu_class'        => 'nav navbar-nav',
+               'menu_class'        => 'nav navbar-nav text-uppercase',
                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                'walker'            => new wp_bootstrap_navwalker())
             );

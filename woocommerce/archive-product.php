@@ -50,7 +50,17 @@ get_header( 'shop' );
 </header>
 */ ?>
 
-<div class="section dark-bg texture-section" id="top-section-sm" style="background-image: url('<?= content_url('uploads/2018/03/install-bg.jpg'); ?>');">
+<?php
+    if(is_product_category('wheels')){
+        $headerPhoto = 'uploads/2018/03/wheels-header.jpg';
+    }else if(is_product_category('accessories')){
+        $headerPhoto = 'uploads/2018/03/install-bg.jpg';
+    }else{
+        $headerPhoto = 'uploads/2018/03/wheels-header.jpg';
+    }
+?>
+
+<div class="section dark-bg texture-section" id="top-section-sm" style="background-image: url('<?= content_url($headerPhoto); ?>');">
     <div class="texture-top" style="background-image: url('<?= content_url('uploads/2018/03/top-gradient.png'); ?>');"></div>
     <div class="container-fluid">
       <div class="section-info-wrap text-center">
@@ -66,34 +76,68 @@ get_header( 'shop' );
     <div class="texture-bottom" style="background-image: url('<?= content_url('uploads/2018/03/texture-wheels-collection-1.png'); ?>');"></div>
 </div>
 
-<!-- Filter Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<!-- Filter Modals -->
+<?php
+    // Get current page URL
+    global $wp;
+    $current_url = home_url( $wp->request );
+?>
+<div id="wheel-filter-modal" class="modal fade" role="dialog">
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <div class="text-right modal-close">
-            <a href="javascript:void(0)" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/x-icon.png'); ?>" alt="" style="width: 35px;"></a>
+          <div class="modal-close">
+            <a href="javascript:void(0)" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/close.png'); ?>"></a>
           </div>
           <h4 class="modal-title">FILTER</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
-          <p>Some text in the modal.</p>
-          <p>Some text in the modal.</p>
-          <p>Some text in the modal.</p>
-          <p>Some text in the modal.</p>
-          <p>Some text in the modal.</p>
-          <p>Some text in the modal.</p>
+          <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('shop-filters') ) : ?>
+          <?php endif;?>
         </div>
         <div class="modal-footer">
-          <a href="javascript:void(0)" class="btn text-uppercase pad-top wp-btn-white wp-btn-no-icon">CLEAR</a>
+          <a href="<?= $current_url ?>" class="btn text-uppercase pad-top wp-btn-white wp-btn-no-icon">CLEAR</a>
           <a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red pad-top">APPLY <i class="fal fa-long-arrow-right fa-lg"></i></a>
         </div>
       </div>
     </div>
 </div>
-<!-- /modal -->
+<div id="vehicle-filter-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-close">
+            <a href="javascript:void(0)" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/close.png'); ?>"></a>
+          </div>
+          <h4 class="modal-title modal-title-center">ENTER YOUR VEHICLE TO SEE WHEELS THAT FIT</h4>
+        </div>
+        <div class="modal-body">
+          <label for="vehicle-filter-year" class="select-wrapper centered pad-bottom">
+              <select id="vehicle-filter-year" class="form-control border-bottom">
+                <option>year</option>  
+              </select>
+          </label>
+          <label for="vehicle-filter-make" class="select-wrapper centered pad-bottom">
+              <select id="vehicle-filter-make" class="form-control border-bottom">
+                <option>make</option>  
+              </select>
+          </label>
+          <label for="vehicle-filter-model" class="select-wrapper centered pad-bottom">
+              <select id="vehicle-filter-model" class="form-control border-bottom">
+                <option>model</option>  
+              </select>
+          </label>
+        </div>
+        <div class="modal-footer">
+          <a href="<?= $current_url ?>" class="btn text-uppercase pad-top wp-btn-white wp-btn-no-icon">CLEAR</a>
+          <a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red pad-top">APPLY <i class="fal fa-long-arrow-right fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- /modals -->
 
 <?php
     /* GET RESULTS COUNT */
@@ -107,16 +151,16 @@ get_header( 'shop' );
       <div class="row">
         <div class="col-xs-7">
           <h5 class="">FILTER BY:
-          <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">VEHICLE
+          <a href="javascript:void(0)" data-toggle="modal" data-target="#vehicle-filter-modal">VEHICLE
             <i class="fal fa-plus fa-sm"></i>
           </a>
-          <a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">WHEEL SPECS
+          <a href="javascript:void(0)" data-toggle="modal" data-target="#wheel-filter-modal">WHEEL SPECS
             <i class="fal fa-plus fa-sm"></i>
           </a>
       </h5>
         </div>
         <div class="col-xs-5">
-          <h5 class="text-right" style=""><?= $resultsCount ?> RESULT<?= ($resultsCount > 1)? 's' : '' ?></h5>
+          <h5 class="text-right" style=""><?= $resultsCount ?> RESULT<?= ($resultsCount > 1)? 'S' : '' ?></h5>
         </div>
       </div>
     </div>
@@ -139,7 +183,10 @@ if ( have_posts() ) {
 
 	woocommerce_product_loop_start();
 
-	if ( wc_get_loop_prop( 'total' ) ) {
+	if ( wc_get_loop_prop( 'total' ) ) { ?>
+      
+        <ul class="products">
+      <?php  
 		while ( have_posts() ) {
 			the_post();
 
@@ -173,33 +220,34 @@ if ( have_posts() ) {
             }
             ?>
           
-        <div class="collection-item">
-            <div class="row">
-                <div class="col-xs-6 col-sm-12 collection-col">
-                  <div class="collection-img-wrap">
-                    <a href="<?php echo esc_url( get_permalink() ); ?>"><img src="<?= $thumbnailURL ?>" alt=""></a>
-                  </div>
-                </div>
-                <div class="col-xs-6 col-sm-12 collection-col">
-                  <div class="collection-info-wrap">
-                    <div class="new-collection">
-                        <?php if($isNew) { ?><span class="new-box">NEW</span><?php } ?>
+            <li class="collection-item">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-12 collection-col">
+                      <div class="collection-img-wrap">
+                        <a href="<?php echo esc_url( get_permalink() ); ?>"><img src="<?= $thumbnailURL ?>" alt=""></a>
+                      </div>
                     </div>
-                    <h5 class="collectionHeight"><a href="javascript:void(0)"><?php the_title() ?></a></h5>
-                    <p class="collection-sizes"><?= $details ?>
-                      <span class="product-link">
-                        <a href="<?php echo esc_url( get_permalink() ); ?>">
-                          <i class="fal fa-long-arrow-right fa-lg"></i>
-                        </a>
-                      </span>
-                    </p>
-                  </div>
+                    <div class="col-xs-6 col-sm-12 collection-col">
+                      <div class="collection-info-wrap">
+                        <div class="new-collection">
+                            <?php if($isNew) { ?><span class="new-box">NEW</span><?php } ?>
+                        </div>
+                        <h5 class="collectionHeight"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title() ?></a></h5>
+                        <p class="collection-sizes"><?= $details ?>
+                          <span class="product-link">
+                            <a href="<?php echo esc_url( get_permalink() ); ?>">
+                              <i class="fal fa-long-arrow-right fa-lg"></i>
+                            </a>
+                          </span>
+                        </p>
+                      </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-          
-          <?php  
-		}
+            </li>
+
+        <?php } ?>
+        </ul>      
+        <?php
 	}
 
 	woocommerce_product_loop_end();
@@ -289,6 +337,34 @@ if ( have_posts() ) {
 
 </div>
 <!--/ INSTA -->
+
+
+<script type="application/javascript">
+    
+    // COLOR VALUES
+    <?php
+        // Get color values for JS
+        $colorVals = [];
+    /*
+        $productAttributes = get_terms('category', array(
+            'post_type' => array('post', 'product'),
+            'fields' => 'all'
+        ));*/
+        $productAttributes = wc_get_attribute_taxonomies();
+        foreach($productAttributes as $attr){
+            $colorVals[$attr->attribute_name] = [];
+            foreach(get_terms('pa_'.$attr->attribute_name) as $term){
+                $term_meta = get_term_meta($term->term_id);
+                if(isset($term_meta['swatch_color'])){
+                    $colorVals[$attr->attribute_name][$term->slug] = $term_meta['swatch_color'][0];
+                }
+            }
+        }
+    ?>
+    var colorVals = JSON.parse('<?= json_encode($colorVals) ?>');
+    var queryString = '<?= $_SERVER['QUERY_STRING'] ?>';
+    
+</script>
           
 <?php
 
