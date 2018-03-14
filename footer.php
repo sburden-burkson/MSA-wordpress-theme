@@ -1,3 +1,22 @@
+<?php
+  // get menu
+  $menu = wp_get_nav_menu_object('footer');
+  // vars
+  $background_image = get_field('background_image', $menu);
+  $bottom_right_footer_content = get_field('bottom_right_footer_content', $menu);
+  $top_area_content = get_field('top_area_content', $menu);
+  $top_texture_image = get_field('top_texture_image', $menu);
+?>
+
+<div class="texture-section no-padding">
+  <div class="texture-top" style="background-image: url('<?php echo $top_texture_image; ?>');">
+  </div>
+  <img src="<?php echo $background_image['url']; ?>" alt="<?php echo $background_image['alt']; ?>" class="wp-full-width" />
+  <div class="absolute-center">
+    <?php echo $top_area_content; ?>
+  </div>
+</div>
+
     <?php
         // vars
         $custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -14,21 +33,7 @@
         <div class="container footer-link-wrap">
           <div class="row">
             <div class="col-sm-3 col-sm-push-9 pad-bottom footer-sub">
-                <?php
-                  // get menu
-                  $menu = wp_get_nav_menu_object('footer');
-                  // vars
-                  $footer_text_area = get_field('footer_text_area', $menu);
-
-                  echo $footer_text_area;
-                ?>
-                <!-- <h4>STAY INFORMED</h4>
-                <div class="input-group">
-                  <input class="form-control black-bg" placeholder="email" type="text">
-                  <span class="input-group-btn">
-                  <button class="btn trans-bg" type="button"><i class="fal fa-long-arrow-right fa-lg"></i></button>
-                 </span>
-                </div> -->
+                <?php echo $bottom_right_footer_content; ?>
             </div>
             <div class="col-sm-9 col-sm-pull-3">
               <div class="row">

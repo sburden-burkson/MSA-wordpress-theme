@@ -4,7 +4,7 @@
     $background_image = get_sub_field('background_image');
     $shade_of_background = get_sub_field('shade_of_background') . " ";
     $width_restriction = get_sub_field('width_restriction') . " ";
-    $centered_text = get_sub_field('entered_text') ? 'text-center ' : '';
+    $centered_text = get_sub_field('centered_text') ? 'text-center ' : '';
     $vertical_padding = get_sub_field('vertical_padding') . " ";
     $texture_section = get_sub_field('texture_section') ? 'texture-section ' : '';
     $overlay = get_sub_field('overlay');
