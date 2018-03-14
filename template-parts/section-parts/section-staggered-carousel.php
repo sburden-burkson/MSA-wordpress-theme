@@ -4,7 +4,7 @@
     // check if the repeater field has rows of data
 ?>
 <!-- Carousel  -->
-<div class="container v-center-section background-cover-center" style="background-image: url('<?php echo $background_image; ?>');">
+<div class="section container v-center-section background-cover-center" style="background-image: url('<?php echo $background_image; ?>');">
   <!-- Staggered Carousel  -->
   <?php if( have_rows('slides') ): ?>
     <div class="center visible-md visible-lg pad-left pad-right " id="staggeredCarousel">

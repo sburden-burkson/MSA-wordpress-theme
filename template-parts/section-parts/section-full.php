@@ -2,11 +2,10 @@
     //vars
     $section_content = get_sub_field('section_content');
     $background_image = get_sub_field('background_image');
-    $shade_of_background = get_sub_field('shade_of_background') . " ";
+    $shade_of_background = get_sub_field('shade_of_background');
     $width_restriction = get_sub_field('width_restriction') . " ";
     $centered_text = get_sub_field('centered_text') ? 'text-center ' : '';
     $vertical_padding = get_sub_field('vertical_padding') . " ";
-    $texture_section = get_sub_field('texture_section') ? 'texture-section ' : '';
     $overlay = get_sub_field('overlay');
     $add_a_button = get_sub_field('add_a_button');
     $button_text = get_sub_field('button_text');
@@ -16,7 +15,7 @@
 ?>
 
 <!-- Full Section -->
-<div class="section <?php echo $shade_of_background . $texture_section; ?>" style="background-image: url('<?php echo $background_image; ?>');">
+<div class="section texture-section <?php echo $shade_of_background; ?>" style="background-image: url('<?php echo $background_image; ?>');">
   <div class="<?php echo $vertical_padding . $width_restriction . $centered_text . $overlay; ?>">
     <?php echo $section_content; ?>
     <?php if ($add_a_button): ?>

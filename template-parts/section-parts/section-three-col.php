@@ -10,7 +10,7 @@
 if( have_rows('columns') ):
 ?>
 <!-- 3 Column Section -->
-<div class="container-fluid row-section texture-section">
+<div class="section container-fluid row-section texture-section">
   <div class="row">
 <?php
  	// loop through the rows of data

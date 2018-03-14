@@ -229,7 +229,7 @@
                     "5aa86a89b4971": {
                         "key": "5aa86a89b4971",
                         "name": "top_section",
-                        "label": "Top Section",
+                        "label": "Top Section (with background image)",
                         "display": "block",
                         "sub_fields": [
                             {
@@ -245,7 +245,7 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "<p class=\"section-sub-header text-uppercase\">Sub Header<\/p>\r\n\r\n<p class=\"section-header text-uppercase\">Header<\/p>\r\n\r\n[sc name=\"White Button\" URL=\"https:\/\/www.urlOfPage.com\" ButtonText=\"Click Me\" ]",
+                                "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
                                 "media_upload": 1,
@@ -548,6 +548,172 @@
                         "min": "",
                         "max": "1"
                     },
+                    "5aa9a167f94c1": {
+                        "key": "5aa9a167f94c1",
+                        "name": "top_section_no_bg",
+                        "label": "Top Section (with no background image)",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5aa9a167f94c2",
+                                "label": "Section Content",
+                                "name": "section_content",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5aa9a167f94c5",
+                                "label": "Restricted Width of Content",
+                                "name": "width_restriction",
+                                "type": "select",
+                                "instructions": "The section content width will be restricted",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "restricted-width": "A Lot",
+                                    "restricted-width-md": "Medium",
+                                    "restricted-width-lg": "A Little"
+                                },
+                                "default_value": [],
+                                "allow_null": 1,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5aa9a167f94c6",
+                                "label": "Centered Text",
+                                "name": "centered_text",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_5aa9a167f94c8",
+                                "label": "Scroll Down Arrow",
+                                "name": "scroll_down_arrow",
+                                "type": "true_false",
+                                "instructions": "Do you want this section to have a scroll down arrow?",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_5aa9a167f94cb",
+                                "label": "Add a Button",
+                                "name": "add_a_button",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
+                                "key": "field_5aa9a167f94cc",
+                                "label": "Button Text",
+                                "name": "button_text",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5aa9a167f94cb",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5aa9a167f94cd",
+                                "label": "Button URL",
+                                "name": "button_url",
+                                "type": "page_link",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_5aa9a167f94cb",
+                                            "operator": "==",
+                                            "value": "1"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "post_type": [],
+                                "taxonomy": [],
+                                "allow_null": 0,
+                                "allow_archives": 1,
+                                "multiple": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": "1"
+                    },
                     "5aa95ceff52b2": {
                         "key": "5aa95ceff52b2",
                         "name": "full_section",
@@ -567,7 +733,7 @@
                                     "class": "",
                                     "id": ""
                                 },
-                                "default_value": "<p class=\"section-sub-header text-uppercase\">Sub Header<\/p>\r\n\r\n<p class=\"section-header text-uppercase\">Header<\/p>\r\n\r\n[sc name=\"White Button\" URL=\"https:\/\/www.urlOfPage.com\" ButtonText=\"Click Me\" ]",
+                                "default_value": "",
                                 "tabs": "all",
                                 "toolbar": "full",
                                 "media_upload": 1,
@@ -745,40 +911,13 @@
                                 "placeholder": ""
                             },
                             {
-                                "key": "field_5aa96a4c34a5a",
-                                "label": "Texture Section?",
-                                "name": "texture_section",
-                                "type": "true_false",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "message": "",
-                                "default_value": 0,
-                                "ui": 0,
-                                "ui_on_text": "",
-                                "ui_off_text": ""
-                            },
-                            {
                                 "key": "field_5aa9671ca3466",
                                 "label": "Texture Top",
                                 "name": "texture_top",
                                 "type": "image",
                                 "instructions": "",
                                 "required": 0,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5aa96a4c34a5a",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
+                                "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -1035,40 +1174,13 @@
                                 "placeholder": ""
                             },
                             {
-                                "key": "field_5aa854a7fc0c7",
-                                "label": "Textured Section",
-                                "name": "textured_section",
-                                "type": "true_false",
-                                "instructions": "",
-                                "required": 0,
-                                "conditional_logic": 0,
-                                "wrapper": {
-                                    "width": "",
-                                    "class": "",
-                                    "id": ""
-                                },
-                                "message": "",
-                                "default_value": 0,
-                                "ui": 0,
-                                "ui_on_text": "",
-                                "ui_off_text": ""
-                            },
-                            {
                                 "key": "field_5aa852b50efb4",
                                 "label": "Texture Top",
                                 "name": "texture_top",
                                 "type": "image",
                                 "instructions": "",
                                 "required": 0,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5aa854a7fc0c7",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
+                                "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -1092,15 +1204,7 @@
                                 "type": "image",
                                 "instructions": "",
                                 "required": 0,
-                                "conditional_logic": [
-                                    [
-                                        {
-                                            "field": "field_5aa854a7fc0c7",
-                                            "operator": "==",
-                                            "value": "1"
-                                        }
-                                    ]
-                                ],
+                                "conditional_logic": 0,
                                 "wrapper": {
                                     "width": "",
                                     "class": "",
@@ -1770,7 +1874,76 @@
                             }
                         ],
                         "min": "",
-                        "max": ""
+                        "max": "1"
+                    },
+                    "5aa9a82470dff": {
+                        "key": "5aa9a82470dff",
+                        "name": "qa_accordion",
+                        "label": "QA Accordion",
+                        "display": "table",
+                        "sub_fields": [
+                            {
+                                "key": "field_5aa9a84070e00",
+                                "label": "Question \/ Answer",
+                                "name": "question_answer",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 1,
+                                "max": 0,
+                                "layout": "row",
+                                "button_label": "",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5aa9a85e70e01",
+                                        "label": "Question",
+                                        "name": "question",
+                                        "type": "text",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "",
+                                        "placeholder": "",
+                                        "prepend": "",
+                                        "append": "",
+                                        "maxlength": ""
+                                    },
+                                    {
+                                        "key": "field_5aa9a87170e02",
+                                        "label": "Answer",
+                                        "name": "answer",
+                                        "type": "wysiwyg",
+                                        "instructions": "",
+                                        "required": 1,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "default_value": "<p><\/p>",
+                                        "tabs": "all",
+                                        "toolbar": "full",
+                                        "media_upload": 1,
+                                        "delay": 0
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": "1"
                     }
                 },
                 "button_label": "Add Section",
