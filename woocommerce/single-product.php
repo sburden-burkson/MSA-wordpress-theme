@@ -20,7 +20,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+$product = new WC_Product(get_the_ID());
+
+// Gallery photos
+$galleryImages = $product->get_gallery_image_ids();
+
+// Add Featured Image
+array_unshift($galleryImages, $product->get_image_id());
+
+// Get color values for attribute color swatches
+$colorVals = [];
+$productAttributes = wc_get_attribute_taxonomies();
+foreach($productAttributes as $attr){
+    $colorVals[$attr->attribute_name] = [];
+    foreach(get_terms('pa_'.$attr->attribute_name) as $term){
+        $term_meta = get_term_meta($term->term_id);
+        if(isset($term_meta['swatch_color'])){
+            $colorVals[$attr->attribute_name][$term->slug] = $term_meta['swatch_color'][0];
+        }
+    }
+}
+
 get_header( 'shop' ); ?>
+
+<!--
+PLOKI
+
+// COLOR VALS
+
+<?php print_r($colorVals); ?>
+
+-->
 
 	<?php
 		/**
@@ -38,15 +68,12 @@ get_header( 'shop' ); ?>
 
             <div class="container-fluid no-banner">
                 <div class="row product-pairing-wrapper product-wrapper">
-                        <p class="product-pairing"><a href="javascript:void(0)">ADD A TIRE PAIRING <span><i class="fal fa-plus"></i></span></a></p>
+                        <p class="product-pairing"><a href="#">ADD A TIRE PAIRING <span><i class="fal fa-plus"></i></span></a></p>
                   <div class="col-sm-5 col-sm-push-5 col-md-6 col-md-push-5 col-lg-7 col-lg-push-4">
                     <div class="product-image-height" id="product-image-carousel">
-                      <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="">
-                      <img src="<?= content_url('uploads/2018/03/rim-2.png'); ?>" alt="">
-                      <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="">
-                      <img src="<?= content_url('uploads/2018/03/rim-2.png'); ?>" alt="">
-                      <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="">
-                      <img src="<?= content_url('uploads/2018/03/rim-2.png'); ?>" alt="">
+                        <?php foreach( $galleryImages as $attachment_id ) { ?>
+                            <img src="<?= wp_get_attachment_url( $attachment_id ) ?>" alt="">
+                        <?php } ?>
                     </div>
                   </div>
 
@@ -77,30 +104,30 @@ get_header( 'shop' ); ?>
                                         <div class="product-customization">
                                             <div class="p-size border-bottom">
                                                 <span class="product-customization-label">Size:</span>
-                                                <a href="javascript:void(0)">17</a>
-                                                <a href="javascript:void(0)">16</a>
-                                                <a href="javascript:void(0)">15</a>
-                                                <a href="javascript:void(0)">14</a>
+                                                <a href="#">17</a>
+                                                <a href="#">16</a>
+                                                <a href="#">15</a>
+                                                <a href="#">14</a>
                                             </div>
                                             <div class="p-finish border-bottom">
                                                 <span class="product-customization-label">Finish:</span>
-                                                <a href="javascript:void(0)"><i class="myCircle"></i></a>
-                                                <a href="javascript:void(0)"><i class="myCircle"></i></a>
-                                                <a href="javascript:void(0)"><i class="myCircle"></i></a>
-                                                <a href="javascript:void(0)"><i class="myCircle"></i></a>
+                                                <a href="#"><i class="myCircle"></i></a>
+                                                <a href="#"><i class="myCircle"></i></a>
+                                                <a href="#"><i class="myCircle"></i></a>
+                                                <a href="#"><i class="myCircle"></i></a>
                                             </div>
                                             <div class="p-custom">
-                                                <a href="javascript:void(0)">Additional Customizations
+                                                <a href="#">Additional Customizations
                                             <span><i class="fal fa-plus"></i></span></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="description">
-                                        <p class="pad-top">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                        <p class="pad-top"><?php the_content(); ?></p>
                                     </div>
                                 </div>
                       <h5 class="pad-top-sm pad-bottom-sm h-grey">BASE MODEL: $2000</h5>
-                      <p class=""><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red" data-sidenav="sidenav-cart">ADD TO CART <i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
+                      <p class=""><a href="#" class="btn wp-btn-extra-long text-uppercase wp-btn-red" data-sidenav="sidenav-cart">ADD TO CART <i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
                     </div>
                   </div>
 
@@ -110,12 +137,9 @@ get_header( 'shop' ); ?>
                         <div class="product-image-height product-thumbs-table">
                             <div class="product-thumbs-cell">
                                 <div id="product-thumbs">
-                                    <div class="product-thumb"><img class="img-responsive" src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt=""></div>
-                                    <div class="product-thumb"><img class="img-responsive" src="<?= content_url('uploads/2018/03/rim-2.png'); ?>" alt=""></div>
-                                    <div class="product-thumb"><img class="img-responsive" src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt=""></div>
-                                    <div class="product-thumb"><img class="img-responsive" src="<?= content_url('uploads/2018/03/rim-2.png'); ?>" alt=""></div>
-                                    <div class="product-thumb"><img class="img-responsive" src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt=""></div>
-                                    <div class="product-thumb"><img class="img-responsive" src="<?= content_url('uploads/2018/03/rim-2.png'); ?>" alt=""></div>
+                                    <?php foreach( $galleryImages as $attachment_id ) { ?>
+                                        <div class="product-thumb"><img class="img-responsive" src="<?= wp_get_attachment_url( $attachment_id ) ?>" alt=""></div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +315,7 @@ get_header( 'shop' ); ?>
                 <div class="container-fluid v-center-section-xl dark-overlay">
                   <div class="section-info-wrap">
                     <h2 class="text-center pad-bottom">1 YEAR WARRANTY</h2>
-                    <p class="text-center"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red">DETAILS<i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
+                    <p class="text-center"><a href="#" class="btn wp-btn-extra-long text-uppercase wp-btn-red">DETAILS<i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
                   </div>
                 </div>
                     <div class="texture-bottom" style="background-image: url('<?= content_url('uploads/2018/03/texture-home-3.png'); ?>');"></div>
@@ -310,7 +334,7 @@ get_header( 'shop' ); ?>
                 <div class="container">
                   <div class="section-info-wrap spaced-section">
                     <h2 class="text-center pad-bottom">NEED WHEELS?</h2>
-                    <p class="text-center"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red">BROWSE<i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
+                    <p class="text-center"><a href="#" class="btn wp-btn-extra-long text-uppercase wp-btn-red">BROWSE<i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
                   </div>
                 </div>
                     <div class="texture-bottom" style="background-image: url('<?= content_url('uploads/2018/03/texture-home-3.png'); ?>');"></div>
@@ -323,7 +347,7 @@ get_header( 'shop' ); ?>
                       <div class="row">
                         <div class="col-xs-6">
                           <div class="center text-center">
-                            <a href="javascript:void(0)">
+                            <a href="#">
                             <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="" class="img-responsive">
                             <h4>M35</h4>
                             <p>Lorem ipsum dolor sit</p>
@@ -332,7 +356,7 @@ get_header( 'shop' ); ?>
                         </div>
                         <div class="col-xs-6">
                           <div class="center text-center">
-                            <a href="javascript:void(0)">
+                            <a href="#">
                             <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="" class="img-responsive">
                             <h4>M35</h4>
                             <p>Lorem ipsum dolor sit</p>
@@ -345,7 +369,7 @@ get_header( 'shop' ); ?>
                       <div class="row">
                         <div class="col-xs-6">
                           <div class="center text-center">
-                            <a href="javascript:void(0)">
+                            <a href="#">
                           <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="" class="img-responsive">
                           <h4>M35</h4>
                           <p>Lorem ipsum dolor sit</p>
@@ -354,7 +378,7 @@ get_header( 'shop' ); ?>
                         </div>
                         <div class="col-xs-6">
                           <div class="center text-center">
-                            <a href="javascript:void(0)">
+                            <a href="#">
                           <img src="<?= content_url('uploads/2018/03/rim-1.png'); ?>" alt="" class="img-responsive">
                           <h4>M35</h4>
                           <p>Lorem ipsum dolor sit</p>

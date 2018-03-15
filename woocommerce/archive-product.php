@@ -67,7 +67,7 @@ get_header( 'shop' );
         <h4 class="fw-300">COLLECTION</h4>
         <h1 class="fw-300 text-uppercase"><?php woocommerce_page_title(); ?></h1>
         <div class="down-arrows">
-          <a href="javascript:void(0)" class="trans-white-md">
+          <a href="#" class="trans-white-md">
             <img src="<?= content_url('uploads/2018/03/chevron-white.png'); ?>" alt="">
           </a>
         </div>
@@ -88,17 +88,19 @@ get_header( 'shop' );
       <div class="modal-content">
         <div class="modal-header">
           <div class="modal-close">
-            <a href="javascript:void(0)" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/close.png'); ?>"></a>
+            <a href="#" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/close.png'); ?>"></a>
           </div>
           <h4 class="modal-title">FILTER</h4>
         </div>
         <div class="modal-body">
-          <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('shop-filters') ) : ?>
-          <?php endif;?>
+          <?php if(is_product_category('wheels')){
+                    if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('shop-filters') ) :
+                    endif;
+                } ?>
         </div>
         <div class="modal-footer">
           <a href="<?= $current_url ?>" class="btn text-uppercase pad-top wp-btn-white wp-btn-no-icon">CLEAR</a>
-          <a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red pad-top">APPLY <i class="fal fa-long-arrow-right fa-lg"></i></a>
+          <div id="wheel_filter_apply" class="btn wp-btn-extra-long text-uppercase wp-btn-red pad-top">APPLY <i class="fal fa-long-arrow-right fa-lg"></i></div>
         </div>
       </div>
     </div>
@@ -109,7 +111,7 @@ get_header( 'shop' );
       <div class="modal-content">
         <div class="modal-header">
           <div class="modal-close">
-            <a href="javascript:void(0)" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/close.png'); ?>"></a>
+            <a href="#" data-dismiss="modal"><img src="<?= content_url('uploads/2018/03/close.png'); ?>"></a>
           </div>
           <h4 class="modal-title modal-title-center">ENTER YOUR VEHICLE TO SEE WHEELS THAT FIT</h4>
         </div>
@@ -132,7 +134,7 @@ get_header( 'shop' );
         </div>
         <div class="modal-footer">
           <a href="<?= $current_url ?>" class="btn text-uppercase pad-top wp-btn-white wp-btn-no-icon">CLEAR</a>
-          <a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red pad-top">APPLY <i class="fal fa-long-arrow-right fa-lg"></i></a>
+          <div id="vehicle_filter_apply" class="btn wp-btn-extra-long text-uppercase wp-btn-red pad-top">APPLY <i class="fal fa-long-arrow-right fa-lg"></i></div>
         </div>
       </div>
     </div>
@@ -150,13 +152,15 @@ get_header( 'shop' );
     <div class="filter-container2" style="">
       <div class="row">
         <div class="col-xs-7">
+          <?php if(is_product_category('wheels')){ ?>
           <h5 class="">FILTER BY:
-          <a href="javascript:void(0)" data-toggle="modal" data-target="#vehicle-filter-modal">VEHICLE
+          <a href="#" data-toggle="modal" data-target="#vehicle-filter-modal">VEHICLE
             <i class="fal fa-plus fa-sm"></i>
           </a>
-          <a href="javascript:void(0)" data-toggle="modal" data-target="#wheel-filter-modal">WHEEL SPECS
+          <a href="#" data-toggle="modal" data-target="#wheel-filter-modal">WHEEL SPECS
             <i class="fal fa-plus fa-sm"></i>
           </a>
+          <?php } ?>
       </h5>
         </div>
         <div class="col-xs-5">
@@ -264,12 +268,17 @@ if ( have_posts() ) {
 	 *
 	 * @hooked wc_no_products_found - 10
 	 */
-	do_action( 'woocommerce_no_products_found' );
+	//do_action( 'woocommerce_no_products_found' );
+    ?>
+    <div class="no-product-found clearfix">
+        <h5 class="pad-top-lg pad-bottom-lg text-center grey">No products were found matching your selection.</h5>
+    </div>
+    <?php
 } ?>
           
       </div>
       <div class="down-arrows center pad-top-bottom">
-        <a href="javascript:void(0)" class="trans-white-md">
+        <a href="#" class="trans-white-md">
           <img src="<?= content_url('uploads/2018/03/chevron-grey.png'); ?>" alt="">
         </a>
       </div>
@@ -287,7 +296,7 @@ if ( have_posts() ) {
     <div class="container">
       <div class="section-info-wrap text-center">
         <h2 class="">1 YEAR WARRANTY</h2>
-        <p class="pad-top-bottom"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red">DETAILS <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
+        <p class="pad-top-bottom"><a href="#" class="btn wp-btn-extra-long text-uppercase wp-btn-red">DETAILS <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
       </div>
     </div>
   </div>
@@ -332,7 +341,7 @@ if ( have_posts() ) {
 
     </div>
 
-    <p class="text-center pad-top-bottom"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red">VIEW <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
+    <p class="text-center pad-top-bottom"><a href="#" class="btn wp-btn-extra-long text-uppercase wp-btn-red">VIEW <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
   </div>
 
 </div>
@@ -345,11 +354,6 @@ if ( have_posts() ) {
     <?php
         // Get color values for JS
         $colorVals = [];
-    /*
-        $productAttributes = get_terms('category', array(
-            'post_type' => array('post', 'product'),
-            'fields' => 'all'
-        ));*/
         $productAttributes = wc_get_attribute_taxonomies();
         foreach($productAttributes as $attr){
             $colorVals[$attr->attribute_name] = [];
@@ -362,6 +366,9 @@ if ( have_posts() ) {
         }
     ?>
     var colorVals = JSON.parse('<?= json_encode($colorVals) ?>');
+    
+    // PAGE URL INFO
+    var pageURL = '<?= $current_url ?>';
     var queryString = '<?= $_SERVER['QUERY_STRING'] ?>';
     
 </script>
