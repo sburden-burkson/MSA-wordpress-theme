@@ -85,26 +85,6 @@
                      //'items_wrap'        => '%3$s'
                   ));
                 ?>
-				<!-- <ul class="nav flex-column">
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>WHEELS</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>TIRES</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link active" href="#"><span>ACCESSORIES</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>ABOUT US</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>BLOG</span></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#"><span>GALLERY</span></a>
-					</li>
-				</ul>-->
 				<div class="sidenav-social-media">
 					<a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
 					<a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>

@@ -27,6 +27,9 @@
 			elseif( get_row_layout() == 'qa_accordion' ):
 				get_template_part( 'template-parts/section-parts/section', 'qa-accordion');
 
+			elseif( get_row_layout() == 'three_tab_section' ):
+				get_template_part( 'template-parts/section-parts/section', 'three-tab');
+
 			endif;
 
 		endwhile;

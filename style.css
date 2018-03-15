@@ -91,7 +91,7 @@ Text Domain: msa-wheels
   text-decoration: none; }
 
 .border-bottom {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important; }
 
 .trans-white {
   color: rgba(255, 255, 255, 0.3) !important; }
@@ -540,7 +540,8 @@ ul.slick-dots li {
 
 /* Headings
    ================== */
-h1, h2, h3, h4, h5, th {
+h2, h3, h4, h5, th {
+  font-weight: 400;
   letter-spacing: 0.2em;
   font-family: "Barlow Condensed", sans-serif;
   color: rgba(0, 0, 0, 0.97); }
@@ -554,7 +555,11 @@ h1 > .h-grey, h2 > .h-grey, h3 > .h-grey, h4 > .h-grey, h5 > .h-grey, th > .h-gr
   color: #888; }
 
 h1 {
-  font-size: 70px; }
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 70px;
+  color: rgba(0, 0, 0, 0.84); }
 
 h1.extra-bold {
   font-weight: bold;
@@ -1613,6 +1618,10 @@ hr {
     font-size: 54px; }
   .section-header-sm {
     font-size: 40px; }
+  .texture-section .texture-bottom {
+    background-position: 50% 101%;}
+  .texture-section .texture-top {
+    background-position: 50% -1%;}
   .sign-in-right {
     padding-left: 75px; }
   .sign-in-left {
@@ -1795,13 +1804,13 @@ hr {
   h2 {
     font-size: 44px; }
   h3 {
-    font-size: 25.6px; }
+    font-size: 26px; }
   h4 {
-    font-size: 17.85px; }
+    font-size: 18px; }
   h5, th {
-    font-size: 16.2px; }
+    font-size: 16px; }
   p {
-    font-size: 13.3px; }
+    font-size: 13px; }
   .transparent-lg {
     font-size: 84px; }
   .v-center-section {
@@ -1976,17 +1985,17 @@ hr {
    ================== */
 @media only screen and (max-width: 480px) {
   h1 {
-    font-size: 52.5px; }
+    font-size: 45px; }
   h2 {
-    font-size: 41.25px; }
+    font-size: 40px; }
   h3 {
     font-size: 24px; }
   h4 {
-    font-size: 16.8px; }
+    font-size: 17px; }
   h5, th {
-    font-size: 16.2px; }
+    font-size: 16px; }
   p {
-    font-size: 12.6px; }
+    font-size: 12.5px; }
   header {
     height: 0 !important;
     display: none;
