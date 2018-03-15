@@ -20,20 +20,18 @@
       <div class="container-fluid v-center-section">
         <div class="row">
           <div class="col-sm-4<?php echo $column_push; ?>">
-            <div class="accessoryHeight wp-table center pad-top">
+            <div class="accessoryHeight wp-table center">
               <div class="wp-table-cell-middle text-center">
                 <img src="<?php echo $content_image['url']; ?>" alt="<?php echo $content_image['alt']; ?>" class="img-responsive">
                 <?php echo $content; ?>
                 <?php if ($add_a_button): ?>
-                  <p class="pad-top pad-bottom"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red">SEE STARS <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
+                  <p class="pad-top"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red">SEE STARS <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
                 <?php endif; ?>
               </div>
             </div>
           </div>
           <div class="col-sm-8<?php echo $column_pull; ?> no-pad-right no-pad-left">
-            <div class="accessoryHeight dark-bg texture-section"  style="background-image: url('<?php echo $large_image; ?>')">
-                <!-- <div class="texture-top" style="background-image: url('images/textures/texture-home-2.png');"></div>
-                <div class="texture-bottom" style="background-image: url('images/textures/texture-home-3.png');"></div> -->
+            <div class="accessoryHeight dark-bg"  style="background-image: url('<?php echo $large_image; ?>')">
             </div>
           </div>
         </div>

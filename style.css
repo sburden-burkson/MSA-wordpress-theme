@@ -332,10 +332,10 @@ input.form-control {
   background-size: contain; }
 
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.5); }
+  background-color: rgba(0, 0, 0, 0.3); }
 
 .light-overlay {
-  background-color: rgba(255, 255, 255, 0.5); }
+  background-color: rgba(255, 255, 255, 0.3); }
 
 .bg-top {
   background-position: 50% 0%; }

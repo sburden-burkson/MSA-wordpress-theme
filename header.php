@@ -26,9 +26,8 @@
   // get menu
   $menu = wp_get_nav_menu_object('primary');
   		// vars
-      $left_link_1 = get_field('left_link_1', $menu);
-      $left_link_2 = get_field('left_link_2', $menu);
-      $right_link_1 = get_field('right_link_1', $menu);
+      $left_link = get_field('left_link', $menu);
+      $right_link = get_field('right_link', $menu);
   		$facebook = get_field('facebook', $menu);
       $instagram = get_field('instagram', $menu);
   ?>
@@ -37,12 +36,12 @@
 		<div id="header">
 			<div class="container-fluid">
 	      <div class="pull-left">
-          <a class="text-uppercase" href="<?php echo $left_link_1['url']; ?>" target="<?php echo $left_link_1['target']; ?>"><?php echo $left_link_1['title']; ?></a>
+          <a class="text-uppercase" href="<?php echo $left_link['url']; ?>" target="<?php echo $left_link['target']; ?>"><?php echo $left_link['title']; ?></a>
 					<span class="navbar-divider">|</span>
-					  <a href="<?php echo $left_link_2['url']; ?>" target="<?php echo $left_link_2['target']; ?>"><?php echo $left_link_2['title']; ?></a>
+					  <a href="javascript:void(0)"><i class="far fa-search"></i></a>
 				</div>
 				<div class="pull-right">
-					  <a class="text-uppercase" href="<?php echo $right_link_1['url']; ?>" target="<?php echo $right_link_1['target']; ?>"><?php echo $right_link_1['title']; ?></a>
+					  <a class="text-uppercase" href="<?php echo $right_link['url']; ?>" target="<?php echo $right_link['target']; ?>"><?php echo $right_link['title']; ?></a>
 					<span class="navbar-divider">|</span>
 					<a class="text-uppercase" href="<?php echo $facebook; ?>" class="icon"><i class="fab fa-facebook"></i></a>
 					<a class="text-uppercase" href="<?php echo $instagram; ?>" class="icon"><i class="fab fa-instagram"></i></a>
