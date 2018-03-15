@@ -1,6 +1,8 @@
 <?php
     //vars
     $background_image = get_sub_field('background_image');
+    $left_or_right = get_sub_field('left_or_right');
+    $count = ($left_or_right == 'left') ? -1 : 0;
     // check if the repeater field has rows of data
 ?>
 <!-- Carousel  -->
@@ -9,7 +11,6 @@
   <?php if( have_rows('slides') ): ?>
     <div class="center visible-md visible-lg pad-left pad-right " id="staggeredCarousel">
         <?php
-          $count = -1;
           while ( have_rows('slides') ) : $count++; the_row();
             //vars
             $slide_content = get_sub_field('slide_content');

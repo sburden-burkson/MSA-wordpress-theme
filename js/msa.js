@@ -209,6 +209,7 @@ jQuery(document).ready(function ($) {
 
 
 // Accessory Info Page
+  $(".accessoryHeight").matchHeight(notByRow);
   $(".accessoryHeight1").matchHeight(notByRow);
   $(".accessoryHeight2").matchHeight(notByRow);
   $(".accessoryHeight3").matchHeight(notByRow);
