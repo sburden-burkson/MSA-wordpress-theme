@@ -276,6 +276,25 @@
                                 "mime_types": ""
                             },
                             {
+                                "key": "field_5aaada8e6ba4b",
+                                "label": "Parralax?",
+                                "name": "parralax",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
+                            },
+                            {
                                 "key": "field_5aa86a89b4974",
                                 "label": "Shade of Background Image",
                                 "name": "shade_of_background",
@@ -2091,7 +2110,7 @@
                         "sub_fields": [
                             {
                                 "key": "field_5aaacb6b9fe62",
-                                "label": "First Image on Left or Right?",
+                                "label": "First Large Image on Left or Right?",
                                 "name": "left_or_right",
                                 "type": "select",
                                 "instructions": "",
@@ -2131,7 +2150,7 @@
                                 "min": 0,
                                 "max": 0,
                                 "layout": "block",
-                                "button_label": "Add Slide",
+                                "button_label": "Add Info\/Image Pair",
                                 "sub_fields": [
                                     {
                                         "key": "field_5aaacb129fe5a",
@@ -2139,7 +2158,7 @@
                                         "name": "content",
                                         "type": "wysiwyg",
                                         "instructions": "",
-                                        "required": 0,
+                                        "required": 1,
                                         "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "",
@@ -2182,7 +2201,7 @@
                                         "name": "large_image",
                                         "type": "image",
                                         "instructions": "",
-                                        "required": 0,
+                                        "required": 1,
                                         "conditional_logic": 0,
                                         "wrapper": {
                                             "width": "",
