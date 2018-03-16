@@ -27,7 +27,7 @@
   $menu = wp_get_nav_menu_object('primary');
   		// vars
       $left_link_1 = get_field('left_link_1', $menu);
-      $left_link_2 = get_field('left_link_2', $menu);
+      // $left_link_2 = get_field('left_link_2', $menu);
       $right_link_1 = get_field('right_link_1', $menu);
   		$facebook = get_field('facebook', $menu);
       $instagram = get_field('instagram', $menu);
@@ -39,7 +39,7 @@
 	      <div class="pull-left">
           <a class="text-uppercase" href="<?php echo $left_link_1['url']; ?>" target="<?php echo $left_link_1['target']; ?>"><?php echo $left_link_1['title']; ?></a>
 					<span class="navbar-divider">|</span>
-					  <a href="<?php echo $left_link_2['url']; ?>" target="<?php echo $left_link_2['target']; ?>"><?php echo $left_link_2['title']; ?></a>
+					  <a href="javascript:void(0)"><i class="far fa-search"></i></a>
 				</div>
 				<div class="pull-right">
 					  <a class="text-uppercase" href="<?php echo $right_link_1['url']; ?>" target="<?php echo $right_link_1['target']; ?>"><?php echo $right_link_1['title']; ?></a>

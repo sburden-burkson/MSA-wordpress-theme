@@ -17,7 +17,6 @@
 
 <!-- Top Section -->
 <div class="section <?php echo $shade_of_background;?>texture-section fixed-bg scroll-effect" style="background-image: url('<?php echo $background_image; ?>');">
-    <div class="container-fluid">
       <div class="<?php echo $centered_text . $overlay; ?>" id="<?php echo $vertical_padding; ?>">
         <?php echo $section_content; ?>
         <?php if ($add_a_button): ?>
@@ -31,9 +30,7 @@
           </div>
         <?php endif; ?>
       </div>
-    </div>
     <div class="texture-top" style="background-image: url('/wp-content/uploads/2018/03/top-gradient.png');"></div>
-    <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');">
-    </div>
+    <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
   </div>
 <!-- /Top Section -->

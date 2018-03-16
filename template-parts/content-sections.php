@@ -30,6 +30,12 @@
 			elseif( get_row_layout() == 'three_tab_section' ):
 				get_template_part( 'template-parts/section-parts/section', 'three-tab');
 
+			elseif( get_row_layout() == 'staggered_info_image' ):
+				get_template_part( 'template-parts/section-parts/section', 'staggered-info-image');
+
+				elseif( get_row_layout() == 'info_image_columns' ):
+					get_template_part( 'template-parts/section-parts/section', 'info-image-columns');
+
 			endif;
 
 		endwhile;
