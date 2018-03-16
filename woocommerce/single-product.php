@@ -20,37 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-$product = new WC_Product(get_the_ID());
-
-// Gallery photos
-$galleryImages = $product->get_gallery_image_ids();
-
-// Add Featured Image
-array_unshift($galleryImages, $product->get_image_id());
-
-// Get color values for attribute color swatches
-$colorVals = [];
-$productAttributes = wc_get_attribute_taxonomies();
-foreach($productAttributes as $attr){
-    $colorVals[$attr->attribute_name] = [];
-    foreach(get_terms('pa_'.$attr->attribute_name) as $term){
-        $term_meta = get_term_meta($term->term_id);
-        if(isset($term_meta['swatch_color'])){
-            $colorVals[$attr->attribute_name][$term->slug] = $term_meta['swatch_color'][0];
-        }
-    }
-}
-
 get_header( 'shop' ); ?>
-
-<!--
-PLOKI
-
-// COLOR VALS
-
-<?php print_r($colorVals); ?>
-
--->
 
 	<?php
 		/**
@@ -63,6 +33,26 @@ PLOKI
 	?>
 
 		<?php while ( have_posts() ) : the_post(); ?>
+            
+            <?php global $product;
+            
+                // Gallery photos
+                $galleryImages = $product->get_gallery_image_ids();
+
+                // Add Featured Image
+                array_unshift($galleryImages, $product->get_image_id());
+
+            ?>
+            
+            <!--
+            PLOKI
+
+            <?php if($product->is_type( 'variable' )){ ?>
+                // VARIATION SPECS
+                <?php print_r($varSpecs); ?>
+            <?php } ?>
+
+            -->
 
 			<?php //wc_get_template_part( 'content', 'single-product' ); ?>
 
@@ -79,17 +69,19 @@ PLOKI
 
                   <div class="col-sm-5 col-sm-pull-5 col-md-5 col-md-pull-6 col-lg-4 col-lg-pull-7">
                     <div class="product-options">
-                      <h3 class="no-margin-top-desktop">M25 BANDIT</h3>
+                      <h3 class="no-margin-top-desktop"><?php the_title(); ?></h3>
                                 <div class="container-fluid product-tabs">
                                     <div class="row">
+                                        <?php if($product->is_type( 'variable' )){ ?>
                                         <div class="col-xs-4">
                                             <div class="product-tabs-option">
-                                                <a href="#configure" class="productTabsHeight text-uppercase active" data-toggle="tab">Configure</a>
+                                                <a href="#configure" class="productTabsHeight showAttributes text-uppercase active" data-toggle="tab">Configure</a>
                                             </div>
                                         </div>
+                                        <?php } ?>
                                         <div class="col-xs-4">
                                             <div class="product-tabs-option text-center">
-                                                <a href="#description" class="productTabsHeight text-uppercase" data-toggle="tab">Description</a>
+                                                <a href="#description" class="productTabsHeight text-uppercase<?php if($product->is_type( 'simple' )){ ?> active<?php } ?>" data-toggle="tab">Description</a>
                                             </div>
                                         </div>
                                         <div class="col-xs-4">
@@ -100,34 +92,27 @@ PLOKI
                                     </div>
                                 </div>
                                 <div class="tab-content">
+                                    <?php if($product->is_type( 'variable' )){ ?>
                                     <div class="tab-pane fade in active" id="configure">
                                         <div class="product-customization">
-                                            <div class="p-size border-bottom">
-                                                <span class="product-customization-label">Size:</span>
-                                                <a href="#">17</a>
-                                                <a href="#">16</a>
-                                                <a href="#">15</a>
-                                                <a href="#">14</a>
-                                            </div>
-                                            <div class="p-finish border-bottom">
-                                                <span class="product-customization-label">Finish:</span>
-                                                <a href="#"><i class="myCircle"></i></a>
-                                                <a href="#"><i class="myCircle"></i></a>
-                                                <a href="#"><i class="myCircle"></i></a>
-                                                <a href="#"><i class="myCircle"></i></a>
-                                            </div>
-                                            <div class="p-custom">
-                                                <a href="#">Additional Customizations
-                                            <span><i class="fal fa-plus"></i></span></a>
-                                            </div>
+                                            <!-- Empty -->
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="description">
+                                    <?php } ?>
+                                    <div class="tab-pane fade<?php if($product->is_type( 'simple' )){ ?> in active<?php } ?>" id="description">
                                         <p class="pad-top"><?php the_content(); ?></p>
                                     </div>
                                 </div>
-                      <h5 class="pad-top-sm pad-bottom-sm h-grey">BASE MODEL: $2000</h5>
-                      <p class=""><a href="#" class="btn wp-btn-extra-long text-uppercase wp-btn-red" data-sidenav="sidenav-cart">ADD TO CART <i class="fal fa-long-arrow-right fa-lg pin-right" aria-hidden="true"></i></a></p>
+                        
+                        <h5 class="product-price pad-top-sm pad-bottom-sm h-grey"<?php if($product->is_type( 'variable' )){ ?> style="display: none;"<?php } ?>><?= $product->get_price_html() ?></h5>
+                        
+                        <?php
+                            if($product->is_type( 'simple' )){
+                                woocommerce_simple_add_to_cart();
+                            }else{
+                                woocommerce_variable_add_to_cart();
+                            }
+                        ?>
                     </div>
                   </div>
 
@@ -136,7 +121,7 @@ PLOKI
                     <div id="product-thumbs-wrapper">
                         <div class="product-image-height product-thumbs-table">
                             <div class="product-thumbs-cell">
-                                <div id="product-thumbs">
+                                <div id="product-thumbs" class="<?php if(count($galleryImages) >= 3){ ?>slick-noscroll<?php } ?>">
                                     <?php foreach( $galleryImages as $attachment_id ) { ?>
                                         <div class="product-thumb"><img class="img-responsive" src="<?= wp_get_attachment_url( $attachment_id ) ?>" alt=""></div>
                                     <?php } ?>
@@ -149,6 +134,9 @@ PLOKI
                 </div>
               </div>
 
+            <?php get_template_part( 'template-parts/content', 'sections'); ?>
+                
+            <?php /*
                 <!-- 3 split photos -->
               <div class="container-fluid row-section texture-section">
                 <div class="texture-top" style="background-image: url('<?= content_url('uploads/2018/03/texture-home-2.png'); ?>');"></div>
@@ -160,7 +148,8 @@ PLOKI
                 <div class="texture-bottom" style="background-image: url('<?= content_url('uploads/2018/03/texture-home-3.png'); ?>');"></div>
                 </div>
                 <!-- /3 split photos -->
-
+                
+                <?php if(!empty($varSpecs)){ ?>
                 <div class="container product-specs-wrapper">
                     <div id="specs" class="product-specs">
                         <div class="product-specs-title">
@@ -168,146 +157,31 @@ PLOKI
                         </div>
                         <!-- product-specs-carousel -->
                         <div id="product-specs-carousel" class="clearfix">
+                            
+                            <?php foreach($varSpecs[0] as $curFieldSlug => $varCol){ ?>
+                            
                             <div class="product-specs-carousel-slide">
                                 <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Part#</h5>
+                                    <h5 class="h-grey text-uppercase"><?= $varCol['label'] ?></h5>
                                 </div>
+                                
+                                <?php foreach($varSpecs as $varRow){ ?>
+                                
                                 <div class="product-specs-carousel-row">
-                                    M36-018756M
+                                    <?= $varRow[$curFieldSlug]['value'] ?>
                                 </div>
-                                <div class="product-specs-carousel-row">
-                                    M36-018756M
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    M36-018756M
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    M36-018756M
-                                </div>
+                                
+                                <?php } ?>
+                                
                             </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Finish</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    Matte Black
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    Matte Black
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    Matte Black
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    Matte Black
-                                </div>
-                            </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Size</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    18x7
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    18x7
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    18x7
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    18x7
-                                </div>
-                            </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Offset</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    +0mm
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    +0mm
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    +0mm
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    +0mm
-                                </div>
-                            </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Backspace</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4+3
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4+3
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4+3
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4+3
-                                </div>
-                            </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Bolt Pat.</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4x110
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4x110
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4x110
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    4x110
-                                </div>
-                            </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Load</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    1250lbs
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    1250lbs
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    1250lbs
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    1250lbs
-                                </div>
-                            </div>
-                            <div class="product-specs-carousel-slide">
-                                <div class="product-specs-carousel-head">
-                                    <h5 class="h-grey text-uppercase">Weight</h5>
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    13.9lbs
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    13.9lbs
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    13.9lbs
-                                </div>
-                                <div class="product-specs-carousel-row">
-                                    13.9lbs
-                                </div>
-                            </div>
+
+                            <?php } ?>
+                            
                         </div>
                         <!-- /product-specs-carousel -->
                     </div>
                 </div>
+                <?php } ?>
 
 
               <div class="dark-bg bg-top texture-section" style="background-image: url('<?= content_url('uploads/2018/03/blog-header.png'); ?>');">
@@ -339,6 +213,9 @@ PLOKI
                 </div>
                     <div class="texture-bottom" style="background-image: url('<?= content_url('uploads/2018/03/texture-home-3.png'); ?>');"></div>
               </div>
+
+            */ ?>
+
               <div class="light-bg v-center-section p-similar" style="background-image: url('<?= content_url('uploads/2018/03/dirt-wheels-collection-1.png'); ?>');">
                 <div class="container">
                         <h3 class="text-center pad-bottom-md">YOU MIGHT LIKE</h3>
@@ -410,6 +287,7 @@ PLOKI
 		 */
 		//do_action( 'woocommerce_sidebar' );
 	?>
+
 
 <?php get_footer( 'shop' );
 
