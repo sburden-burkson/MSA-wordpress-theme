@@ -9,7 +9,7 @@
 ?>
 
 <div class="texture-section no-padding">
-  <div class="texture-top" style="background-image: url('<?php echo $top_texture_image; ?>');">
+  <div class="texture-top" style="background-image: url('<?php echo $top_texture_image['url']; ?>');">
   </div>
   <img src="<?php echo $background_image['url']; ?>" alt="<?php echo $background_image['alt']; ?>" class="wp-full-width" />
   <div class="absolute-center">

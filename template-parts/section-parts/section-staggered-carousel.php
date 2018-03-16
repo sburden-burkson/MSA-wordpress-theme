@@ -14,8 +14,8 @@
           while ( have_rows('slides') ) : $count++; the_row();
             //vars
             $slide_content = get_sub_field('slide_content');
-            $slide_image = get_sub_field('slide_image');
-            $content_background = get_sub_field('content_background');
+            $slide_image = get_sub_field('slide_image')['url'];
+            $content_background = get_sub_field('content_background')['url'];
             $shade_of_content_background = get_sub_field('shade_of_content_background');
             $add_a_button = get_sub_field('add_a_button');
             $button_text = get_sub_field('button_text');
@@ -30,7 +30,7 @@
         <div class="carousel-item <?php echo $shade_of_content_background; ?> staggeredCarouselHeight" style="background-image: url('<?php echo $content_background; ?>');">
           <div class="carousel-info-pad">
             <div class="carouselInfoHeight">
-              <?php echo $count . $slide_content; ?>
+              <?php echo $slide_content; ?>
             </div>
             <?php if ($add_a_button): ?>
               <p class="pad-top <?php echo $button_alignment; ?>"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
@@ -42,7 +42,7 @@
         <div class="carousel-item <?php echo $shade_of_content_background; ?> staggeredCarouselHeight" style="background-image: url('<?php echo $content_background; ?>');">
           <div class="carousel-info-pad">
             <div class="carouselInfoHeight">
-              <?php echo $count . $slide_content; ?>
+              <?php echo $slide_content; ?>
             </div>
             <?php if ($add_a_button): ?>
               <p class="pad-top <?php echo $button_alignment; ?>"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>

@@ -1,6 +1,6 @@
 <?php
     //vars
-    $background_image = get_sub_field('background_image');
+    $background_image = get_sub_field('background_image')['url'];
     $shade_of_background = get_sub_field('shade_of_background');
     $contain_background_size = get_sub_field('contain_background_size') ? ' contain-bg' : '';
     $centered_text = get_sub_field('centered_text') ? 'text-center ' : '';

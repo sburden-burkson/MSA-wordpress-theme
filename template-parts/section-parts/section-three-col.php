@@ -1,8 +1,8 @@
 <?php
     // section vars
     $vertical_padding = get_sub_field('vertical_padding');
-    $texture_top = get_sub_field('texture_top');
-    $texture_bottom = get_sub_field('texture_bottom');
+    $texture_top = get_sub_field('texture_top')['url'];
+    $texture_bottom = get_sub_field('texture_bottom')['url'];
     $column_count = 0;
     if( have_rows('columns') ): while ( have_rows('columns') ) : $column_count++; the_row();
     endwhile; endif;
@@ -27,7 +27,7 @@ if( have_rows('columns') ):
     } else {
       $column_width = "4";
     }
-    $column_background = get_sub_field('column_background');
+    $column_background = get_sub_field('column_background')['url'];
     $shade_of_background = get_sub_field('shade_of_background');
     $heading = get_sub_field('heading');
     $url = get_sub_field('url');

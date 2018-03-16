@@ -1,7 +1,7 @@
 <?php
     //vars
     $section_content = get_sub_field('section_content');
-    $background_image = get_sub_field('background_image');
+    $background_image = get_sub_field('background_image')['url'];
     $shade_of_background = get_sub_field('shade_of_background');
     $width_restriction = get_sub_field('width_restriction') . " ";
     $centered_text = get_sub_field('centered_text') ? 'text-center ' : '';
@@ -10,8 +10,8 @@
     $add_a_button = get_sub_field('add_a_button');
     $button_text = get_sub_field('button_text');
     $button_url = get_sub_field('button_url');
-    $texture_top = get_sub_field('texture_top');
-    $texture_bottom = get_sub_field('texture_bottom');
+    $texture_top = get_sub_field('texture_top')['url'];
+    $texture_bottom = get_sub_field('texture_bottom')['url'];
 ?>
 
 <!-- Full Section -->

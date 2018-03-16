@@ -21,8 +21,8 @@
 			elseif( get_row_layout() == 'header_two_columns' ):
 				get_template_part( 'template-parts/section-parts/section', 'header-two-col');
 
-			elseif( get_row_layout() == 'staggered_info_image' ):
-				get_template_part( 'template-parts/section-parts/section', 'staggered-info-image');
+			elseif( get_row_layout() == 'staggered_image_info_row' ):
+				get_template_part( 'template-parts/section-parts/section', 'staggered-image-info-row');
 
 			elseif( get_row_layout() == 'staggered_carousel' ):
 				get_template_part( 'template-parts/section-parts/section', 'staggered-carousel');
