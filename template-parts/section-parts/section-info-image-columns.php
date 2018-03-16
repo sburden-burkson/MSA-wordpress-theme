@@ -3,9 +3,9 @@
   if( have_rows('info_image_pair') ): while ( have_rows('info_image_pair') ) : $column_count++; the_row();
   endwhile; endif;
 ?>
-<!-- Image Info Columns  -->
+<!-- Info Image Columns  -->
 <?php if( have_rows('info_image_pair') ): ?>
-<div class="container-fluid v-center-section">
+<div class="section container-fluid v-center-section">
   <div class="row">
   <?php while ( have_rows('info_image_pair') ) : $count++; the_row();
       //vars
@@ -28,7 +28,7 @@
         <div class="restricted-width pad-bottom text-center">
           <?php echo $content; ?>
           <?php if ($add_a_button): ?>
-            <p class="pad-top"><a href="javascript:void(0)" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
+            <p class="pad-top"><a href="<?php echo $image_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
           <?php endif; ?>
         </div>
       </div>
@@ -37,4 +37,4 @@
   </div>
 </div>
 <?php endif; ?>
-<!-- /Image Info Columns  -->
+<!-- /Info Image Columns  -->

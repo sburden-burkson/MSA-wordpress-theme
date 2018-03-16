@@ -13,10 +13,11 @@
     $button_url = get_sub_field('button_url');
     $scroll_down_arrow = get_sub_field('scroll_down_arrow');
     $scroll_down_arrow_color = get_sub_field('scroll_down_arrow_color');
+    $parallax = get_sub_field('parallax') ? "fixed-bg scroll-effect " : "";
 ?>
 
 <!-- Top Section -->
-<div class="section <?php echo $shade_of_background;?>texture-section fixed-bg scroll-effect" style="background-image: url('<?php echo $background_image; ?>');">
+<div class="section <?php echo $parallax . $shade_of_background;?>texture-section" style="background-image: url('<?php echo $background_image; ?>');">
       <div class="<?php echo $centered_text . $overlay; ?>" id="<?php echo $vertical_padding; ?>">
         <?php echo $section_content; ?>
         <?php if ($add_a_button): ?>

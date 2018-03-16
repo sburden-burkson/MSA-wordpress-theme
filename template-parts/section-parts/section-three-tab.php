@@ -23,7 +23,6 @@
 
         <div class="col-xs-4 <?php echo $text_align; ?>">
           <div class="warranty-option center">
-              <!-- <a class="warrantyOptionHeight text-uppercase active" href="#structural" data-toggle="tab">Structural Warranty</a> -->
               <a class="warrantyOptionHeight text-uppercase<?php echo $active; ?>" href="#<?php echo $tab_id; ?>" data-toggle="tab"><?php echo $heading; ?></a>
           </div>
         </div>
