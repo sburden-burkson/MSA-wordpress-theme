@@ -1,5 +1,6 @@
 <?php
     // section vars
+    $header_above_columns = get_sub_field('header_above_columns');
     $vertical_padding = get_sub_field('vertical_padding');
     $texture_top = get_sub_field('texture_top');
     $texture_bottom = get_sub_field('texture_bottom');
@@ -13,7 +14,12 @@
 if( have_rows('columns') ):
 ?>
 <!-- 3 Column Section -->
-<div class="section container-fluid row-section texture-section">
+<?php if ($header_above_columns != ""): ?>
+  <div class="text-center pad-top-md">
+    <?php echo $header_above_columns; ?>
+  </div>
+<?php endif; ?>
+<div class="section container-fluid row-section texture-section margin-top-bottom">
   <div class="row">
 <?php
  	// loop through the rows of data

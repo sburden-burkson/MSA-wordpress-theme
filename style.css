@@ -529,6 +529,8 @@ ul.slick-dots li {
   padding: 30px 0 60px; }
   .staggered-image-section .stagger-top {
     margin-top: -30px; }
+  .stagger-top .wp-table-cell p {
+    padding-top: 30px; }
 
 .photo-grid .photo-grid-img {
   padding-bottom: 60px;
