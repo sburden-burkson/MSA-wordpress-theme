@@ -1561,10 +1561,10 @@
                             },
                             {
                                 "key": "field_5aa96e33a9f66",
-                                "label": "Vertical Padding",
+                                "label": "Column(s) Height",
                                 "name": "vertical_padding",
                                 "type": "select",
-                                "instructions": "Top and bottom padding of content",
+                                "instructions": "Column heights \/ top and bottom padding of content",
                                 "required": 1,
                                 "conditional_logic": 0,
                                 "wrapper": {
@@ -2516,6 +2516,150 @@
                         ],
                         "min": "",
                         "max": "1"
+                    },
+                    "5aac0e3c7ae0a": {
+                        "key": "5aac0e3c7ae0a",
+                        "name": "content_on_side_with_images",
+                        "label": "Content on Side with Images",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5aac0efb7ae0e",
+                                "label": "Content Side",
+                                "name": "content_side",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "left": "Left",
+                                    "right": "Right"
+                                },
+                                "default_value": [],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5aac1e11bc883",
+                                "label": "Content",
+                                "name": "content",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5aac0e9e7ae0c",
+                                "label": "Left Side Images",
+                                "name": "left_side_images",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 1,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "Add Left Side Image",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5aac0edf7ae0d",
+                                        "label": "Left Image",
+                                        "name": "left_image",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "preview_size": "thumbnail",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "key": "field_5aac0f237ae0f",
+                                "label": "Right Side Images",
+                                "name": "right_side_images",
+                                "type": "repeater",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "collapsed": "",
+                                "min": 1,
+                                "max": 0,
+                                "layout": "table",
+                                "button_label": "Add Right Side Image",
+                                "sub_fields": [
+                                    {
+                                        "key": "field_5aac0f237ae10",
+                                        "label": "Right Image",
+                                        "name": "right_image",
+                                        "type": "image",
+                                        "instructions": "",
+                                        "required": 0,
+                                        "conditional_logic": 0,
+                                        "wrapper": {
+                                            "width": "",
+                                            "class": "",
+                                            "id": ""
+                                        },
+                                        "return_format": "array",
+                                        "preview_size": "thumbnail",
+                                        "library": "all",
+                                        "min_width": "",
+                                        "min_height": "",
+                                        "min_size": "",
+                                        "max_width": "",
+                                        "max_height": "",
+                                        "max_size": "",
+                                        "mime_types": ""
+                                    }
+                                ]
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
                     }
                 },
                 "button_label": "Add Section",

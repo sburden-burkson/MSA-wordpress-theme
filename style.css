@@ -1838,6 +1838,12 @@ hr {
   .no-banner {
     padding-top: 80px;
     padding-bottom: 30px; }
+  .full-width-tablet {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%; }
+  .photo-grid-text h1, .photo-grid-text h2, .photo-grid-text h3, .photo-grid-text h4 {
+    text-align: center; }
   #top-section {
     padding: 125px 35px 35px;
     min-height: 600px; }

@@ -35,11 +35,11 @@ if( have_rows('columns') ):
 ?>
 
     <div class="col-sm-<?php echo $column_width; ?> no-padding <?php echo $shade_of_background; ?>" style="background-image: url('<?php echo $column_background; ?>');">
-      <a href="<?php echo $url; ?>">
+      <?php if($url != ""): ?><a href="<?php echo $url; ?>"><?php endif; ?>
         <div class="text-center <?php echo $overlay . $vertical_padding; ?>">
           <h4><?php echo $heading; ?></h4>
         </div>
-      </a>
+      <?php if($url != ""): ?></a><?php endif; ?>
     </div>
 <?php
   endwhile;

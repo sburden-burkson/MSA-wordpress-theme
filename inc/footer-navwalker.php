@@ -1,10 +1,11 @@
 <?php
+
 class Footer_Navwalker extends Walker_Nav_menu {
 
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth);
 		$output .= "\n$indent\n";
-	}
+ 	}
 
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ){
 		// $sidemenu_image = get_field('background_image', $item);

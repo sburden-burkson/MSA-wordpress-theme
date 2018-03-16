@@ -46,7 +46,8 @@
                       'walker' => new Footer_Navwalker(),
                       'container' => false,
                       'menu_class' => '',
-                      'fallback_cb' => false
+                      'fallback_cb' => false,
+                      'depth' => 2
                     ));
                   ?>
                 </div>
