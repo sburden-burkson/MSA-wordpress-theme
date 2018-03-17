@@ -39,6 +39,12 @@
 			elseif( get_row_layout() == 'content_on_side_with_images' ):
 				get_template_part( 'template-parts/section-parts/section', 'content-sided-images');
 
+			elseif( get_row_layout() == 'article' ):
+				get_template_part( 'template-parts/section-parts/section', 'article');
+
+			// elseif( get_row_layout() == 'product_specs_table' ):
+			// 	get_template_part( 'template-parts/section-parts/section', 'product-specs-table');
+
 			endif;
 
 		endwhile;

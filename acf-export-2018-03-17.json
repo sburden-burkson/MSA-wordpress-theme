@@ -194,6 +194,189 @@
         "description": ""
     },
     {
+        "key": "group_5aac30ae41960",
+        "title": "Product Specs",
+        "fields": [
+            {
+                "key": "field_5aac30b386fec",
+                "label": "Part#",
+                "name": "part_number",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac30e986fed",
+                "label": "Finish",
+                "name": "finish",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac30fb86fee",
+                "label": "Size",
+                "name": "size",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac310486fef",
+                "label": "Offset",
+                "name": "offset",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac310886ff0",
+                "label": "Backspace",
+                "name": "backspace",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac310f86ff1",
+                "label": "Bolt Pattern",
+                "name": "bolt_pattern",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac312186ff2",
+                "label": "Load",
+                "name": "load",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5aac312786ff3",
+                "label": "Weight",
+                "name": "weight",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "show_fields_options": "",
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "product_variation"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
         "key": "group_59c44c10af3cc",
         "title": "Sections",
         "fields": [
@@ -1073,6 +1256,25 @@
                                         "display": "block",
                                         "sub_fields": [
                                             {
+                                                "key": "field_5aac4aac39d57",
+                                                "label": "Header",
+                                                "name": "header",
+                                                "type": "text",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "default_value": "",
+                                                "placeholder": "",
+                                                "prepend": "",
+                                                "append": "",
+                                                "maxlength": ""
+                                            },
+                                            {
                                                 "key": "field_5aac2dd75834b",
                                                 "label": "Text",
                                                 "name": "text",
@@ -1102,6 +1304,33 @@
                                         "display": "block",
                                         "sub_fields": [
                                             {
+                                                "key": "field_5aac5006c4442",
+                                                "label": "First Image on Left or Right?",
+                                                "name": "left_or_right",
+                                                "type": "select",
+                                                "instructions": "",
+                                                "required": 0,
+                                                "conditional_logic": 0,
+                                                "wrapper": {
+                                                    "width": "",
+                                                    "class": "",
+                                                    "id": ""
+                                                },
+                                                "choices": {
+                                                    "left": "Left",
+                                                    "right": "Right"
+                                                },
+                                                "default_value": [
+                                                    "left"
+                                                ],
+                                                "allow_null": 0,
+                                                "multiple": 0,
+                                                "ui": 0,
+                                                "ajax": 0,
+                                                "return_format": "value",
+                                                "placeholder": ""
+                                            },
+                                            {
                                                 "key": "field_5aac2e5d5834c",
                                                 "label": "Image\/Caption Pair",
                                                 "name": "image_caption_pair",
@@ -1115,7 +1344,7 @@
                                                     "id": ""
                                                 },
                                                 "collapsed": "field_5aac30415834d",
-                                                "min": 0,
+                                                "min": 1,
                                                 "max": 0,
                                                 "layout": "table",
                                                 "button_label": "",
@@ -2811,6 +3040,33 @@
                         ],
                         "min": "",
                         "max": ""
+                    },
+                    "5aac4383b6258": {
+                        "key": "5aac4383b6258",
+                        "name": "product_specs_table",
+                        "label": "Product Specs Table",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5aac45342c3a9",
+                                "label": "All done!",
+                                "name": "",
+                                "type": "message",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "This section is automatically generated. To edit specific product data, please go to the \"Products\" section from the left navigation and edit the product directly. Specs table information can be found within the Variations for each product.",
+                                "new_lines": "wpautop",
+                                "esc_html": 0
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
                     }
                 },
                 "button_label": "Add Section",
@@ -2824,6 +3080,13 @@
                     "param": "page_template",
                     "operator": "==",
                     "value": "default"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
                 }
             ]
         ],
@@ -2840,6 +3103,44 @@
             "featured_image",
             "categories"
         ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_5aa99fad2dfc0",
+        "title": "WooCommerce Swatch Color",
+        "fields": [
+            {
+                "key": "field_5aa99fd6fbb2b",
+                "label": "Swatch Color",
+                "name": "swatch_color",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "all"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
         "active": 1,
         "description": ""
     }
