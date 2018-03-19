@@ -64,11 +64,50 @@ PLOKI
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
+                // Add Featured Image
+                array_unshift($galleryImages, $product->get_image_id());
+
+                // Cart data
+                global $woocommerce;
+                $wc_cart_items = $woocommerce->cart->get_cart();
+                $wc_notices = wc_get_notices();
+
+            ?>
+            
+            <!--
+            PLOKI
+
+                // NOTICES
+                <?php print_r($wc_notices); ?>
+
+                // CART COUNT
+                <?php print_r(count($wc_cart_items)); ?>
+
+            -->
+
 			<?php //wc_get_template_part( 'content', 'single-product' ); ?>
 
             <div class="container-fluid no-banner">
                 <div class="row product-pairing-wrapper product-wrapper">
-                        <p class="product-pairing"><a href="#">ADD A TIRE PAIRING <span><i class="fal fa-plus"></i></span></a></p>
+                    
+                  <?php
+                    // PRINT NOTICES
+
+                        $all_notices  = WC()->session->get( 'wc_notices', array() );
+                        $notice_types = apply_filters( 'woocommerce_notice_types', array( 'error', 'success', 'notice' ) );
+
+                        foreach ( $notice_types as $notice_type ) {
+                            if ( wc_notice_count( $notice_type ) > 0 ) {
+                                wc_get_template( "notices/{$notice_type}.php", array(
+                                    'messages' => array_filter( $all_notices[ $notice_type ] ),
+                                ) );
+                            }
+                        }
+
+                        wc_clear_notices();
+                    ?>
+                    
+                  <p class="product-pairing"><a href="#">ADD A TIRE PAIRING <span><i class="fal fa-plus"></i></span></a></p>
                   <div class="col-sm-5 col-sm-push-5 col-md-6 col-md-push-5 col-lg-7 col-lg-push-4">
                     <div class="product-image-height" id="product-image-carousel">
                         <?php foreach( $galleryImages as $attachment_id ) { ?>
