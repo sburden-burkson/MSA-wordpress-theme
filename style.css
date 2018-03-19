@@ -1388,6 +1388,10 @@ hr {
 .blog-wrapper,
 .collection-wrapper {
   background-color: #F2F2F2; }
+.pagination-links {
+  padding-bottom: 50px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; }
 
 /* Filters
    ================== */
@@ -1495,8 +1499,7 @@ hr {
   min-height: 250px; }
 
 .featured-blog {
-  width: 90%;
-  padding-top: 50px; }
+  width: 90%; }
 
 .featured-blog-info-wrap {
   padding: 60px 60px 30px; }

@@ -1,7 +1,5 @@
 <?php
-  $column_count = 0;
-  if( have_rows('info_image_pair') ): while ( have_rows('info_image_pair') ) : $column_count++; the_row();
-  endwhile; endif;
+  $column_count = count(get_sub_field('info_image_pair'));
 ?>
 <!-- Info Image Columns  -->
 <?php if( have_rows('info_image_pair') ): ?>

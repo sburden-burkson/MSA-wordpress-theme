@@ -8,7 +8,7 @@
 get_header(); ?>
 
 <?php
-the_content();
+  the_content();
   $blog_page = get_option('page_for_posts');
   if( have_rows('sections', $blog_page) ):
     // loop through the rows of data
@@ -23,11 +23,11 @@ the_content();
     endwhile;
   endif;
 ?>
-
 <div class="section blog-wrapper light-bg" style="background-image: url('');">
   <div class="container-fluid">
     <div class="blog-item-container">
 <?php
+    $current_year = date('Y');
     //Get Featured Post
     $featured_args = array(
         'posts_per_page' => 1,
@@ -36,8 +36,10 @@ the_content();
     );
     $featured_query = new WP_Query($featured_args);
 
-    if ($featured_query->have_posts()) : while ($featured_query->have_posts()): $featured_query->the_post();
+    if ($featured_query->have_posts()) :
+      while ($featured_query->have_posts()): $featured_query->the_post();
         $featured_id = get_the_ID();
+        $post_date = ($current_year == get_the_date('Y')) ? get_the_date('M j.') : get_the_date('M j, Y');
         $featured_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 ?>
     <!--  Featured Blog Item -->
@@ -54,7 +56,7 @@ the_content();
             <a href="<?php the_permalink(); ?>"><h3 class="text-uppercase pad-bottom"><?php the_title(); ?></h3></a>
             <p><?php the_excerpt(); ?></p>
             <p class="pad-top"><a href="<?php the_permalink(); ?>" class="btn wp-btn-extra-long wp-btn-red">READ MORE <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
-            <p class="text-right main-font">Feb 21.</p>
+            <p class="text-right main-font"><?php echo $post_date; ?></p>
           </div>
         </div>
       </div>
@@ -73,8 +75,10 @@ the_content();
           );
           $query = new WP_Query($args);
 
-          if ( $query->have_posts()) : while ( $query->have_posts()) :  $query->the_post();
+          if ( $query->have_posts()) :
+            while ( $query->have_posts()) :  $query->the_post();
               $thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id(  $post->ID ), 'medium' );
+              $post_date = ($current_year == get_the_date('Y')) ? get_the_date('M j.') : get_the_date('M j, Y');
               // get_the_ID()
       ?>
       <div class="blog-item">
@@ -85,17 +89,18 @@ the_content();
               <a href="<?php the_permalink(); ?>" class="text-uppercase"><h3><?php the_title(); ?></h3></a>
         </div>
         <div class="blog-item-more">
-          <p>Feb 21. <span><a href="<?php the_permalink(); ?>"><i class="fal fa-long-arrow-right fa-lg"></i></a></span></p>
+          <p><?php echo $post_date; ?> <span><a href="<?php the_permalink(); ?>"><i class="fal fa-long-arrow-right fa-lg"></i></a></span></p>
         </div>
       </div>
-    <?php endwhile; endif; ?>
-
-      <div class="container text-center" style="padding: 20px; font-family: 'Barlow Condensed', sans-serif; font-size: 16px;"><?php echo paginate_links( array( 'total' => $query->max_num_pages ) ); ?></div>
-
-      <!-- <div class="nav-previous alignleft"><?php next_posts_link( 'Older posts' ); ?></div>
-      <div class="nav-next alignright"><?php previous_posts_link( 'Newer posts' ); ?></div> -->
+    <?php endwhile; //endif; ?>
     </div>
   </div>
 </div><!-- /.container -->
+<div class="blog-wrapper">
+  <div class="container text-center pagination-links">
+    <?php echo paginate_links( array( 'total' => $query->max_num_pages ) ); ?>
+  </div>
+</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>

@@ -4,9 +4,10 @@
     $vertical_padding = get_sub_field('vertical_padding');
     $texture_top = get_sub_field('texture_top');
     $texture_bottom = get_sub_field('texture_bottom');
-    $column_count = 0;
-    if( have_rows('columns') ): while ( have_rows('columns') ) : $column_count++; the_row();
-    endwhile; endif;
+    $column_count = count(get_sub_field('columns'));
+    // $column_count = 0;
+    // if( have_rows('columns') ): while ( have_rows('columns') ) : $column_count++; the_row();
+    // endwhile; endif;
 ?>
 
 <?php
