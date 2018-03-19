@@ -48,13 +48,14 @@ Text Domain: msa-wheels
     4. Accessories page
     5. Warranty page
     6. Product page
-    7. Collection page
-    8. Blog page and posts
-    9. FAQ page
-    10. About page
-    11. Media Queries (MIN)
-    12. Media Queries (MAX)
-    . Checkout pages (COMING SOON!)
+    7. Shop/Collection page
+    8. Cart page
+    9. Checkout pages
+    10. Blog page and posts
+    11. FAQ page
+    12. About page
+    13. Media Queries (MIN)
+    14. Media Queries (MAX)
 */
 /* ===================================
    1) SCSS VARIABLES
@@ -139,8 +140,37 @@ input.form-control {
 .wp-btn-extra-long {
   padding: 10px 15px 10px 30px; }
 
-.wp-btn-no-arrow {
-  padding: 10px 30px 10px 30px; }
+.woocommerce button.button,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {
+  padding: 10px 55px 10px 30px !important; }
+
+.woocommerce #respond input#submit.disabled,
+.woocommerce #respond input#submit:disabled,
+.woocommerce #respond input#submit:disabled[disabled],
+.woocommerce a.button.disabled,
+.woocommerce a.button:disabled,
+.woocommerce a.button:disabled[disabled],
+.woocommerce button.button.disabled,
+.woocommerce button.button:disabled,
+.woocommerce button.button:disabled[disabled],
+.woocommerce input.button.disabled,
+.woocommerce input.button:disabled,
+.woocommerce input.button:disabled[disabled],
+.woocommerce #respond input#submit.disabled:hover,
+.woocommerce #respond input#submit:disabled:hover,
+.woocommerce #respond input#submit:disabled[disabled]:hover,
+.woocommerce a.button.disabled:hover,
+.woocommerce a.button:disabled:hover,
+.woocommerce a.button:disabled[disabled]:hover,
+.woocommerce button.button.disabled:hover,
+.woocommerce button.button:disabled:hover,
+.woocommerce button.button:disabled[disabled]:hover,
+.woocommerce input.button.disabled:hover,
+.woocommerce input.button:disabled:hover,
+.woocommerce input.button:disabled[disabled]:hover {
+  color: rgba(255, 255, 255, 0.97); }
 
 .woocommerce-error,
 .woocommerce-info,
@@ -168,8 +198,12 @@ input.form-control {
   letter-spacing: 0.15em;
   margin: 10px auto; }
 
-.wp-btn-red {
-  background-image: url("/wp-content/themes/msawheels/icons/red-bg.png");
+.wp-btn-red,
+.woocommerce button.button,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {
+  background-image: url("/wp-content/themes/msawheels/icons/red-bg.png") !important;
   background-position: 50% 50%;
   background-size: cover;
   border-radius: 0;
@@ -177,12 +211,39 @@ input.form-control {
   font-family: "Barlow Condensed", sans-serif;
   font-size: 14px;
   letter-spacing: 0.15em;
-  margin: 10px auto; }
+  margin: 10px auto;
+  text-transform: uppercase;
+  line-height: 0 !important;
+    -webkit-font-smoothing: inherit;
+  height: 38px; }
+
+#add_payment_method .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {
+    line-height: normal !important;
+}
+
+.woocommerce button.button:before,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button:before,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:before,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:before {
+  display: inline-block;
+  float: right;
+  content: "\f178";
+  font-family: 'Font Awesome\ 5 Pro';
+  font-weight: 300;
+  font-size: 1.33333em;
+  vertical-align: -.0667em;
+  margin-right: -30px; }
 
 .wp-btn-no-icon {
   padding: 10px 35px; }
 
-.wp-btn-red:active {
+.wp-btn-red:active,
+.woocommerce button.button:active,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button:active,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:active,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:active {
   background-image: url("/wp-content/themes/msawheels/icons/red-bg.png");
   box-shadow: none; }
 
@@ -190,7 +251,18 @@ input.form-control {
   background-image: url("/wp-content/themes/msawheels/icons/red-bg-sm.png");
   color: rgba(255, 255, 255, 0.97); }
 
-.wp-btn-red:hover, .wp-input-btn-red:hover, .wp-btn-red:focus, .wp-input-btn-red:focus {
+.wp-btn-red:hover,
+.wp-input-btn-red:hover,
+.wp-btn-red:focus,
+.wp-input-btn-red:focus,
+.woocommerce button.button:hover,
+.woocommerce button.button:focus,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button:hover,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:hover,
+#add_payment_method .wc-proceed-to-checkout a.checkout-button:focus,
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button:focus,
+.woocommerce-checkout .wc-proceed-to-checkout a.checkout-button:focus {
   color: rgba(255, 255, 255, 0.97); }
 
 .no-gutter > [class*='col-'] {
@@ -937,7 +1009,7 @@ nav {
       right: -100%;
       width: 100%;
       height: 100%;
-        /* Remove gutters */
+      /* Remove gutters */
       margin-right: 0;
       margin-left: 0; }
       .sidenav.active .sidenav-inner > .col,
@@ -1568,14 +1640,6 @@ hr {
   width: 100%;
   height: 100%; }
 
-/* Sign In Page (Checkout)
-   ================== */
-.sign-in-right .form-group {
-  margin-top: 20px; }
-
-.signInHeight {
-  padding-bottom: 50px; }
-
 /* Carousel
    ================== */
 #staggeredCarousel {
@@ -1929,7 +1993,90 @@ hr {
   position: relative; }
 
 /* ===================================
-   8) BLOG PAGE
+   8) CART PAGE
+   =================================== */
+.woocommerce-cart table.cart {
+  border: 0; }
+  .woocommerce-cart table.cart th {
+    text-transform: uppercase;
+    color: #888;
+    font-weight: 300;
+    padding: 0; }
+  .woocommerce-cart table.cart th.product-remove,
+  .woocommerce-cart table.cart td.product-remove {
+    display: none; }
+  .woocommerce-cart table.cart th.product-thumbnail {
+    line-height: 0; }
+    .woocommerce-cart table.cart th.product-thumbnail:before {
+      content: 'PRODUCT';
+      display: block;
+      line-height: normal; }
+  .woocommerce-cart table.cart th.product-name {
+    opacity: 0; }
+  .woocommerce-cart table.cart td {
+    padding: 18px 0 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.2); }
+  .woocommerce-cart table.cart td.product-thumbnail img {
+    width: 100px; }
+  .woocommerce-cart table.cart td.product-name a {
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; }
+  .woocommerce-cart table.cart td.product-name dl.variation dt,
+  .woocommerce-cart table.cart td.product-name dl.variation dd p {
+    padding-top: 6px;
+    display: block;
+    font-size: 12px; }
+  .woocommerce-cart table.cart td.product-price,
+  .woocommerce-cart table.cart td.product-subtotal {
+    color: grey; }
+  .woocommerce-cart table.cart th.product-subtotal,
+  .woocommerce-cart table.cart td.product-subtotal {
+    text-align: right; }
+  .woocommerce-cart table.cart td.actions button[name=update_cart]:before {
+    content: '\f021';
+    font-size: 12px; }
+
+.woocommerce-cart .woocommerce .cart-collaterals .cart_totals {
+  float: none;
+  width: 100%;
+  text-align: right; }
+  .woocommerce-cart .woocommerce .cart-collaterals .cart_totals h2 {
+    display: none; }
+  .woocommerce-cart .woocommerce .cart-collaterals .cart_totals table.shop_table {
+    border: 0; }
+    .woocommerce-cart .woocommerce .cart-collaterals .cart_totals table.shop_table tr.cart-subtotal,
+    .woocommerce-cart .woocommerce .cart-collaterals .cart_totals table.shop_table tr.order-total th {
+      display: none; }
+    .woocommerce-cart .woocommerce .cart-collaterals .cart_totals table.shop_table td {
+      padding: 0; }
+    .woocommerce-cart .woocommerce .cart-collaterals .cart_totals table.shop_table tr.order-total td {
+      text-align: right;
+      padding: 18px 0;
+      border-bottom: solid 1px lightgrey;
+      border-top: solid 1px lightgrey; }
+  .woocommerce-cart .woocommerce .cart-collaterals .cart_totals .wc-proceed-to-checkout {
+    display: inline-block; }
+
+.woocommerce-cart .woocommerce #content table.cart td.actions .input-text,
+.woocommerce-cart .woocommerce table.cart td.actions .input-text,
+.woocommerce-cart .woocommerce-page #content table.cart td.actions .input-text,
+.woocommerce-cart .woocommerce-page table.cart td.actions .input-text {
+  width: inherit; }
+
+/* ===================================
+   9) CHECKOUT PAGES
+   =================================== */
+/* Sign In Page
+================== */
+.sign-in-right .form-group {
+  margin-top: 20px; }
+
+.signInHeight {
+  padding-bottom: 50px; }
+
+/* ===================================
+   10) BLOG PAGE
    =================================== */
 .featuredBlogHeight {
   min-height: 250px; }
@@ -1988,7 +2135,7 @@ hr {
   margin: 0px auto 50px; }
 
 /* ===================================
-   9) FAQ PAGE
+   11) FAQ PAGE
    =================================== */
 /* Accordion
    ================== */
@@ -2032,13 +2179,13 @@ hr {
     font-size: 14px; }
 
 /* ===================================
-   10) ABOUT PAGE
+   12) ABOUT PAGE
    =================================== */
 .about-top {
   max-width: 600px; }
 
 /* ===================================
-   11) MEDIA QUERIES (MIN)
+   13) MEDIA QUERIES (MIN)
    =================================== */
 /* MIN 480px (small mobile device or larger)
    ================== */
@@ -2085,8 +2232,11 @@ hr {
     padding: 10px 15px 10px 45px;
     font-size: 14px;
     font-weight: 300; }
-  .wp-btn-no-arrow {
-    padding: 10px 45px 10px 45px;
+  .woocommerce button.button,
+  #add_payment_method .wc-proceed-to-checkout a.checkout-button,
+  .woocommerce-cart .wc-proceed-to-checkout a.checkout-button,
+  .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button {
+    padding: 10px 55px 10px 45px !important;
     font-size: 14px;
     font-weight: 300; }
   .filter-container .filter-results {
@@ -2213,7 +2363,7 @@ hr {
     min-height: 850px; } }
 
 /* ===================================
-   12) MEDIA QUERIES (MAX)
+   14) MEDIA QUERIES (MAX)
    =================================== */
 /* MAX 1213 (Average screen size or smaller)
    ================== */

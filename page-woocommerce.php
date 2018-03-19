@@ -7,8 +7,9 @@
 
 <div class="container no-banner">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-      <?php the_content(); ?>
+    
+        <div class="text-center pad-bottom"><h1 class="fw-300 text-uppercase"><?php the_title(); ?></h1></div>
+        <?php the_content(); ?>
 
     <?php endwhile; else: ?>
 
