@@ -3,7 +3,7 @@
   if( have_rows('article_sections') ):
 ?>
 <!--  Article Section -->
-  <div class="container article-body-wrap pad-top-bottom-xtra">
+  <div class="section container article-body-wrap pad-top-bottom-xtra">
   <?php
     // loop through the rows of data
     while ( have_rows('article_sections') ) : the_row();

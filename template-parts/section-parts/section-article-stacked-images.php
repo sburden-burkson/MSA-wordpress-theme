@@ -7,7 +7,7 @@
 
 <?php if( have_rows('image_caption_pair') ): ?>
 <!-- Stacked Image Section -->
-<div class="article-body">
+<div class="section article-body">
   <div class="staggered-image-section">
   <?php while ( have_rows('image_caption_pair') ) : $count++; $side_counter++; the_row();
         //vars
