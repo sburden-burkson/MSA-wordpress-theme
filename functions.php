@@ -134,6 +134,18 @@ function msawheels_widgets_init() {
        'before_title'  => '',
        'after_title'   => '',
      ) );
+    
+    /* NO LONGER USED
+    register_sidebar( array(
+       'name'          => __( 'Sidenav Cart' ),
+       'id'            => 'sidenav-cart',
+       'description'   => 'Widget area in popup after adding a product to the cart.',
+       'before_widget' => '<div class="sidenav-cart-widget-area">',
+       'after_widget'  => '</div>',
+       'before_title'  => '',
+       'after_title'   => '',
+     ) );
+     */
 }
 add_action( 'widgets_init', 'msawheels_widgets_init' );
 
@@ -550,6 +562,94 @@ add_action( 'woocommerce_save_product_variation', function( $variation_id, $i = 
         }
     }
 }, 10, 2 );
+
+
+/**
+ * Custom Add To Cart Messages HTML
+ **/
+function filter_wc_add_to_cart_message_html( $message, $products ) {
+    $orig_message = $message;
+    foreach($products as $product_id => $product_qty){
+        $message = 'ADDED_TO_CART::'.$product_id.'::'.$product_qty.'::'.$orig_message;
+    }
+    return $message;
+}
+add_filter( 'wc_add_to_cart_message_html', 'filter_wc_add_to_cart_message_html', 10, 2 );
+/* /Custom Add To Cart Messages */
+
+
+/* SET MOST RECENT CART ITEM */
+function filter_woocommerce_add_cart_item_data( $cart_item_data, $product_id, $variation_id ) { 
+    
+    global $woo_added_variation_id;
+    $woo_added_variation_id = $variation_id;
+    
+    return $cart_item_data;
+}
+add_filter( 'woocommerce_add_cart_item_data', 'filter_woocommerce_add_cart_item_data', 10, 3 );
+
+/* GET MOST RECENT CART ITEM */
+add_filter( 'woo_added_variation_id', 'return_added_variation_id' );
+function return_added_variation_id( $arg = '' ) {
+    global $woo_added_variation_id;
+    return $woo_added_variation_id;
+}
+
+
+/**
+ * Custom Variable in Cart Item Data
+ **/
+//Store the custom field
+add_filter( 'woocommerce_add_cart_item_data', 'add_cart_item_custom_data_vase', 10, 2 );
+function add_cart_item_custom_data_vase( $cart_item_meta, $product_id ) {
+  global $woocommerce;
+  //$cart_item_meta['test_field'] = $_POST['test_field'];
+  $cart_item_meta['install_kit'] = false;
+  return $cart_item_meta; 
+}
+
+//Get it from the session and add it to the cart variable
+function get_cart_items_from_session( $item, $values, $key ) {
+    if ( array_key_exists( 'install_kit', $values ) )
+        $item[ 'install_kit' ] = $values['install_kit'];
+    
+    // Not sure if this is better or worse
+    //$item[ 'install_kit' ] = (array_key_exists( 'install_kit', $values ))? $values['install_kit'] : false;
+    
+    return $item;
+}
+add_filter( 'woocommerce_get_cart_item_from_session', 'get_cart_items_from_session', 1, 3 );
+/* /Custom Variable in Cart Item Data */
+
+
+/* CART LINK / NUM OF ITEMS IN NAV MENU */
+add_filter( 'wp_nav_menu_items', 'add_cart_to_primary_nav', 10, 2 );
+function add_cart_to_primary_nav ( $items, $args ) {
+    
+    if ($args->theme_location == 'primary') {
+        $items .= '<li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="'.get_permalink( wc_get_page_id( 'cart' ) ).'">Cart ['.WC()->cart->get_cart_contents_count().']</a></li>';
+        /* MAKE SURE THIS HTML MATCHES BELOW (woocommerce_header_add_to_cart_fragment) */
+    }
+    return $items;
+}
+
+/* MAKE SURE CART NUMBER UPDATES WITH AJAX CHANGES */
+add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+    global $woocommerce;
+
+    ob_start();
+
+    ?>
+    <li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="<?= get_permalink( wc_get_page_id( 'cart' ) ) ?>">Cart [<?= WC()->cart->get_cart_contents_count() ?>]</a></li>
+    <?php
+        /* MAKE SURE THIS HTML MATCHES ABOVE (add_cart_to_primary_nav) */
+
+    $fragments['li.menu-item-cart'] = ob_get_clean();
+
+    return $fragments;
+
+}
 
 
 /**

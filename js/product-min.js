@@ -133,6 +133,21 @@ jQuery(function($){
         return false;
     });
     
+    // First run sync with select dropdown
+    $('table.variations tr td.value').each(function(){
+        var selectValue = $(this).find('select').val();
+        var customOptions = $(this).find('a.pa-option');
+            
+        customOptions.each(function(){
+            var currOption = $(this);
+            var attrValue = currOption.data('attrvalue');
+            
+            if(attrValue == selectValue) {
+                currOption.addClass('active');
+            }
+        });
+    });
+    
     // Product Image Carousel
     $('#product-image-carousel').slick({
       slidesToShow: 1,
