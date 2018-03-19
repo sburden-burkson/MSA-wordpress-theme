@@ -15,7 +15,7 @@ if( have_rows('columns') ):
 ?>
 <!-- 3 Column Section -->
 <?php if ($header_above_columns != ""): ?>
-  <div class="text-center pad-top-md">
+  <div class="text-center">
     <?php echo $header_above_columns; ?>
   </div>
 <?php endif; ?>

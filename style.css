@@ -527,10 +527,11 @@ ul.slick-dots li {
 
 .staggered-image-section {
   padding: 30px 0 60px; }
-  .staggered-image-section .stagger-top {
-    margin-top: -30px; }
-  .stagger-top .wp-table-cell p {
-    padding-top: 30px; }
+  .staggered-image-section .position-top {
+    z-index: 10; }
+  .staggered-image-section p {
+    margin-bottom: 10px;
+    padding-bottom: 30px; }
 
 .photo-grid .photo-grid-img {
   padding-bottom: 60px;
@@ -1651,6 +1652,8 @@ hr {
     margin: 0px auto 100px; }
   .collection-item-container {
     padding-top: 50px; }
+  .staggered-image-section .stagger-top {
+    margin-top: -30px; }
   .product-pairing-wrapper {
     padding: 30px;
     position: relative; }

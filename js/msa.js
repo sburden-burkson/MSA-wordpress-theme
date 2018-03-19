@@ -269,4 +269,7 @@ jQuery(document).ready(function ($) {
     $(this).addClass("active");
   });
 
+  // Article Stacked Images Section
+  $(".blogStagger").matchHeight();
+
 });
