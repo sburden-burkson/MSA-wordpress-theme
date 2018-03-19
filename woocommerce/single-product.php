@@ -82,7 +82,7 @@ get_header( 'shop' ); ?>
                         wc_clear_notices();
                     ?>
                     
-                  <p class="product-pairing"><a href="#">ADD A TIRE PAIRING <span><i class="fal fa-plus"></i></span></a></p>
+                  <p class="product-pairing" style="display: none;"><a href="#">ADD A TIRE PAIRING <span><i class="fal fa-plus"></i></span></a></p>
                   <div class="col-sm-5 col-sm-push-5 col-md-6 col-md-push-5 col-lg-7 col-lg-push-4">
                     <div class="product-image-height" id="product-image-carousel">
                         <?php foreach( $galleryImages as $attachment_id ) { ?>
