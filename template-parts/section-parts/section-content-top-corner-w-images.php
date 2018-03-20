@@ -5,11 +5,12 @@
     $background_image = get_sub_field('background_image');
     $column_pull = ($content_side == 'right') ? " col-sm-pull-6 " : " ";
     $column_push = ($content_side == 'right') ? " col-sm-push-6 " : " ";
-    $other_side = ($content_side == 'right') ? 'left' : 'right';
+    $other_side = ($content_side == 'right') ? "left" : "right";
+    $more_padding_around_images = (get_sub_field('more_padding_around_images')) ? "-lg" : "";
 ?>
 
 <!-- Content on Side with Images -->
-<div class="section container v-center-section photo-grid">
+<div class="section container v-center-section photo-grid<?php echo $more_padding_around_images; ?>">
   <div class="row">
     <div class="col-sm-6<?php echo $column_push; ?>photo-grid-<?php echo $content_side; ?>">
     <?php

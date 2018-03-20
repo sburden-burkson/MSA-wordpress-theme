@@ -36,8 +36,8 @@
 			elseif( get_row_layout() == 'info_image_columns' ):
 				get_template_part( 'template-parts/section-parts/section', 'info-image-columns');
 
-			elseif( get_row_layout() == 'content_on_side_with_images' ):
-				get_template_part( 'template-parts/section-parts/section', 'content-sided-images');
+			elseif( get_row_layout() == 'content_top_corner_with_images' ):
+				get_template_part( 'template-parts/section-parts/section', 'content-top-corner-w-images');
 
 			elseif( get_row_layout() == 'article' ):
 				get_template_part( 'template-parts/section-parts/section', 'article');

@@ -1,9 +1,11 @@
 <?php
+  //vars
+  $width_restriction = (get_sub_field('restrict_width')) ? " article-body-wrap" : "";
   // check if the flexible content field has rows of data
   if( have_rows('article_sections') ):
 ?>
 <!--  Article Section -->
-  <div class="section container article-body-wrap pad-top-bottom-xtra">
+  <div class="section container pad-top-bottom-xtra<?php echo $width_restriction; ?>">
   <?php
     global $articleBody;
     // loop through the rows of data

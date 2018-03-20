@@ -1536,6 +1536,25 @@
                                 "button_label": "Add Article Section",
                                 "min": "",
                                 "max": ""
+                            },
+                            {
+                                "key": "field_5ab1758860372",
+                                "label": "Restrict Width?",
+                                "name": "restrict_width",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 1,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
                             }
                         ],
                         "min": "",
@@ -3033,8 +3052,8 @@
                     },
                     "5aac0e3c7ae0a": {
                         "key": "5aac0e3c7ae0a",
-                        "name": "content_on_side_with_images",
-                        "label": "Content on Side with Images",
+                        "name": "content_top_corner_with_images",
+                        "label": "Content in Top Corner with Images",
                         "display": "block",
                         "sub_fields": [
                             {
@@ -3170,6 +3189,25 @@
                                         "mime_types": ""
                                     }
                                 ]
+                            },
+                            {
+                                "key": "field_5ab172865b8e4",
+                                "label": "More Padding around Images?",
+                                "name": "more_padding_around_images",
+                                "type": "true_false",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "message": "",
+                                "default_value": 0,
+                                "ui": 0,
+                                "ui_on_text": "",
+                                "ui_off_text": ""
                             }
                         ],
                         "min": "",

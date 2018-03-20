@@ -6,10 +6,8 @@
 ?>
 
 <!-- Text Section -->
-<div class="section container article-body-wrap pad-top-bottom-xtra">
-  <h3 class="article-header text-center text-uppercase"><?php echo $header; ?></h3>
-  <div class="article-body">
-      <?php echo $text; ?>
-  </div>
+<h3 class="article-header text-center text-uppercase"><?php echo $header; ?></h3>
+<div class="article-body">
+    <?php echo $text; ?>
 </div>
 <!-- /Text Section -->
