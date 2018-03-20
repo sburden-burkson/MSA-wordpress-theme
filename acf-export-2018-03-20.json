@@ -931,6 +931,102 @@
                         "min": "",
                         "max": "1"
                     },
+                    "5ab13a270ab36": {
+                        "key": "5ab13a270ab36",
+                        "name": "top_video_background",
+                        "label": "Top Video Background",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5ab13a350ab37",
+                                "label": "Video Website",
+                                "name": "video_website",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "vimeo": "Vimeo",
+                                    "youtube": "Youtube"
+                                },
+                                "default_value": [],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5ab13acc0ab38",
+                                "label": "Video ID",
+                                "name": "video_id",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_5ab13e720b53f",
+                                "label": "Video Width",
+                                "name": "video_width",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            },
+                            {
+                                "key": "field_5ab13e800b540",
+                                "label": "Video Height",
+                                "name": "video_height",
+                                "type": "number",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "min": "",
+                                "max": "",
+                                "step": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": "1"
+                    },
                     "5aa95ceff52b2": {
                         "key": "5aa95ceff52b2",
                         "name": "full_section",
