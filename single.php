@@ -5,36 +5,41 @@
  */
 
 get_header(); ?>
-
+<?php
+	$current_year = date('Y');
+	$post_date = ($current_year == get_the_date('Y')) ? get_the_date('M j') : get_the_date('M j, Y');
+	$tags = get_the_tags();
+?>
 <!-- Page Content -->
-<div class="main-content fullpage-content" data-fp-disabled="true" id="blog-article-content">
-	<div class="section">
-		<div class="container k-full-width k-article-width-md">
-
-		<?php while ( have_posts() ) : the_post();
-				$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
-		?>
-				<div class="article-banner-wrap">
-					<img class="article-banner" src="<?php echo $thumbnail[0]; ?>" alt="<?php the_title(); ?>">
-				</div>
-				<div class="article-body-wrap">
-					<h1 class="article-header text-center text-uppercase"><?php the_title(); ?></h1>
-					<div class="article-body">
-						<?php the_content(); ?>
-					</div>
-				</div>
-		<?php endwhile; ?>
-
-		</div>
-	</div>
-</div>
+	<div class="section container container-wide no-banner">
+    <div class="row">
+      <div class="col-sm-9">
+        <h1 class="article-title"><?php the_title(); ?></h1>
+      </div>
+      <div class="col-sm-3">
+        <div class="article-info">
+          <p class="main-font black fw-500 text-uppercase">POSTED <?php echo $post_date; ?></p>
+          <div class="article-tag-wrap">
+					<?php if($tags) : ?>
+            <p class="main-font">TAGGED</p>
+            <div class="article-tags">
+							<?php foreach ($tags as $tag): ?>
+								<a href="<?php echo get_tag_link($tag->term_id); ?>"><span class="text-uppercase"><?php echo $tag->name; ?></span></a>
+							<?php endforeach; ?>
+            </div>
+					<?php endif; ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <!-- /.container -->
 <?php
     // Format article body content to strip multiple line breaks
-    $articleBody = strip_tags(get_the_content());
-    $articleBody = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n\n", $articleBody);
+    // $articleBody = strip_tags(get_the_content());
+    // $articleBody = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n\n", $articleBody);
 ?>
-<script type="application/ld+json">
+<!-- <script type="application/ld+json">
 {
   "@context": "http://schema.org/",
   "@type": "BlogPosting",
@@ -58,7 +63,6 @@ get_header(); ?>
   },
   "articleBody": "<?php echo $articleBody; ?>"
 }
-</script>
-}
+</script> -->
 
 <?php get_footer(); ?>

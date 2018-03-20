@@ -13,6 +13,9 @@
 <!-- Top Section No Background -->
 <div class="section container no-banner <?php echo $centered_text . $width_restriction; ?>">
   <?php echo $section_content; ?>
+  <?php if ($tag_name): ?>
+    <h4 class="text-uppercase fw-300">#<?php echo $tag_name; ?></h4>
+  <?php endif; ?>
   <?php if ($add_a_button): ?>
     <p class="<?php echo $centered_text ?>pad-top"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
   <?php endif; ?>
