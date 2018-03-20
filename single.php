@@ -56,10 +56,10 @@ get_header(); ?>
 <?php endwhile; endif; ?>
 
 <?php
-    // Format article body content to strip multiple line breaks
+    // Format article body content to strip line breaks
+		$articleBody = (get_the_content() == "") ? $articleBody : get_the_content() . " " . $articleBody;
     $articleBody = strip_tags($articleBody);
 		$articleBody = trim(preg_replace('/\s+/', ' ', $articleBody));
-    // $articleBody = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n\n", $articleBody);
 ?>
 <script type="application/ld+json">
 {
