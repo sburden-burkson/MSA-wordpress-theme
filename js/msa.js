@@ -272,4 +272,35 @@ jQuery(document).ready(function ($) {
   // Article Stacked Images Section
   $(".blogStagger").matchHeight();
 
+  // Video Section
+  function checkIframeLoaded() {
+    // Get a handle to the iframe element
+    var iFrameHeight = $('#topVideo').height();
+    // Check if loading is complete
+    if ( iFrameHeight > 10 ) {
+      videoSizing();
+      return;
+    }
+    // If we are here, it is not loaded. Set things up so we check the status again in 100 milliseconds
+    window.setTimeout(checkIframeLoaded, 100);
+  }
+  function videoSizing() {
+    var width = parseInt(document.getElementById("topVideo").width);
+    var height = parseInt(document.getElementById("topVideo").height);
+    if ($(window).width() > 480) {
+      var percentage = (height/width) * 100;
+      // console.log("480+: "+percentage);
+    } else {
+      var percentage = (height/width) * 200;
+      // console.log("not 480: "+percentage);
+    }
+    $('.home-video-wrapper').css('padding-bottom', percentage + '%');
+  }
+
+  checkIframeLoaded();
+
+  $(window).on('resize', function() {
+    videoSizing();
+  });
+
 });

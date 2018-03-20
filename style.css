@@ -1126,10 +1126,12 @@ hr {
 /* Video Banner (Home)
    ================== */
 .home-video-wrapper {
+  width: 100%;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   /* padding-bottom percentage is screen resolution ratio e.g.: (720/1280)*100% */
-  padding-bottom: 42.25%; }
+  /* padding-bottom: 42.25%; */
+    padding-bottom: 56.25%; }
 
 .home-video-wrapper iframe,
 .home-video-wrapper object,
@@ -2024,6 +2026,11 @@ hr {
     top: 0;
     width: 100%;
     z-index: 999; }
+  .home-video-wrapper iframe,
+  .home-video-wrapper object,
+  .home-video-wrapper embed {
+    width: 200%;
+    margin-left: -50%; }
   .filter-container2 {
     padding-left: 15px;
     padding-right: 15px; }
