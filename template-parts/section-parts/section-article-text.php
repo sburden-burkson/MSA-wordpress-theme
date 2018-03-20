@@ -2,6 +2,7 @@
     //vars
     $header = get_sub_field('header');
     $text = get_sub_field('text');
+  	$articleBody .= $header . " - " . $text;
 ?>
 
 <!-- Text Section -->

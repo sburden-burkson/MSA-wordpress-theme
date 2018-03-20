@@ -10,7 +10,7 @@ get_header(); ?>
 	$post_date = ($current_year == get_the_date('Y')) ? get_the_date('M j') : get_the_date('M j, Y');
 	$tags = get_the_tags();
 ?>
-<!-- Page Content -->
+<!-- Top Article Info -->
 	<div class="section container container-wide no-banner">
     <div class="row">
       <div class="col-sm-9">
@@ -33,13 +33,35 @@ get_header(); ?>
       </div>
     </div>
   </div>
-<!-- /.container -->
+<!-- /Top Article Info -->
+<!-- Featured Banner -->
+	<?php
+		//vars
+		$featured_image = get_the_post_thumbnail_url('', 'full');
+		$texture_top = get_field('featured_image_texture_top');
+		$texture_bottom = get_field('featured_image_texture_bottom');
+	?>
+
+	<div class="section article-featured-image half-bg texture-section" style="background-image: url('<?php echo $featured_image; ?>');">
+		<div class="texture-top" style="background-image: url('<?php echo $texture_top; ?>');');"></div>
+    <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
+  </div>
+<!-- /Featured Banner -->
+
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+    <?php the_content(); ?>
+    <?php get_template_part( 'template-parts/content', 'sections'); ?>
+
+<?php endwhile; endif; ?>
+
 <?php
     // Format article body content to strip multiple line breaks
-    // $articleBody = strip_tags(get_the_content());
+    $articleBody = strip_tags($articleBody);
+		$articleBody = trim(preg_replace('/\s+/', ' ', $articleBody));
     // $articleBody = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n\n", $articleBody);
 ?>
-<!-- <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "http://schema.org/",
   "@type": "BlogPosting",
@@ -63,6 +85,6 @@ get_header(); ?>
   },
   "articleBody": "<?php echo $articleBody; ?>"
 }
-</script> -->
+</script>
 
 <?php get_footer(); ?>
