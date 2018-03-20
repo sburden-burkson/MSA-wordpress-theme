@@ -86,11 +86,15 @@ function msawheels_theme_js() {
     }
 
     if ( is_product() ) {
-        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery'), '', true );
     }
     
     if ( is_product_category() ) {
-        wp_enqueue_script( 'collection_js', get_template_directory_uri() . '/js/collection-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+        wp_enqueue_script( 'collection_js', get_template_directory_uri() . '/js/collection-min.js', array('jquery'), '', true );
+    }
+    
+    if ( is_checkout() ) {
+        wp_enqueue_script( 'checkout_js', get_template_directory_uri() . '/js/checkout-min.js', array('jquery'), '', true );
     }
 
     if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
@@ -134,18 +138,6 @@ function msawheels_widgets_init() {
        'before_title'  => '',
        'after_title'   => '',
      ) );
-    
-    /* NO LONGER USED
-    register_sidebar( array(
-       'name'          => __( 'Sidenav Cart' ),
-       'id'            => 'sidenav-cart',
-       'description'   => 'Widget area in popup after adding a product to the cart.',
-       'before_widget' => '<div class="sidenav-cart-widget-area">',
-       'after_widget'  => '</div>',
-       'before_title'  => '',
-       'after_title'   => '',
-     ) );
-     */
 }
 add_action( 'widgets_init', 'msawheels_widgets_init' );
 
@@ -484,35 +476,36 @@ function override_color_variation_display( $html, $args ) {
     // Attribute options
     $options = $args['options'];
     $html .= "\n".'$options = '.json_encode($options)."\n";
-
-    // Check for color options
-    $isColorAttribute = false;
     
-    $html .= '============== -->'."\n\n";
-
-    // Get color values for attribute color swatches
-    // CAN WE LIMIT THIS TO ATTRIBUTES OF CURRENT PRODUCT???
-    /*
-    $colorVals = [];
-    $productAttributes = wc_get_attribute_taxonomies();
-    foreach($productAttributes as $attr){
-        $colorVals[$attr->attribute_name] = [];
-        foreach(get_terms('pa_'.$attr->attribute_name) as $term){
-            $term_meta = get_term_meta($term->term_id);
-            if(isset($term_meta['swatch_color'])){
-                $colorVals[$attr->attribute_name][$term->slug] = $term_meta['swatch_color'][0];
+    // Attribute names
+    $attrTerms = get_the_terms( get_the_id(), $attrSlug );
+    $options_more = [];
+    foreach($options as $attrValue){
+        $term_found = false;
+        foreach($attrTerms as $currTerm){
+            if($currTerm->slug == $attrValue){
+                $term_found = true;
+                $term_meta = get_term_meta($currTerm->term_id);
+                if(isset($term_meta['swatch_color']) && is_array($term_meta['swatch_color']) && count($term_meta['swatch_color']) > 0){
+                    $options_more[] = ['name' => $currTerm->name, 'value' => $attrValue, 'swatch_color' => $term_meta['swatch_color'][0]];
+                }else{
+                    $options_more[] = ['name' => $currTerm->name, 'value' => $attrValue];
+                }
             }
         }
-    }*/
-    
-    if($isColorAttribute){
-        foreach($options as $attrValue){
-            $hexColor = 'pink';
-            $html .= '<a href="#" class="pa-option" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attrValue.'" data-tooltip="'.$option.'"><i class="myCircle" style="background-color:'.$hexColor.';"></i></a>';
+        if(!$term_found){
+            $options_more[] = ['name' => $attrValue, 'slug' => $attrValue];
         }
-    }else{
-        foreach($options as $attrValue){
-            $html .= '<a href="#" class="pa-option pa-color-swatch" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attrValue.'">'.$attrValue.'</a>';
+    }
+    $html .= "\n".'$options_more = '.json_encode($options_more)."\n";
+    
+    $html .= '============== -->'."\n\n";
+    
+    foreach($options_more as $attr){
+        if(isset($attr['swatch_color'])){
+            $html .= '<a href="#" class="pa-option pa-color-swatch hover-tooltip-trigger" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attr['value'].'" data-tooltip="'.$attr['name'].'"><i class="myCircle" style="background-color:'.$attr['swatch_color'].';"></i></a>';
+        }else{
+            $html .= '<a href="#" class="pa-option" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attr['value'].'">'.$attr['name'].'</a>';
         }
     }
 
@@ -651,6 +644,18 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
 }
 
+
+/* ADD PLACEHOLDERS TO INPUTS */
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+function custom_override_checkout_fields( $fields ) {
+    foreach($fields as $field_grp => $fields_arr){
+        foreach($fields_arr as $field_key => $field_data){
+            $fields[$field_grp][$field_key]['placeholder'] = $field_data['label'];
+        }
+    }
+    return $fields;
+}
+/* /ADD PLACEHOLDERS TO INPUTS */
 
 /**
  * Extend get terms with post type parameter.
