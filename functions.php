@@ -87,11 +87,15 @@ function msawheels_theme_js() {
     }
 
     if ( is_product() ) {
-        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery'), '', true );
     }
     
     if ( is_product_category() ) {
-        wp_enqueue_script( 'collection_js', get_template_directory_uri() . '/js/collection-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+        wp_enqueue_script( 'collection_js', get_template_directory_uri() . '/js/collection-min.js', array('jquery'), '', true );
+    }
+    
+    if ( is_checkout() ) {
+        wp_enqueue_script( 'checkout_js', get_template_directory_uri() . '/js/checkout-min.js', array('jquery'), '', true );
     }
 
     if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
@@ -135,18 +139,6 @@ function msawheels_widgets_init() {
        'before_title'  => '',
        'after_title'   => '',
      ) );
-    
-    /* NO LONGER USED
-    register_sidebar( array(
-       'name'          => __( 'Sidenav Cart' ),
-       'id'            => 'sidenav-cart',
-       'description'   => 'Widget area in popup after adding a product to the cart.',
-       'before_widget' => '<div class="sidenav-cart-widget-area">',
-       'after_widget'  => '</div>',
-       'before_title'  => '',
-       'after_title'   => '',
-     ) );
-     */
 }
 add_action( 'widgets_init', 'msawheels_widgets_init' );
 
@@ -343,6 +335,138 @@ function mytheme_add_woocommerce_support() {
 }
 add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
+// Display variation's price even if min and max prices are the same
+// MIGHT NOT BE NEEDED
+add_filter('woocommerce_available_variation', function ($value, $object = null, $variation = null) {
+  if ($value['price_html'] == '') {
+    $value['price_html'] = '<span class="price">' . $variation->get_price_html() . '</span>';
+  }
+  return $value;
+}, 10, 3);
+
+// Change variation prices to be just the minimum price
+add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
+function custom_variation_price( $price, $product ) {
+    //if ( ! empty($product->min_variation_price) ) {
+        $price = '<span class="from">' . _x('BASE MODEL: ', 'min_price', 'woocommerce') . ' </span>';
+        $price .= woocommerce_price($product->get_price());
+    //}
+
+    return $price;
+}
+
+// Override WooCommerce attributes html
+add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'override_color_variation_display', 10, 2);
+function override_color_variation_display( $html, $args ) {
+    $html_orig = $html;
+    
+    /* Example $html values:
+       
+         1) <select id="wheel-size" class="" name="attribute_wheel-size" data-attribute_name="attribute_wheel-size" data-show_option_none="yes"><option value="">Choose an option</option><option value="14x7 0mm" >14x7 0mm</option><option value="15x7 0mm" >15x7 0mm</option></select>
+         
+         2) <select id="bolt-pattern" class="" name="attribute_bolt-pattern" data-attribute_name="attribute_bolt-pattern" data-show_option_none="yes"><option value="">Choose an option</option><option value="4x110" >4x110</option><option value="4x137" >4x137</option><option value="4x156" >4x156</option></select>
+         
+         3) <select id="ring-color" class="" name="attribute_ring-color" data-attribute_name="attribute_ring-color" data-show_option_none="yes"><option value="">Choose an option</option><option value="Satin Black" >Satin Black</option></select>
+    */
+    
+    $html = str_replace('class="', 'style="display: none;" class="hidden ', $html);
+    
+    $html .= "\n\n".'<!--'."\n".'==============';
+    
+    //global $product;
+    //$html .= "\n".'$product->ID = '.$product->id."\n";
+    
+    $html .= "\n".'$html = '.$html_orig."\n";
+    $html .= "\n".'$args = '.json_encode($args)."\n";
+    
+    // Attribute name
+    $attrSlug = $args['attribute'];
+    $html .= "\n".'$attrSlug = '.$attrSlug."\n";
+
+    // Attribute options
+    $options = $args['options'];
+    $html .= "\n".'$options = '.json_encode($options)."\n";
+    
+    // Attribute names
+    $attrTerms = get_the_terms( get_the_id(), $attrSlug );
+    $options_more = [];
+    foreach($options as $attrValue){
+        $term_found = false;
+        foreach($attrTerms as $currTerm){
+            if($currTerm->slug == $attrValue){
+                $term_found = true;
+                $term_meta = get_term_meta($currTerm->term_id);
+                if(isset($term_meta['swatch_color']) && is_array($term_meta['swatch_color']) && count($term_meta['swatch_color']) > 0){
+                    $options_more[] = ['name' => $currTerm->name, 'value' => $attrValue, 'swatch_color' => $term_meta['swatch_color'][0]];
+                }else{
+                    $options_more[] = ['name' => $currTerm->name, 'value' => $attrValue];
+                }
+            }
+        }
+        if(!$term_found){
+            $options_more[] = ['name' => $attrValue, 'slug' => $attrValue];
+        }
+    }
+    $html .= "\n".'$options_more = '.json_encode($options_more)."\n";
+    
+    $html .= '============== -->'."\n\n";
+    
+    foreach($options_more as $attr){
+        if(isset($attr['swatch_color'])){
+            $html .= '<a href="#" class="pa-option pa-color-swatch hover-tooltip-trigger" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attr['value'].'" data-tooltip="'.$attr['name'].'"><i class="myCircle" style="background-color:'.$attr['swatch_color'].';"></i></a>';
+        }else{
+            $html .= '<a href="#" class="pa-option" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attr['value'].'">'.$attr['name'].'</a>';
+        }
+    }
+
+    return $html;
+}
+
+
+// Render fields at the bottom of variations - does not account for field group order or placement.
+add_action( 'woocommerce_product_after_variable_attributes', function( $loop, $variation_data, $variation ) {
+    global $abcdefgh_i; // Custom global variable to monitor index
+    $abcdefgh_i = $loop;
+    // Add filter to update field name
+    add_filter( 'acf/prepare_field', 'acf_prepare_field_update_field_name' );
+    
+    // Loop through all field groups
+    $acf_field_groups = acf_get_field_groups();
+    foreach( $acf_field_groups as $acf_field_group ) {
+        foreach( $acf_field_group['location'] as $group_locations ) {
+            foreach( $group_locations as $rule ) {
+                // See if field Group has at least one post_type = Variations rule - does not validate other rules
+                if( $rule['param'] == 'post_type' && $rule['operator'] == '==' && $rule['value'] == 'product_variation' ) {
+                    // Render field Group
+                    acf_render_fields( $variation->ID, acf_get_fields( $acf_field_group ) );
+                    break 2;
+                }
+            }
+        }
+    }
+    
+    // Remove filter
+    remove_filter( 'acf/prepare_field', 'acf_prepare_field_update_field_name' );
+}, 10, 3 );
+
+// Filter function to update field names
+function  acf_prepare_field_update_field_name( $field ) {
+    global $abcdefgh_i;
+    $field['name'] = preg_replace( '/^acf\[/', "acf[$abcdefgh_i][", $field['name'] );
+    return $field;
+}
+    
+// Save variation data
+add_action( 'woocommerce_save_product_variation', function( $variation_id, $i = -1 ) {
+    // Update all fields for the current variation
+    if ( ! empty( $_POST['acf'] ) && is_array( $_POST['acf'] ) && array_key_exists( $i, $_POST['acf'] ) && is_array( ( $fields = $_POST['acf'][ $i ] ) ) ) {
+        foreach ( $fields as $key => $val ) {
+            update_field( $key, $val, $variation_id );
+        }
+    }
+}, 10, 2 );
+
+
 /**
  * Custom Add To Cart Messages HTML
  **/
@@ -430,6 +554,18 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 
 }
 
+
+/* ADD PLACEHOLDERS TO INPUTS */
+add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+function custom_override_checkout_fields( $fields ) {
+    foreach($fields as $field_grp => $fields_arr){
+        foreach($fields_arr as $field_key => $field_data){
+            $fields[$field_grp][$field_key]['placeholder'] = $field_data['label'];
+        }
+    }
+    return $fields;
+}
+/* /ADD PLACEHOLDERS TO INPUTS */
 
 /**
  * Extend get terms with post type parameter.

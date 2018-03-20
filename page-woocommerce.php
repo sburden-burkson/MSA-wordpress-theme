@@ -8,7 +8,7 @@
 <div class="container no-banner">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     
-        <div class="text-center pad-bottom"><h1 class="fw-300 text-uppercase"><?php the_title(); ?></h1></div>
+        <div class="text-center pad-bottom"><h1 id="woo-page-title" class="fw-300 text-uppercase"><?php if(is_checkout()){ echo 'SHIPPING'; }else{ the_title(); } ?></h1></div>
         <?php the_content(); ?>
 
     <?php endwhile; else: ?>
