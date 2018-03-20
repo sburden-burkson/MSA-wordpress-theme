@@ -60,20 +60,20 @@ get_header(); ?>
 		$articleBody = (get_the_content() == "") ? $articleBody : get_the_content() . " " . $articleBody;
     $articleBody = strip_tags($articleBody);
 		$articleBody = trim(preg_replace('/\s+/', ' ', $articleBody));
+		//"mainEntityOfPage": "<?php //echo $featured_image;
 ?>
 <script type="application/ld+json">
 {
   "@context": "http://schema.org/",
   "@type": "BlogPosting",
   "headline": "<?php the_title(); ?>",
-  "image": "<?php echo $thumbnail[0]; ?>",
+  "image": "<?php echo $featured_image; ?>",
   "url": "<?php echo get_permalink(); ?>",
   "datePublished": "<?php echo get_the_date() ?>",
   "dateModified": "<?php echo the_modified_date() ?>",
   "description": "<?php the_excerpt(); ?>",
   "genre": "automotive",
   "wordcount": "<?php echo str_word_count($articleBody); ?>",
-  "mainEntityOfPage": "<?php echo $thumbnail[0]; ?>",
   "author": "<?php bloginfo('name') ?>",
   "publisher": {
     "@type": "Organization",

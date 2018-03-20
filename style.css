@@ -14,7 +14,7 @@ Text Domain: msa-wheels
  * Admin Bar Fix
  */
 
-.admin-bar .affix {
+.admin-bar .affix, .admin-bar #sidenav {
   margin-top: 32px;
 }
 
@@ -26,6 +26,9 @@ Text Domain: msa-wheels
 @media only screen and (max-width: 480px) {
   .admin-bar .affix-top {
     top: 40px;
+  }
+  .admin-bar #sidenav {
+    margin-top: 40px;
   }
 }
 
@@ -323,7 +326,7 @@ input.form-control {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover; }
-  .dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg h4 {
+  .dark-bg h1, .dark-bg h2, .dark-bg h3, .dark-bg h4, .dark-bg h5 {
     color: rgba(255, 255, 255, 0.97); }
   .dark-bg p {
     color: #888; }
@@ -1128,7 +1131,7 @@ hr {
 .home-video-wrapper {
   width: 100%;
   position: relative;
-  overflow-x: hidden;
+  /* overflow: hidden; */
   /* padding-bottom percentage is screen resolution ratio e.g.: (720/1280)*100% */
   /* padding-bottom: 42.25%; */
     padding-bottom: 56.25%; }
@@ -2026,6 +2029,8 @@ hr {
     top: 0;
     width: 100%;
     z-index: 999; }
+  .home-video-wrapper {
+    overflow-x: hidden; }
   .home-video-wrapper iframe,
   .home-video-wrapper object,
   .home-video-wrapper embed {
