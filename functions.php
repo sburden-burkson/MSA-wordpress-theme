@@ -396,7 +396,7 @@ function override_color_variation_display( $html, $args ) {
             if($currTerm->slug == $attrValue){
                 $term_found = true;
                 $term_meta = get_term_meta($currTerm->term_id);
-                if(isset($term_meta['swatch_color']) && is_array($term_meta['swatch_color']) && count($term_meta['swatch_color']) > 0){
+                if(isset($term_meta['swatch_color']) && is_array($term_meta['swatch_color']) && count($term_meta['swatch_color']) > 0 && strlen($term_meta['swatch_color'][0]) > 0){
                     $options_more[] = ['name' => $currTerm->name, 'value' => $attrValue, 'swatch_color' => $term_meta['swatch_color'][0]];
                 }else{
                     $options_more[] = ['name' => $currTerm->name, 'value' => $attrValue];
@@ -404,7 +404,7 @@ function override_color_variation_display( $html, $args ) {
             }
         }
         if(!$term_found){
-            $options_more[] = ['name' => $attrValue, 'slug' => $attrValue];
+            $options_more[] = ['name' => $attrValue, 'value' => $attrValue];
         }
     }
     $html .= "\n".'$options_more = '.json_encode($options_more)."\n";
@@ -530,7 +530,7 @@ add_filter( 'wp_nav_menu_items', 'add_cart_to_primary_nav', 10, 2 );
 function add_cart_to_primary_nav ( $items, $args ) {
     
     if ($args->theme_location == 'primary') {
-        $items .= '<li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="'.get_permalink( wc_get_page_id( 'cart' ) ).'">Cart ['.WC()->cart->get_cart_contents_count().']</a></li>';
+        $items .= '<li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="'.get_permalink( wc_get_page_id( 'cart' ) ).'">Cart <span class="nav-cart-box">'.WC()->cart->get_cart_contents_count().'</span></a></li>';
         /* MAKE SURE THIS HTML MATCHES BELOW (woocommerce_header_add_to_cart_fragment) */
     }
     return $items;
@@ -544,7 +544,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
     ob_start();
 
     ?>
-    <li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="<?= get_permalink( wc_get_page_id( 'cart' ) ) ?>">Cart [<?= WC()->cart->get_cart_contents_count() ?>]</a></li>
+    <li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="<?= get_permalink( wc_get_page_id( 'cart' ) ) ?>">Cart <span class="nav-cart-box"><?= WC()->cart->get_cart_contents_count() ?></span></a></li>
     <?php
         /* MAKE SURE THIS HTML MATCHES ABOVE (add_cart_to_primary_nav) */
 
@@ -560,10 +560,25 @@ add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
 function custom_override_checkout_fields( $fields ) {
     foreach($fields as $field_grp => $fields_arr){
         foreach($fields_arr as $field_key => $field_data){
-            $fields[$field_grp][$field_key]['placeholder'] = $field_data['label'];
+            echo '<!-- $field_data ('.$field_grp.') = ';
+            print_r($field_data);
+            echo 'PLACEHOLDER = '.$field_data['label'].((isset($field_data['required']) && ($field_data['required'] == true || $field_data['required'] == 1))? ' *' : '' );
+            echo '-->';
+            if(isset($field_data['label']) && strlen($field_data['label']) > 0) {
+                $fields[$field_grp][$field_key]['placeholder'] = $field_data['label'].((isset($field_data['required']) && ($field_data['required'] == true || $field_data['required'] == 1))? ' *' : '' );
+            }
         }
     }
     return $fields;
+}
+add_filter('woocommerce_default_address_fields', 'override_address_fields');
+function override_address_fields( $address_fields ) {
+    foreach($address_fields as $field_slug => $field_data){
+        if(isset($field_data['label']) && strlen($field_data['label']) > 0) {
+            $address_fields[$field_slug]['placeholder'] = $field_data['label'].((isset($field_data['required']) && ($field_data['required'] == true || $field_data['required'] == 1))? ' *' : '' );
+        }
+    }
+    return $address_fields;
 }
 /* /ADD PLACEHOLDERS TO INPUTS */
 

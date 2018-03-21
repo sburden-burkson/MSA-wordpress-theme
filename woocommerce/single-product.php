@@ -65,7 +65,9 @@ PLOKI
 		<?php while ( have_posts() ) : the_post(); ?>
 
                 // Add Featured Image
-                array_unshift($galleryImages, $product->get_image_id());
+                if($product->get_image_id()){
+                    array_unshift($galleryImages, $product->get_image_id());
+                }
 
                 // Cart data
                 global $woocommerce;
