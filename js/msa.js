@@ -274,15 +274,17 @@ jQuery(document).ready(function ($) {
 
   // Video Section
   function checkIframeLoaded() {
+    if($('#topVideo').length > 0) {
     // Get a handle to the iframe element
-    var iFrameHeight = $('#topVideo').height();
-    // Check if loading is complete
-    if ( iFrameHeight > 10 ) {
-      videoSizing();
-      return;
+      var iFrameHeight = $('#topVideo').height();
+      // Check if loading is complete
+      if ( iFrameHeight > 10 ) {
+        videoSizing();
+        return;
+      }
+      // If we are here, it is not loaded. Set things up so we check the status again in 100 milliseconds
+      window.setTimeout(checkIframeLoaded, 100);
     }
-    // If we are here, it is not loaded. Set things up so we check the status again in 100 milliseconds
-    window.setTimeout(checkIframeLoaded, 100);
   }
   function videoSizing() {
     var width = parseInt(document.getElementById("topVideo").width);
@@ -300,7 +302,7 @@ jQuery(document).ready(function ($) {
   checkIframeLoaded();
 
   $(window).on('resize', function() {
-    videoSizing();
+    checkIframeLoaded();
   });
 
 });

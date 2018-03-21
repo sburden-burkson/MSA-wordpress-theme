@@ -1027,6 +1027,94 @@
                         "min": "",
                         "max": "1"
                     },
+                    "5ab19b303acb9": {
+                        "key": "5ab19b303acb9",
+                        "name": "wysiwyg_section",
+                        "label": "Wysiwyg Section",
+                        "display": "block",
+                        "sub_fields": [
+                            {
+                                "key": "field_5ab19b363acba",
+                                "label": "Wysiwyg Editor",
+                                "name": "wysiwyg_editor",
+                                "type": "wysiwyg",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "tabs": "all",
+                                "toolbar": "full",
+                                "media_upload": 1,
+                                "delay": 0
+                            },
+                            {
+                                "key": "field_5ab19b5e3acbb",
+                                "label": "Width",
+                                "name": "width",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "container": "Default",
+                                    "container-fluid": "100%",
+                                    "restricted-width-lg": "850px",
+                                    "restricted-width-md": "600px",
+                                    "restricted-width": "350px"
+                                },
+                                "default_value": [
+                                    "container"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_5ab19bbd3acbc",
+                                "label": "Vertical Padding",
+                                "name": "vertical_padding",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "none": "None",
+                                    "v-center-section": "Small",
+                                    "v-center-section-lg": "Medium",
+                                    "v-center-section-xl": "Large"
+                                },
+                                "default_value": [
+                                    "none"
+                                ],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            }
+                        ],
+                        "min": "",
+                        "max": ""
+                    },
                     "5aa95ceff52b2": {
                         "key": "5aa95ceff52b2",
                         "name": "full_section",
@@ -3275,6 +3363,7 @@
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": [
+            "the_content",
             "discussion",
             "comments",
             "slug",
