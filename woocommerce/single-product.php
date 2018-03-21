@@ -40,7 +40,9 @@ get_header( 'shop' ); ?>
                 $galleryImages = $product->get_gallery_image_ids();
 
                 // Add Featured Image
-                array_unshift($galleryImages, $product->get_image_id());
+                if($product->get_image_id()){
+                    array_unshift($galleryImages, $product->get_image_id());
+                }
 
                 // Cart data
                 global $woocommerce;

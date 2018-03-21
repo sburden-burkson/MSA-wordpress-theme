@@ -23,6 +23,9 @@ jQuery(document).ready(function ($) {
     var scrollTop = $(window).scrollTop();
     var navTop = scrollTop - $('header').outerHeight();
     var newNavHeight = navHeight - (navTop * 0.1);
+    if(scrollTop > headerHeight && (newNavHeight <= 60 || newNavHeight >= navHeight)) {
+        newNavHeight = 60;
+    }
     var opacity = 0 + Math.abs((navTop * 0.01));
     var navLogoHeight = $('#navLogo').outerHeight();
     var logoPad = (newNavHeight - navLogoHeight) / 2;
@@ -31,6 +34,7 @@ jQuery(document).ready(function ($) {
         'background-color', 'rgba(255, 255, 255, 0.05)',
         'height', '80px'
       );
+        console.log('resetting <a> css line-height');
       $('nav .nav>li>a').css(
         'line-height', '80px'
       );
@@ -48,19 +52,19 @@ jQuery(document).ready(function ($) {
       );
     }
     if (newNavHeight >= 60 && newNavHeight <= navHeight) {
-      $('nav, nav .navbar-toggle').css(
-        'height', newNavHeight
-      );
-      $('nav .navbar-brand').css(
-        'padding-top', logoPad,
-        'padding-bottom', logoPad
-      );
-      $('nav .nav>li>a').css(
-        'line-height', newNavHeight + 'px'
-      );
-      $('#navColor').css(
-        'background-color', 'rgba(255, 255, 255,' + opacity + ')'
-      );
+          $('nav, nav .navbar-toggle').css(
+            'height', newNavHeight +'px'
+          );
+          $('nav .navbar-brand').css(
+            'padding-top', logoPad,
+            'padding-bottom', logoPad
+          );
+          $('nav .nav>li>a').css(
+            'line-height', newNavHeight + 'px'
+          );
+          $('#navColor').css(
+            'background-color', 'rgba(255, 255, 255,' + opacity + ')'
+          );
     }
     if (topSection) {
       if (opacity > 0.4) {
@@ -75,6 +79,19 @@ jQuery(document).ready(function ($) {
   $(window).on('scroll', function() {
     navResize();
   });
+  $( document.body ).on( 'added_to_cart', function(){
+    navResize();
+  });
+  $( document.body ).on( 'updated_cart_totals', function(){
+    navResize();
+  });
+  $( document.body ).on( 'wc_fragments_refreshed', function(){
+    navResize();
+      console.log('wc_fragments_refreshed updated!');
+      setTimeout(function(){
+          navResize();
+      }, 300);
+  });
   navResize();
 
 // Footer
@@ -88,6 +105,7 @@ jQuery(document).ready(function ($) {
   footerAccordion();
   $(window).on('resize', function() {
     footerAccordion();
+      navResize();
   });
   $('.collapse').on('shown.bs.collapse', function() {
     $(this).parent().find(".fa-plus").removeClass("fa-plus").addClass("fa-minus");

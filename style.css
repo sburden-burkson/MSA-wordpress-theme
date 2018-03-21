@@ -735,7 +735,8 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 999; }
+  z-index: 1001;
+  /* was 999 */ }
 
 .nav-wrapper {
   min-height: 80px;
@@ -749,6 +750,11 @@ header {
 
 .navbar-default .navbar-nav > li > a {
   color: rgba(255, 255, 255, 0.97); }
+  .navbar-default .navbar-nav > li > a .nav-cart-box {
+    display: inline-block;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    line-height: normal;
+    padding: 2px 3px 2px 5px; }
 
 .navbar-default .navbar-toggle .icon-bar {
   background-color: rgba(255, 255, 255, 0.97); }
@@ -762,6 +768,8 @@ header {
 .changeBlack .navbar-nav > li > a {
   color: #888 !important;
   transition: color 0.4s; }
+  .changeBlack .navbar-nav > li > a .nav-cart-box {
+    border: solid 1px rgba(0, 0, 0, 0.2) !important; }
 
 .changeBlack .navbar-toggle .icon-bar {
   background-color: #888 !important;
@@ -770,6 +778,8 @@ header {
 .changeWhite .navbar-nav > li > a {
   color: rgba(255, 255, 255, 0.97) !important;
   transition: color 0.4s; }
+  .changeWhite .navbar-nav > li > a .nav-cart-box {
+    border: solid 1px rgba(255, 255, 255, 0.2) !important; }
 
 .changeWhite .navbar-toggle .icon-bar {
   background-color: rgba(255, 255, 255, 0.97) !important;
@@ -825,13 +835,15 @@ nav {
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 1001;
+    z-index: 1002;
+    /* was 1001 */
     top: 0;
     right: 0;
     opacity: 1; }
     .sidenav.active .sidenav-inner {
       position: fixed;
-      z-index: 1002;
+      z-index: 1003;
+      /* was 1002 */
       right: -100%;
       width: 100%;
       height: 100%;
@@ -879,7 +891,8 @@ nav {
   background-color: #FFF; }
   #sidenav .sidenav-right .sidenav-right-texture {
     position: absolute;
-    z-index: 1002;
+    z-index: 1003;
+    /* was 1002 */
     height: 100%;
     width: 90px;
     top: 0;
@@ -1049,7 +1062,8 @@ footer {
 /* Button/Link Arrows
    ================== */
 a.btn {
-  display: inline; }
+  /* For some reason, some a.btn's break with inline-block...
+    /* display: inline; */ }
 
 a .fa-long-arrow-right,
 .btn .fa-long-arrow-right {
@@ -1336,16 +1350,6 @@ input,
   border-color: rgba(0, 0, 0, 0.2);
   border-width: 1px;
   border-style: solid; }
-
-.woocommerce form .form-row.validate-required {
-  position: relative; }
-
-.woocommerce form .form-row.validate-required:after {
-  content: '*';
-  color: red;
-  position: absolute;
-  right: 0;
-  z-index: 1; }
 
 textarea,
 .woocommerce form .form-row textarea {
@@ -2092,9 +2096,36 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
     body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody tr, body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody tr td, body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody tr th {
       display: block; }
     body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody tr td {
-      border: 0; padding: 22px 0; }
-    body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dt {
-      float: none; }
+      border: 0;
+      padding: 12px 0; }
+    body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details .product-title {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: bold;
+      font-size: 16px; }
+    body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details .product-subtotal {
+      float: right; }
+    body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation {
+      margin: 0;
+      display: inline-block; }
+      body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation:before {
+        display: table;
+        content: " "; }
+      body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation:after {
+        clear: both; }
+      body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dt,
+      body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dd {
+        float: left;
+        clear: none; }
+        body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dt,
+        body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dt p,
+        body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dd,
+        body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dd p {
+          font-size: 10px;
+          font-family: "Open Sans", sans-serif;
+          font-weight: normal;
+          font-style: italic; }
+      body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details dl.variation dd {
+        padding-right: 6px; }
     body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-image {
       text-align: center; }
   body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tfoot {
@@ -2412,7 +2443,8 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
 @media screen and (max-width: 999px) {
   #sidenav .sidenav-left {
     position: absolute;
-    z-index: 1003;
+    z-index: 1004;
+    /* was 1003 */
     top: 30px;
     left: 10%;
     width: auto;
@@ -2656,7 +2688,10 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
     #sidenav .sidenav-right .sidenav-right-inner .navbar-form {
       padding-bottom: 5px; }
     #sidenav .sidenav-right .sidenav-right-inner .sidenav-copyright {
-      padding-top: 20px; } }
+      padding-top: 20px; }
+  body.woocommerce-page.woocommerce-checkout #order_review table.shop_table tbody td.product-name .product-details .product-subtotal {
+    float: none;
+    display: block; } }
 
 /* MAX 480px (Very small devices only)
    ================== */
@@ -2682,7 +2717,8 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 999; }
+    z-index: 1001;
+    /* was 999 */ }
   .filter-container2 {
     padding-left: 15px;
     padding-right: 15px; }
