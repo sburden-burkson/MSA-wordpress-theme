@@ -78,6 +78,8 @@ function msawheels_theme_js() {
 
     wp_enqueue_script( 'msa_js', get_template_directory_uri() . '/js/msa-min.js', array('jquery', 'matchHeight_js', 'slick_js' ), '', true );
 
+    // wp_enqueue_script( 'constant_contact_js', get_template_directory_uri() . '/js/signup-form-widget.min.js', 'msa_js', '', true );
+
     if ( is_post_type_archive( 'gallery' ) ) {
         wp_enqueue_script( 'gallery_js', get_template_directory_uri() . '/js/gallery-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }

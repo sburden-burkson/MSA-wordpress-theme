@@ -547,19 +547,30 @@ ul.slick-dots li {
   padding-bottom: 15%;
   width: 100%; }
 
+/* Constant Contact Forms
+   ================== */
 .black-footer .ctct-inline-form {
   margin-top: 30px;
 }
-.black-footer div.ctct-form-embed form.ctct-form-custom {
+
+.black-footer div.ctct-form-embed div.ctct-form-defaults div.ctct-form-success {
+  padding-top: 10px;
+}
+
+.black-footer div.ctct-form-embed form.ctct-form-custom, .section div.ctct-form-embed form.ctct-form-custom {
   min-height: 0;
 }
-.black-footer .ctct-inline-form .g-recaptcha, .black-footer .ctct-inline-form label {
+
+.black-footer .ctct-inline-form .g-recaptcha, .black-footer .ctct-inline-form label, .section .ctct-inline-form .g-recaptcha, .section .ctct-inline-form label  {
   display: none !important
 }
-.black-footer .ctct-inline-form {
+
+.black-footer .ctct-inline-form, .section .ctct-inline-form {
   font-family: "Barlow Condensed", sans-serif;
   position: relative;
+  background: transparent;
 }
+
 .black-footer div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
   font-family: Font Awesome\ 5 Pro;
   width: auto;
@@ -573,11 +584,40 @@ ul.slick-dots li {
   font-size: 1.33333em;
   line-height: .75em;
   vertical-align: -.0667em;
+  border-radius: 0;
+  background-color: transparent !important;
 }
+
+.section div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
+  font-family: Font Awesome\ 5 Pro;
+  width: auto;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-image: url(/wp-content/uploads/2018/03/red-bg-sm.png);
+  font-weight: 300;
+  font-size: 1.33333em;
+  line-height: .75em;
+  vertical-align: -.0667em;
+  border-radius: 0;
+  padding: 15.5px;
+  background-color: transparent !important;
+}
+
 .black-footer .ctct-inline-form .ctct-form-button:hover, .black-footer .ctct-inline-form .ctct-form-button:focus {
   background: transparent !important;
   border: 0 !important;
   color: #333 !important;
+}
+
+.section .ctct-inline-form .ctct-form-button:hover, .section .ctct-inline-form .ctct-form-button:focus {
+  background-image: url(/wp-content/uploads/2018/03/red-bg-sm.png);
+  border: 0 !important;
+  color: rgba(255, 255, 255, 0.97) !important;
+  bac
+  kground-color: transparent !important;
 }
 .black-footer .ctct-inline-form input {
   font-family: "Barlow Condensed", sans-serif !important;
@@ -587,31 +627,69 @@ ul.slick-dots li {
   width: 100%  !important;
   color: rgba(255, 255, 255, 0.97) !important;
   font-weight: 600 !important;
+  padding-right: 45px !important;
 }
-.black-footer .ctct-form-container .ctct-form-defaults {
+
+.section .ctct-inline-form input {
+  font-family: "Barlow Condensed", sans-serif !important;
+  border: 1px solid rgba(0, 0, 0, 0.2)  !important;
+  border-radius: 0  !important;
+  width: 100%  !important;
+  font-weight: 600 !important;
+  padding-right: 50px !important;
+  font-size: 18px !important;
+  letter-spacing: 1px !important;
+  font-weight: 500 !important;
+}
+
+.black-footer .ctct-form-container .ctct-form-defaults, .section .ctct-form-container .ctct-form-defaults {
   padding: 0 0 0 0;
+  background-color: transparent !important;
 }
-.black-footer div.ctct-form-embed form.ctct-form-custom input.ctct-form-element:focus {
+
+.black-footer div.ctct-form-embed form.ctct-form-custom input.ctct-form-element:focus, .section div.ctct-form-embed form.ctct-form-custom input.ctct-form-element:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
 }
-.black-footer div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage, .black-footer .ctct-form-defaults .ctct-form-footer {
+
+.black-footer div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage, .black-footer .ctct-form-defaults .ctct-form-footer, .section div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage, .section .ctct-form-defaults .ctct-form-footer {
   display: none !important;
 }
+
 .black-footer div.ctct-form-embed div.ctct-form-defaults h2.ctct-form-header {
   font-family: "Barlow Condensed", sans-serif !important;
   font-size: 15px;
   color: rgba(255, 255, 255, 0.97);
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  font-weight: 500;
 }
+.section div.ctct-form-embed div.ctct-form-defaults h2.ctct-form-header {
+  font-family: "Barlow Condensed", sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 0.97);
+}
+
 .black-footer .ctct-form-defaults .ctct-form-text {
-  color: rgba(255, 255, 255, 0.54);
-  font-size: 12px;
+  color: rgba(255, 255, 255, 0.54) !important;
+  font-size: 13px !important;
   font-family: "Open Sans", sans-serif !important;
+  line-height: 2em;
   letter-spacing: 0.15em;
+  font-weight: 300;
+}
+
+.section .ctct-form-defaults .ctct-form-text {
+  font-family: "Open Sans", sans-serif !important;
+  color: #888 !important;
+  line-height: 2em !important;
+  letter-spacing: 0.15em;
+  font-weight: 600 !important;
 }
 
 /* Headings
@@ -986,6 +1064,7 @@ footer {
   padding: 0;
   border: 0; }
   #footerAccordion .panel-body p {
+    text-transform: uppercase;
     font-size: 12px;
     margin: 20px 0px; }
   #footerAccordion .panel-body a {
