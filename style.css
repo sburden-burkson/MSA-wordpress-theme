@@ -28,7 +28,7 @@ Text Domain: msa-wheels
     top: 40px;
   }
   .admin-bar #sidenav {
-    margin-top: 40px;
+    margintop: 40px;
   }
 }
 
@@ -104,6 +104,9 @@ Text Domain: msa-wheels
 
 .trans-white-sm {
   color: rgba(255, 255, 255, 0.7) !important; }
+
+.display-none {
+  display: none !important; }
 
 a.trans-white-md:hover, a.trans-white-md:focus {
   color: rgba(255, 255, 255, 0.54); }
@@ -543,6 +546,73 @@ ul.slick-dots li {
 .photo-grid-lg .photo-grid-img {
   padding-bottom: 15%;
   width: 100%; }
+
+.black-footer .ctct-inline-form {
+  margin-top: 30px;
+}
+.black-footer div.ctct-form-embed form.ctct-form-custom {
+  min-height: 0;
+}
+.black-footer .ctct-inline-form .g-recaptcha, .black-footer .ctct-inline-form label {
+  display: none !important
+}
+.black-footer .ctct-inline-form {
+  font-family: "Barlow Condensed", sans-serif;
+  position: relative;
+}
+.black-footer div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
+  font-family: Font Awesome\ 5 Pro;
+  width: auto;
+  padding: 0;
+  border: 0;
+  position: absolute;
+  right: 15px;
+  top: 16.75px;;
+  background: transparent;
+  font-weight: 300;
+  font-size: 1.33333em;
+  line-height: .75em;
+  vertical-align: -.0667em;
+}
+.black-footer .ctct-inline-form .ctct-form-button:hover, .black-footer .ctct-inline-form .ctct-form-button:focus {
+  background: transparent !important;
+  border: 0 !important;
+  color: #333 !important;
+}
+.black-footer .ctct-inline-form input {
+  font-family: "Barlow Condensed", sans-serif !important;
+  background: black  !important;
+  border: 1px solid rgba(255, 255, 255, 0.2)  !important;
+  border-radius: 0  !important;
+  width: 100%  !important;
+  color: rgba(255, 255, 255, 0.97) !important;
+  font-weight: 600 !important;
+}
+.black-footer .ctct-form-container .ctct-form-defaults {
+  padding: 0 0 0 0;
+}
+.black-footer div.ctct-form-embed form.ctct-form-custom input.ctct-form-element:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+}
+.black-footer div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage, .black-footer .ctct-form-defaults .ctct-form-footer {
+  display: none !important;
+}
+.black-footer div.ctct-form-embed div.ctct-form-defaults h2.ctct-form-header {
+  font-family: "Barlow Condensed", sans-serif !important;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.97);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.black-footer .ctct-form-defaults .ctct-form-text {
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif !important;
+  letter-spacing: 0.15em;
+}
 
 /* Headings
    ================== */
@@ -1889,7 +1959,8 @@ hr {
     margin-top: 5px;
     display: block; }
   footer {
-    padding-top: 50px; }
+    padding-top: 50px;
+    padding-bottom: 75px; }
     footer .links {
       padding-top: 20px; }
     footer .links [class*="col-"] {
