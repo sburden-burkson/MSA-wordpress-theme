@@ -9,11 +9,13 @@
         if($product->is_type( 'variable' )){
             $variations = $product->get_available_variations();
             foreach($variations as $var){
-                $varSpecs[] = get_field_objects( $var['variation_id'] );
+                $newSpec = get_field_objects( $var['variation_id'] );
+                echo '<!-- $newSpec = ';
+                print_r(json_encode($newSpec));
+                echo '-->';
+                $varSpecs[] = $newSpec;
             }
         }
-    }else{
-        echo 'NOT A PRODUCT';
     }
 ?>
 <?php if(!empty($varSpecs)){ ?>
@@ -35,7 +37,7 @@
                     <?php foreach($varSpecs as $varRow){ ?>
 
                     <div class="product-specs-carousel-row">
-                        <?= $varRow[$curFieldSlug]['value'] ?>
+                        <?= (strlen($varRow[$curFieldSlug]['value']) > 0)? $varRow[$curFieldSlug]['value'] : '&nbsp;' ?>
                     </div>
 
                     <?php } ?>
