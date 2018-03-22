@@ -229,6 +229,27 @@ select.filter-select:last-child {
 .filter-left, .filter-right, .filter-center {
   text-align: left;
 }
+
+#uploadModal .acf-fields > .acf-field {
+  padding: 15px 0px;
+}
+
+#uploadModal .acf-form-submit {
+  text-align: right;
+}
+
+#uploadModal .modal-body {
+  padding: 15px 50px 15px;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  color: rgba(0, 0, 0, 0.97);
+}
+#uploadModal .modal-body label {
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+
 @media (max-width: 767px) {
     .section-gallery-cell {
         height: 240px;
@@ -247,6 +268,9 @@ select.filter-select:last-child {
 
     .section-gallery-cell .section-info-wrap {
         padding: 10px 20px;
+    }
+    #uploadModal .modal-body {
+      padding: 15px 30px 15px;
     }
   }
 @media (min-width: 480px) {

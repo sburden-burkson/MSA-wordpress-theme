@@ -4,6 +4,7 @@
  */
 ?>
 <?php
+    acf_form_head();
     get_header();
     $gallery_page_id = get_page_by_title('gallery')->ID;
 ?>
@@ -96,6 +97,39 @@
       </div>
   </div><!-- /.modal-dialog -->
 </div>
+
+<!-- Upload Modal -->
+    <div id="uploadModal" class="modal fade" role="dialog">
+      <div class="modal-dialog wp-full-height" style="margin: 0 auto;">
+        <div class="wp-table wp-full-height wp-full-width">
+          <div class="wp-table-cell-middle">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="text-right modal-close">
+              <a href="javascript:void(0)" data-dismiss="modal"><img src="<?php echo esc_url( home_url( '/wp-content/themes/msawheels/icons/x-icon.png' ) ); ?>" alt="Close Modal Image"></a>
+            </div>
+            <h4 class="modal-title">UPLOAD YOUR IMAGE TO THE GALLERY</h4>
+          </div>
+          <div class="modal-body">
+            <?php
+                acf_form(array(
+                  'post_id'		=> 'new_post',
+                  'updated_message' => __('Thank you for uploading your image to our gallery'),
+                  'new_post'		=> array(
+                    'post_type'		=> 'gallery',
+                    'post_status'	=> 'pending',
+                    'post_title'    => 'user-upload-' . time(),
+                  ),
+                  'submit_value'		=> 'Upload to Gallery',
+                  'html_submit_button'	=> '<input type="submit" class="btn wp-btn-no-arrow text-uppercase wp-btn-red" value="%s" />'
+                ));
+            ?>
+          </div>
+        </div>
+      </div></div>
+      </div>
+    </div>
+<!-- /modal -->
 <script type="text/javascript">
     var options = <?php echo json_encode($options); ?>;
 </script>

@@ -124,6 +124,9 @@ input.form-control {
 .wp-btn-extra-long {
   padding: 10px 15px 10px 30px; }
 
+.wp-btn-no-arrow {
+  padding: 10px 30px 10px 30px; }
+
 .wp-btn-transparent {
   background: transparent;
   border-color: #888;
@@ -1801,6 +1804,10 @@ hr {
     margin-top: 0; }
   .wp-btn-extra-long {
     padding: 10px 15px 10px 45px;
+    font-size: 14px;
+    font-weight: 300; }
+  .wp-btn-no-arrow {
+    padding: 10px 45px 10px 45px;
     font-size: 14px;
     font-weight: 300; }
   .filter-container .filter-results {
