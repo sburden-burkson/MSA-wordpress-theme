@@ -34,7 +34,8 @@ function msawheels_theme_styles() {
     wp_enqueue_style( 'bootstrap_css', get_template_directory_uri() . '/css/bootstrap.min.css' );
     wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500|Open+Sans:300' );
 
-    if ( is_archive( 'gallery' ) || get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
+    if ( is_archive( 'gallery' ) ) {
+        wp_enqueue_style( 'gallery_css', get_template_directory_uri() . '/gallery.css' );
         wp_enqueue_style( 'chosen_css', get_template_directory_uri() . '/inc/chosen/chosen.customized.css' );
     }
 
@@ -61,9 +62,9 @@ function msawheels_theme_js() {
 
     //wp_enqueue_script( 'fontawesome_js', get_template_directory_uri() . '/js/fontawesome-all.js', '', true );
 
-    // if ( is_archive( 'gallery' ) || get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
-    //     wp_enqueue_script( 'chosen_js', get_template_directory_uri() . '/inc/chosen/chosen.jquery.min.js', array('jquery'), '', true );
-    // }
+    if ( is_archive( 'gallery' ) ) {
+        wp_enqueue_script( 'chosen_js', get_template_directory_uri() . '/inc/chosen/chosen.jquery.min.js', array('jquery'), '', true );
+    }
 
     if ( is_archive( 'gallery' ) || is_home() ) {
         wp_enqueue_script( 'masonryimages_js', get_template_directory_uri() . '/inc/masonry/imagesloaded.pkgd.min.js', array('jquery'), '', true );
@@ -81,7 +82,7 @@ function msawheels_theme_js() {
     // wp_enqueue_script( 'constant_contact_js', get_template_directory_uri() . '/js/signup-form-widget.min.js', 'msa_js', '', true );
 
     if ( is_post_type_archive( 'gallery' ) ) {
-        wp_enqueue_script( 'gallery_js', get_template_directory_uri() . '/js/gallery-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
+        wp_enqueue_script( 'gallery_js', get_template_directory_uri() . '/js/gallery.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }
     if ( is_home() ) {
         wp_enqueue_script( 'blog_js', get_template_directory_uri() . '/js/blog-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );

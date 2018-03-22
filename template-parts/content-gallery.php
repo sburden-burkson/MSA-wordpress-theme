@@ -20,9 +20,9 @@
 
     if ($query->have_posts()) :
 ?>
-        <div class="section">
+        <div class="section container-fluid">
             <div class="gallery-image-container">
-                <!-- <img src="<?php echo esc_url( home_url( '/wp-content/themes/kinesismotorsport/icons/spinning-circles-red.svg' ) ); ?>" class="loader-center-middle" /> -->
+                <!-- <img src="<?php echo esc_url( home_url( '/wp-content/themes/msawheels/icons/spinning-circles-red.svg' ) ); ?>" class="loader-center-middle" /> -->
         <?php
             while ($query->have_posts()) : $query->the_post();
 

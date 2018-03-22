@@ -1,6 +1,4 @@
 jQuery(document).ready(function ($) {
-    if (!kinesis.isInitialized)
-        kinesis.initialize();
 
     var breakPoint = 480;
 
@@ -36,8 +34,8 @@ jQuery(document).ready(function ($) {
             per_page: perPage,
             exclude: uploadPostID
         };
-        var typeOfWheel = $('.filter-collection-select').val();
-        var wheelStyle = $('.filter-style-select').val();
+        var typeOfWheel = $('.filter-wheel-select').val();
+        var wheelStyle = $('.filter-finish-select').val();
         if (typeOfWheel.toLowerCase() != 'all') postData['type_of_wheel'] = typeOfWheel;
         if (wheelStyle.toLowerCase() != 'all') postData['wheel_style'] = wheelStyle;
         $.ajax({
@@ -53,7 +51,7 @@ jQuery(document).ready(function ($) {
                 return;
             }
             if (data.length) {
-                var windowWidth = kinesis.utils.getViewport().width;
+                var windowWidth = $(window).width();
                 if (hasInit) {
                     for (var i = 0; i < data.length; i++) {
                         var thisData = data[i];
@@ -86,7 +84,7 @@ jQuery(document).ready(function ($) {
             if (page == 1 && page < totalPage) {
                 $loadMoreWrap = $('<p/>', { 'class': 'text-center load-more-wrap' }),
                     $loadMoreBtn = $('<a/>', { 'href': 'javascript:void(0);', 'text': 'Load More', 'class': 'gallery-load-more btn k-btn-transparent k-btn-extra-long text-uppercase k-btn-red' });
-                $loadMoreBtn.prepend($('<img />', { 'class': 'ajax-loading-icon', 'src': '/wp-content/themes/kinesismotorsport/icons/spinning-circles-red.svg' }));
+                $loadMoreBtn.prepend($('<img />', { 'class': 'ajax-loading-icon', 'src': '/wp-content/themes/msawheels/icons/spinning-circles-red.svg' }));
                 $loadMoreWrap.append($loadMoreBtn).insertAfter($grid);
             }
             if (page > 1 && page == totalPage) {
@@ -116,7 +114,7 @@ jQuery(document).ready(function ($) {
         if (masonryReady) {
             $grid.empty().masonry('destroy');
         }
-        $grid.append($('<img />', { 'src': '/wp-content/themes/kinesismotorsport/icons/spinning-circles-red.svg', 'class': 'loader-center-middle' }));
+        $grid.append($('<img />', { 'src': '/wp-content/themes/msawheels/icons/spinning-circles-red.svg', 'class': 'loader-center-middle' }));
         masonryReady = false;
         $('body').find('.load-more-wrap, .coming-soon-wrap').remove();
         resetParams();
@@ -140,7 +138,7 @@ jQuery(document).ready(function ($) {
 
     // Widow resize and rotation
     $(window).on("resize orientationchange", function () {
-        var windowWidth = kinesis.utils.getViewport().width;
+        var windowWidth = $(window).width();
         if (windowWidth < breakPoint) {
             if (masonryReady) {
                 $grid.masonry('destroy');

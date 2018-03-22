@@ -23,16 +23,16 @@
                                     <div class="full-width-form">
                                         <?php
                                             acf_form(array(
-                              					'post_id'		=> 'new_post',
-                                                'updated_message' => __('Thank you for uploading your image to our gallery'),
-                              					'new_post'		=> array(
-                              						'post_type'		=> 'gallery',
-                              						'post_status'	=> 'pending',
-                                                    'post_title'    => 'user-upload-' . time(),
-                              					),
-                              					'submit_value'		=> 'Upload to Gallery',
-                                                'html_submit_button'	=> '<input type="submit" class="btn k-btn-transparent k-btn-extra-long text-uppercase k-btn-red" value="%s" />',
-                              				));
+                                    					'post_id'		=> 'new_post',
+                                                      'updated_message' => __('Thank you for uploading your image to our gallery'),
+                                    					'new_post'		=> array(
+                                    						'post_type'		=> 'gallery',
+                                    						'post_status'	=> 'pending',
+                                                          'post_title'    => 'user-upload-' . time(),
+                                    					),
+                                    					'submit_value'		=> 'Upload to Gallery',
+                                                      'html_submit_button'	=> '<input type="submit" class="btn k-btn-transparent k-btn-extra-long text-uppercase k-btn-red" value="%s" />',
+                                    				));
                                         ?>
                                     </div>
                                 <?php endwhile; else: ?>

@@ -24,10 +24,10 @@
           <h4 class="text-uppercase fw-300">#<?php echo $tag_name; ?></h4>
         <?php endif; ?>
         <?php if ($add_a_button): ?>
-          <p class="<?php echo $centered_text; ?>pad-top"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
+          <p class="<?php echo $centered_text; ?>pad-top pad-bottom"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>
         <?php endif; ?>
         <?php if ($scroll_down_arrow): ?>
-          <div class="down-arrows">
+          <div class="down-arrows pad-bottom">
             <a href="javascript:void(0)" class="trans-white-md">
               <img src="/wp-content/uploads/2018/03/chevron-<?php echo $scroll_down_arrow_color; ?>.png" alt="">
             </a>
