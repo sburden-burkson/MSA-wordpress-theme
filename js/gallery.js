@@ -34,10 +34,12 @@ jQuery(document).ready(function ($) {
             per_page: perPage,
             exclude: uploadPostID
         };
-        var typeOfWheel = $('.filter-wheel-select').val();
-        var wheelStyle = $('.filter-finish-select').val();
-        if (typeOfWheel.toLowerCase() != 'all') postData['type_of_wheel'] = typeOfWheel;
-        if (wheelStyle.toLowerCase() != 'all') postData['wheel_style'] = wheelStyle;
+        var wheel = $('.filter-wheel-select').val();
+        var finish = $('.filter-finish-select').val();
+        var terrain = $('.filter-terrain-select').val();
+        if (wheel.toLowerCase() != 'all') postData['wheel'] = wheel;
+        if (finish.toLowerCase() != 'all') postData['finish'] = finish;
+        if (terrain.toLowerCase() != 'all') postData['terrain'] = terrain;
         $.ajax({
             url: galleryUrl,
             data: postData
@@ -110,7 +112,7 @@ jQuery(document).ready(function ($) {
 
     $('.filter-block-wrap .filter-select').on('change', function () {
         var $that = $(this);
-        var typeOfWheel = $that.val();
+        var wheel = $that.val();
         if (masonryReady) {
             $grid.empty().masonry('destroy');
         }
@@ -155,38 +157,19 @@ jQuery(document).ready(function ($) {
     });
 });
 
-function collectionFilter() {
-    jQuery('.filter-style-select option:gt(0)').remove();
-    var collection = jQuery('.filter-collection-select').val();
-    if (collection === 'all') {
-        Object.keys(options).forEach(function (key) {
-            options[key].forEach(function (option) {
-                jQuery('.filter-style-select').append('<option value="' + option + '">' + option + '</option>');
-            });
-        });
-    } else {
-        var styles = options[collection];
-        for (var i = 0; i < styles.length; i++) {
-            jQuery('.filter-style-select').append('<option value="' + styles[i] + '">' + styles[i] + '</option>');
-        }
-    }
-    jQuery(".filter-style-select").trigger("chosen:updated");
+function wheelFilter() {
+    var wheel = jQuery('.filter-wheel-select').val();
+    jQuery(".filter-wheel-select").trigger("chosen:updated");
 }
 
-function styleFilter() {
-    var style = jQuery('.filter-style-select').val();
-    if (style != 'all') {
-        for (var key in options) {
-            var index = getKeyByValue(options[key], style);
-            if (index) {
-                var collection = key;
-                console.log(collection);
-                break;
-            }
-        }
-        jQuery('.filter-collection-select option[value=' + collection + ']').attr('selected', 'selected');
-    }
-    jQuery(".filter-collection-select").trigger("chosen:updated");
+function finishFilter() {
+    var finish = jQuery('.filter-finish-select').val();
+    jQuery(".filter-finish-select").trigger("chosen:updated");
+}
+
+function terrainFilter() {
+    var terrain = jQuery('.filter-terrain-select').val();
+    jQuery(".filter-terrain-select").trigger("chosen:updated");
 }
 
 function getKeyByValue(obj, value) {

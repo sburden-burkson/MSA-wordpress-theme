@@ -132,7 +132,7 @@ select.filter-select:last-child {
     margin-right: 0;
 }
 .chosen-container {
-  width: auto !important;
+  min-width: 150px !important;
 }
 .chosen-results {
   text-align: left;
@@ -249,6 +249,12 @@ select.filter-select:last-child {
   font-weight: 400;
   letter-spacing: 0.2em;
 }
+#uploadModal .acf-field select {
+  font-size: 17px;
+  text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
+  color: rgba(0, 0, 0, 0.97);
+}
 
 @media (max-width: 767px) {
     .section-gallery-cell {
@@ -261,6 +267,9 @@ select.filter-select:last-child {
 }
 
 @media (max-width: 480px) {
+    .gallery-image-container .gallery-image {
+      width: 100%;
+    }
 
     .section-gallery-cell {
         height: 200px;

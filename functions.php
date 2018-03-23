@@ -244,17 +244,17 @@ add_filter( 'acf/rest_api/field_settings/edit_in_rest', '__return_true' );
 add_filter( 'rest_gallery_query', function( $args ) {
   $args['meta_query'] = array();
 
-  if (!empty($_GET['type_of_wheel'])) {
+  if (!empty($_GET['terrain'])) {
     array_push($args['meta_query'], array(
-      'key'   => 'type_of_wheel',
-      'value' => esc_sql( $_GET['type_of_wheel'] ),
+      'key'   => 'terrain',
+      'value' => esc_sql( $_GET['terrain'] ),
     ));
   }
 
-  if (!empty($_GET['wheel_style'])) {
+  if (!empty($_GET['finish'])) {
     array_push($args['meta_query'], array(
-      'key'   => 'wheel_style',
-      'value' => esc_sql( $_GET['wheel_style'] ),
+      'key'   => 'finish',
+      'value' => esc_sql( $_GET['finish'] ),
     ));
   }
 

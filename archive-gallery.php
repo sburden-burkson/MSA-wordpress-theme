@@ -24,32 +24,62 @@
       endif;
     ?>
     <?php
-        $gallery_post_types = array('monoblock', 'legacy');
-        $options = array();
+        // $gallery_post_types = array('monoblock', 'legacy');
+        // $options = array();
+        //
+        // for ($i=0; $i < count($gallery_post_types); $i++) {
+        //     $args = array(
+        //         'post_type' => $gallery_post_types[$i],
+        //         'posts_per_page' => -1
+        //     );
+        //     $query = new WP_Query($args);
+        //
+        //     if ($query->have_posts()) : $titles = array(); while ($query->have_posts()) : $query->the_post();
+        //       $post_type = get_post_type();
+        //       array_push($titles, get_the_title());
+        //   endwhile; $options[$post_type] = $titles; wp_reset_postdata(); endif;
+        // }
 
-        for ($i=0; $i < count($gallery_post_types); $i++) {
+
             $args = array(
-                'post_type' => $gallery_post_types[$i],
+                'post_type' => 'gallery',
                 'posts_per_page' => -1
             );
             $query = new WP_Query($args);
 
+            $wheels = array();
+            $finishes = array();
+            $terrains = array();
+
             if ($query->have_posts()) : $titles = array(); while ($query->have_posts()) : $query->the_post();
+              $wheel = get_field('wheel');
+              $finish = get_field('finish');
+              $terrain = get_field('terrain');
+
               $post_type = get_post_type();
-              array_push($titles, get_the_title());
-          endwhile; $options[$post_type] = $titles; wp_reset_postdata(); endif;
-        }
+              if (!in_array($wheel, $wheels)) {
+                array_push($wheels, $wheel);
+              }
+              if (!in_array($terrain, $terrains)) {
+                array_push($terrains, $terrain);
+              }
+              if (!in_array($finish, $finishes)) {
+                array_push($finishes, $finish);
+              }
+              endwhile;
+              wp_reset_postdata();
+            endif;
     ?>
       <div class="section container-fluid">
-        <div class="row text-uppercase">
+        <div class="row text-uppercase filter-block-wrap">
 
               <div class="col-sm-4 filter-left">
                 <div class="filter-header">Showing</div>
                 <select class="filter-select filter-wheel-select" name="wheel" onchange="wheelFilter();">
                     <option value="all">All Wheels</option>
-                    <?php foreach ($options as $key => $value): ?>
-                       <option value="<?php echo $key; ?>"><?php echo $key; ?></option>
-                    <?php endforeach; ?>
+                    <?php for ($i=0; $i < count($wheels); $i++): ?>
+                      <option value="<?php echo $wheels[$i]; ?>"><?php echo $wheels[$i]; ?></option>
+                    <?php endfor; ?>
                 </select>
               </div>
 
@@ -57,10 +87,9 @@
                 <div class="filter-header">In</div>
                 <select class="filter-select filter-finish-select" name="finish" onchange="finishFilter();">
                     <option value="all">All Finishes</option>
-                    <?php foreach ($options as $key => $value):
-                        for ($i=0; $i < count($value); $i++): ?>
-                            <option value="<?php echo $value[$i]; ?>"><?php echo $value[$i]; ?></option>
-                    <?php endfor; endforeach; ?>
+                    <?php for ($i=0; $i < count($finishes); $i++): ?>
+                      <option value="<?php echo $finishes[$i]; ?>"><?php echo $finishes[$i]; ?></option>
+                    <?php endfor; ?>
                 </select>
               </div>
 
@@ -68,10 +97,9 @@
                 <div class="filter-header">Driving In</div>
                 <select class="filter-select filter-terrain-select" name="terrain" onchange="terrainFilter();">
                     <option value="all">All Terrains</option>
-                    <?php foreach ($options as $key => $value):
-                        for ($i=0; $i < count($value); $i++): ?>
-                            <option value="<?php echo $value[$i]; ?>"><?php echo $value[$i]; ?></option>
-                    <?php endfor; endforeach; ?>
+                    <?php for ($i=0; $i < count($terrains); $i++): ?>
+                      <option value="<?php echo $terrains[$i]; ?>"><?php echo $terrains[$i]; ?></option>
+                    <?php endfor; ?>
                 </select>
               </div>
             </div>
