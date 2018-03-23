@@ -507,6 +507,10 @@ ul.slick-dots li {
   padding-top: 150px;
   padding-bottom: 75px; }
 
+.no-banner-pad {
+  padding-top: 80px;
+  padding-bottom: 0px; }
+
 .article-title {
   line-height: 90px; }
 
@@ -1307,6 +1311,9 @@ hr {
 
 /* Carousel
    ================== */
+#staggeredCarousel {
+  overflow: hidden; }
+
 #staggeredCarousel .slick-next:before {
   content: url("/wp-content/themes/msawheels/icons/chevron-right.png"); }
 
@@ -1314,10 +1321,10 @@ hr {
   content: url("/wp-content/themes/msawheels/icons/chevron-left.png"); }
 
 #staggeredCarousel .slick-next {
-  right: -50px; }
+  right: 10px; }
 
 #staggeredCarousel .slick-prev {
-  left: -50px; }
+  left: 0px; }
 
 #staggeredCarouselMobile .carousel-info-image {
   height: 300px; }
@@ -2005,8 +2012,11 @@ hr {
     padding-top: 75px;
     padding-bottom: 75px; }
   .no-banner {
-    padding-top: 80px;
+    padding-top: 75px;
     padding-bottom: 30px; }
+  .no-banner-pad {
+    padding-top: 80px;
+    padding-bottom: 0px;}
   .full-width-tablet {
     max-width: 100%;
     min-width: 100%;

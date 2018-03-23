@@ -1,5 +1,77 @@
 [
     {
+        "key": "group_5a6b6ebface55",
+        "title": "Dealer Locator Shortcodes",
+        "fields": [
+            {
+                "key": "field_5a6b6ed2cb36c",
+                "label": "Dealer Map",
+                "name": "dealer_map",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 0,
+                "edit_in_rest": 0,
+                "default_value": "",
+                "tabs": "text",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_5a6b6efacb36d",
+                "label": "Dealer List",
+                "name": "dealer_list",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 0,
+                "edit_in_rest": 0,
+                "default_value": "",
+                "tabs": "text",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_template",
+                    "operator": "==",
+                    "value": "page-locator.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "discussion",
+            "comments",
+            "author",
+            "format",
+            "featured_image",
+            "categories"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
         "key": "group_59dd2d5c1a69e",
         "title": "Wheel Gallery Fields",
         "fields": [

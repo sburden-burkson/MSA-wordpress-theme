@@ -21,7 +21,6 @@
                     <div class="k-table k-full-height">
                         <div class="k-table-cell">
                             <div class="section-info-wrap top-center-redline section-info-wider">
-
                                 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                                   <?php the_content(); ?>

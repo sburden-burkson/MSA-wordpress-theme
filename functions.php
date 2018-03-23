@@ -39,6 +39,10 @@ function msawheels_theme_styles() {
         wp_enqueue_style( 'chosen_css', get_template_directory_uri() . '/inc/chosen/chosen.customized.css' );
     }
 
+    if ( is_page_template( 'page-locator.php' ) ) {
+        wp_enqueue_style( 'locator_css', get_template_directory_uri() . '/locator.css' );
+    }
+
     wp_enqueue_style( 'slick_css', get_template_directory_uri() . '/js/slick/slick.css' );
     wp_enqueue_style( 'slick-theme_css', get_template_directory_uri() . '/js/slick/slick-theme.css' );
     wp_enqueue_style( 'fontawesome_css', get_template_directory_uri() . '/css/fontawesome-all.min.css' );
