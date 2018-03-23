@@ -116,6 +116,21 @@ input.form-control {
 
 .input-group span .btn {
   border-radius: 0; }
+.wpcf7-form {
+  text-align: right;
+}
+.wpcf7-form .wpcf7-text, .wpcf7-form textarea {
+  letter-spacing: 0.8px;
+  padding: 10px;
+  margin: 7.5px 0;
+  width: 100%;
+  border: 1px solid #dedede;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+.wpcf7-form .wp-btn-red {
+  width: auto;
+}
 
 .wp-btn-transparent.wp-btn-white {
   border-color: rgba(255, 255, 255, 0.97);
@@ -2012,7 +2027,7 @@ hr {
     padding-top: 75px;
     padding-bottom: 75px; }
   .no-banner {
-    padding-top: 75px;
+    padding-top: 100px;
     padding-bottom: 30px; }
   .no-banner-pad {
     padding-top: 80px;

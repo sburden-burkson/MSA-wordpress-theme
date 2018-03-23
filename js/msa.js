@@ -305,4 +305,11 @@ jQuery(document).ready(function ($) {
     checkIframeLoaded();
   });
 
+  // Footer Form Placeholder
+  var checkExist = setInterval(function() {
+     if ($("#email_address_0").length) {
+        $("#email_address_0").attr("placeholder", "Email");
+        clearInterval(checkExist);
+     }
+  }, 100);
 });
