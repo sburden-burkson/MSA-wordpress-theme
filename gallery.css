@@ -7,8 +7,9 @@
 
 .gallery-modal .modal-body {
     text-align: center;
-    padding: 0px 0px 65px;
-    min-height: 300px;
+    /* padding: 0px 0px 65px; */
+    padding: 0 0 0 0;
+    /* min-height: 300px; */
 }
 
 /* .gallery-modal .modal-header {
@@ -255,6 +256,19 @@ select.filter-select:last-child {
   font-family: "Barlow Condensed", sans-serif;
   color: rgba(0, 0, 0, 0.97);
 }
+#imageModal button {
+  font-size: 30px;
+  border: 0 !important;
+  top: 10px;
+  right: 10px;
+  opacity: 1;
+  color: white;
+  text-shadow: none;
+  background: rgba(0, 0, 0, 0.3);
+}
+#imageModal button:hover {
+  opacity: 0.8;
+}
 
 @media (max-width: 767px) {
     .section-gallery-cell {
@@ -308,8 +322,8 @@ select.filter-select:last-child {
 
     .gallery-modal .close {
         font-size: 18px;
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
         line-height: 21px;
     }
 

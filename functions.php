@@ -60,8 +60,6 @@ function msawheels_theme_js() {
 
     wp_enqueue_script( 'bootstrap_js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '', true );
 
-    //wp_enqueue_script( 'fontawesome_js', get_template_directory_uri() . '/js/fontawesome-all.js', '', true );
-
     if ( is_archive( 'gallery' ) ) {
         wp_enqueue_script( 'chosen_js', get_template_directory_uri() . '/inc/chosen/chosen.jquery.min.js', array('jquery'), '', true );
     }
@@ -79,23 +77,12 @@ function msawheels_theme_js() {
 
     wp_enqueue_script( 'msa_js', get_template_directory_uri() . '/js/msa-min.js', array('jquery', 'matchHeight_js', 'slick_js' ), '', true );
 
-    // wp_enqueue_script( 'constant_contact_js', get_template_directory_uri() . '/js/signup-form-widget.min.js', 'msa_js', '', true );
-
     if ( is_post_type_archive( 'gallery' ) ) {
         wp_enqueue_script( 'gallery_js', get_template_directory_uri() . '/js/gallery.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }
     if ( is_home() ) {
         wp_enqueue_script( 'blog_js', get_template_directory_uri() . '/js/blog-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
     }
-
-    // if ( is_product() ) {
-    //     wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'bootstrap_js', 'msa_js'), '', true );
-    // }
-
-    if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
-        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'chosen_js'), '', true );
-    }
-
 }
 add_action( 'wp_enqueue_scripts', 'msawheels_theme_js' );
 
@@ -125,97 +112,6 @@ function msawheels_widgets_init() {
     // ) );
 }
 add_action( 'widgets_init', 'msawheels_widgets_init' );
-
-/**
- * Add Rim Icon next to the Wheel Collection Admin
- */
-function rim_dashboard() {
-   wp_enqueue_style('rim', get_template_directory_uri() . '/fonts/detailed-rims/font/flaticon.css');
-}
-
-add_action('admin_init', 'rim_dashboard');
-
-function rim_icons_dashboard() {
-  $monoblock_icon = '\f102';
-  $legacy_icon = '\f106';
-   echo "<style type='text/css' media='screen'>
-   		#menu-posts-monoblock .dashicons-admin-post:before, .dashicons-format-standard:before {
-     		font-family: Flaticon !important;
-     		content: '".$monoblock_icon."';
-      }
-      #menu-posts-legacy .dashicons-admin-post:before, .dashicons-format-standard:before {
-        font-family: Flaticon !important;
-        content: '".$legacy_icon."';
-      }
-     	</style>";
- }
-add_action('admin_head', 'rim_icons_dashboard');
-
-/**
- * Custom function to register sidenav background images
- */
-/*
-function msawheels_nav_menu_objects( $items, $args ) {
-	return $items;
-}
-add_filter('wp_nav_menu_objects', 'msawheels_nav_menu_objects', 10, 2);
-*/
-
-
-/**
- * Custom function to wrap and output default side menu background and social links for sidenav
- */
-function msawheels_nav_menu_items( $items, $args ) {
-
-	// get menu
-	$menu = wp_get_nav_menu_object('Side Menu');
-
-	// modify sidenav only
-    /*
-	if ( $args->theme_location == 'sidenav' ) {
-  		// vars
-  		$default_background = get_field('default_background_image', $menu);
-  		$facebook = get_field('facebook_url', $menu);
-      $instagram = get_field('instagram_url', $menu);
-      $date = date('Y');
-      $indent = str_repeat( "\t", 7 );
-
-      // prepend html
-  	  $prepend_html =
-     '<div class="side-nav-wrap covered-bg" data-bg-img="'.$default_background.'">
-          <nav class="side-nav">
-              <a href="javascript:void(0);" class="side-nav-close">x</a>
-                  <div class="side-nav-overflow">
-                      <div class="k-table">
-                          <div class="side-nav-links k-table-cell">
-                              <ul class="list-unstyled text-uppercase side-nav-main">';
-
-      $append_html =
-                   $indent . '</ul>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="side-nav-bottom">
-                      <div class="side-nav-social row">
-                          <div class="col-xs-4"><a class="side-nav-social-link k-gray-link" href="'.$facebook.'">Facebook</a></div>
-                          <div class="col-xs-4"><a class="side-nav-social-link k-gray-link" href="'.$instagram.'">Instagram</a></div>
-                          <div class="col-xs-4">
-                      </div>
-                  </div>
-                  <div class="col-xs-4"></div><div class="side-nav-copyright">
-                      <p class="k-gray-text">Privacy Policy &copy; '.$date.'</p>
-                  </div>
-              </div>
-          </nav>
-      </div>';
-
-      // append html
-      $items = $prepend_html . "\n" . $items . $append_html;
-	}*/
-	// return
-	return $items;
-}
-add_filter('wp_nav_menu_items', 'msawheels_nav_menu_items', 10, 2);
 
 /**
  * Custom function to set uploaded gallery image as the featured image

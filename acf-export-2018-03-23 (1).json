@@ -1,5 +1,148 @@
 [
     {
+        "key": "group_59dd2d5c1a69e",
+        "title": "Wheel Gallery Fields",
+        "fields": [
+            {
+                "key": "field_59dd2d8697a3b",
+                "label": "Gallery Image",
+                "name": "gallery_image",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 0,
+                "return_format": "url",
+                "preview_size": "thumbnail",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": ""
+            },
+            {
+                "key": "field_59de554c90f43",
+                "label": "Wheel",
+                "name": "wheel",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 0,
+                "post_type": [],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_59de556690f44",
+                "label": "Finish",
+                "name": "finish",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 0,
+                "choices": {
+                    "chrome": "Chrome",
+                    "gold": "Gold",
+                    "black": "Black"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            },
+            {
+                "key": "field_5ab3ded3823ba",
+                "label": "Terrain",
+                "name": "terrain",
+                "type": "select",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_in_rest": 1,
+                "edit_in_rest": 0,
+                "choices": {
+                    "street": "Street",
+                    "dirt": "Dirt",
+                    "mud": "Mud",
+                    "sand": "Sand",
+                    "snow": "Snow",
+                    "water": "Water"
+                },
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "return_format": "value",
+                "placeholder": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "gallery"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "excerpt",
+            "custom_fields",
+            "discussion",
+            "comments",
+            "revisions",
+            "slug",
+            "author",
+            "format",
+            "page_attributes",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
         "key": "group_5aa99fad2dfc0",
         "title": "WooCommerce Swatch Color",
         "fields": [
@@ -3358,12 +3501,11 @@
             ]
         ],
         "menu_order": 0,
-        "position": "normal",
+        "position": "acf_after_title",
         "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
         "hide_on_screen": [
-            "the_content",
             "discussion",
             "comments",
             "slug",
