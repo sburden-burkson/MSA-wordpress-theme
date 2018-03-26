@@ -217,7 +217,10 @@ select.filter-select:last-child {
 .gallery-load-more.k-loading > img {
     display: inline-block;
 }
-
+.k-loading {
+  color: red !important;
+  background: none !important;
+}
 .loader-center-middle {
     position: absolute;
     width: 50px;

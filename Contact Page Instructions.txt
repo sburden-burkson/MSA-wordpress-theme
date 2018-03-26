@@ -1,0 +1,3 @@
+* INCLUDE these definitions in wp-config.php to avoid styling conflicts:
+* define('WPCF7_LOAD_CSS', false);
+* define( 'WPCF7_AUTOP', false );

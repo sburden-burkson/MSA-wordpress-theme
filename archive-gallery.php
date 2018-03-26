@@ -92,11 +92,6 @@
       <div class="wp-table wp-full-height" style="margin: 0 auto;">
         <div class="wp-table-cell-middle">
             <div class="modal-content">
-              <!-- <div class="modal-header">
-                <div class="text-right modal-close">
-                  <a href="javascript:void(0)" data-dismiss="modal"><img src="<?php echo esc_url( home_url( '/wp-content/themes/msawheels/icons/x-icon.png' ) ); ?>" alt="" style=""></a>
-                </div>
-              </div> -->
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <i class="far fa-times"></i>
               </button>

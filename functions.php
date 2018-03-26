@@ -73,8 +73,6 @@ function msawheels_theme_js() {
         wp_enqueue_script( 'masonry_js', get_template_directory_uri() . '/inc/masonry/masonry.pkgd.min.js', array('jquery', 'masonryimages_js'), '', true );
     }
 
-    wp_enqueue_script( 'hammer_js', get_template_directory_uri() . '/inc/hammerjs/hammer.min.js', '', '', true );
-
     wp_enqueue_script( 'matchHeight_js', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', '', '', true );
 
     wp_enqueue_script( 'slick_js', get_template_directory_uri() . '/js/slick/slick.min.js', '', '', true );

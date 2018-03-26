@@ -6,7 +6,7 @@ jQuery(document).ready(function ($) {
         origImageCnt = $grid.find('.gallery-image').length;
 
     var galleryUrl = '/wp-json/wp/v2/gallery',
-        page = 1, perPage = origImageCnt ? origImageCnt : 20, uploadPostID = 351, totalPage = 9999, hasInit = origImageCnt ? false : true;
+        page = 1, perPage = origImageCnt ? origImageCnt : 20, totalPage = 9999, hasInit = origImageCnt ? false : true;
 
     var buildImageItem = function (title, fullUrl, thumbUrl) {
         var $wrap = $('<a/>', { 'class': 'gallery-image', 'href': 'javascript:void(0);', 'data-full-img': fullUrl }),
@@ -31,8 +31,7 @@ jQuery(document).ready(function ($) {
         if (page > totalPage) return;
         var postData = {
             page: page,
-            per_page: perPage,
-            exclude: uploadPostID
+            per_page: perPage
         };
         var wheel = $('.filter-wheel-select').val();
         var finish = $('.filter-finish-select').val();
@@ -58,9 +57,13 @@ jQuery(document).ready(function ($) {
                     for (var i = 0; i < data.length; i++) {
                         var thisData = data[i];
                         if (thisData.acf) {
-                            var thisTitle = thisData.title.rendered,
-                                thisFullUrl = thisData.acf.gallery_image,
+                            // var thisTitle = thisData.title.rendered,
+                            var thisFullUrl = thisData.acf.gallery_image,
                                 thisThumbUrl = thisData.acf.gallery_image;
+                                thisWheel = thisData.acf.wheel;
+                                thisFinish = thisData.acf.finish;
+                                thisTerrain = thisData.acf.terrain;
+                                thisTitle = titleCase(thisWheel + " in " + thisFinish + " driving in " + thisTerrain)
 
                             var $thisObj = buildImageItem(thisTitle, thisFullUrl, thisThumbUrl);
                             $grid.append($thisObj)
@@ -85,7 +88,7 @@ jQuery(document).ready(function ($) {
             }
             if (page == 1 && page < totalPage) {
                 $loadMoreWrap = $('<p/>', { 'class': 'text-center load-more-wrap' }),
-                    $loadMoreBtn = $('<a/>', { 'href': 'javascript:void(0);', 'text': 'Load More', 'class': 'gallery-load-more btn k-btn-transparent k-btn-extra-long text-uppercase k-btn-red' });
+                $loadMoreBtn = $('<a/>', { 'href': 'javascript:void(0);', 'text': 'Load More', 'class': 'gallery-load-more btn wp-btn-no-arrow text-uppercase wp-btn-red' });
                 $loadMoreBtn.prepend($('<img />', { 'class': 'ajax-loading-icon', 'src': '/wp-content/themes/msawheels/icons/spinning-circles-red.svg' }));
                 $loadMoreWrap.append($loadMoreBtn).insertAfter($grid);
             }
@@ -174,4 +177,10 @@ function terrainFilter() {
 
 function getKeyByValue(obj, value) {
     return Object.keys(obj)[Object.values(obj).indexOf(value)];
+}
+
+function titleCase(str) {
+  return str.toLowerCase().split(' ').map(function(word) {
+    return word.replace(word[0], word[0].toUpperCase());
+  }).join(' ');
 }
