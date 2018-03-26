@@ -1042,8 +1042,8 @@ nav {
       height: 120px;
       padding: 0; }
       .sidenav .toggle-wrapper .side-nav-close .close-icon {
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
         background-image: url("/wp-content/themes/msawheels/icons/sidenav-close-icon.png");
         background-size: 100%;
         background-repeat: no-repeat;
