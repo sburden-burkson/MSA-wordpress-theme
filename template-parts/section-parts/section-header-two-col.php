@@ -42,7 +42,7 @@
       <?php if ($scroll_down_arrow): ?>
         <div class="text-center down-arrows">
           <a href="javascript:void(0)" class="trans-white-md">
-            <img src="/wp-content/uploads/2018/03/chevron-<?php echo $scroll_down_arrow_color; ?>.png" alt="">
+            <img src="/wp-content/themes/msawheels/icons/chevron-<?php echo $scroll_down_arrow_color; ?>.png" alt="">
           </a>
         </div>
       <?php endif; ?>

@@ -5,7 +5,7 @@
 <?php if( have_rows('info_image_pair') ): ?>
 <div class="section container-fluid v-center-section">
   <div class="row">
-  <?php while ( have_rows('info_image_pair') ) : $count++; the_row();
+  <?php while ( have_rows('info_image_pair') ) : the_row();
       //vars
       $image = get_sub_field('image');
       $image_url = $image['url'];

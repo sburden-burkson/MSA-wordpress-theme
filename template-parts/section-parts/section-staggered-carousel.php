@@ -30,7 +30,7 @@
         <div class="carousel-item <?php echo $shade_of_content_background; ?> staggeredCarouselHeight" style="background-image: url('<?php echo $content_background; ?>');">
           <div class="carousel-info-pad">
             <div class="carouselInfoHeight">
-              <?php echo $count . $slide_content; ?>
+              <?php echo $slide_content; ?>
             </div>
             <?php if ($add_a_button): ?>
               <p class="pad-top <?php echo $button_alignment; ?>"><a href="<?php echo $button_url; ?>" class="btn wp-btn-extra-long text-uppercase wp-btn-red"><?php echo $button_text; ?> <i class="fal fa-long-arrow-right fa-lg"></i></a></p>

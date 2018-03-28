@@ -34,7 +34,6 @@ jQuery(document).ready(function ($) {
         'background-color', 'rgba(255, 255, 255, 0.05)',
         'height', '80px'
       );
-        console.log('resetting <a> css line-height');
       $('nav .nav>li>a').css(
         'line-height', '80px'
       );
@@ -106,11 +105,6 @@ jQuery(document).ready(function ($) {
   $(window).on('resize', function() {
     footerAccordion();
       navResize();
-  });
-  $('.collapse').on('shown.bs.collapse', function() {
-    $(this).parent().find(".fa-plus").removeClass("fa-plus").addClass("fa-minus");
-  }).on('hidden.bs.collapse', function() {
-    $(this).parent().find(".fa-minus").removeClass("fa-minus").addClass("fa-plus");
   });
 
 // Side Nav
@@ -236,18 +230,7 @@ jQuery(document).ready(function ($) {
 
 // Accessory Info Page
   $(".accessoryHeight").matchHeight(notByRow);
-  $(".accessoryHeight1").matchHeight(notByRow);
-  $(".accessoryHeight2").matchHeight(notByRow);
-  $(".accessoryHeight3").matchHeight(notByRow);
-  $(".accessoryHeight4").matchHeight(notByRow);
   $(".accessoryHeightCTA").matchHeight();
-
-// FAQ Page
-  $('#faqAccordion .collapse').on('shown.bs.collapse', function() {
-    $(this).parent().find('.panel-heading').removeClass("border-bottom");
-  }).on('hidden.bs.collapse', function() {
-    $(this).parent().find('.panel-heading').addClass("border-bottom");
-  });
 
 // Staggered Slider Section
   $('#staggeredCarousel').slick({
@@ -337,5 +320,5 @@ jQuery(document).ready(function ($) {
         $("#email_address_0").attr("placeholder", "Email");
         clearInterval(checkExist);
      }
-  }, 100);
+  }, 500);
 });

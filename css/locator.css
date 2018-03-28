@@ -294,7 +294,7 @@
 }
 
 .use-location-icon {
-    background-image: url(icons/location.svg);
+    background-image: url("/wp-content/themes/msawheels/icons/location.svg");
     background-repeat: no-repeat;
     background-size: 15px 15px;
     display: inline-block;
@@ -304,7 +304,7 @@
 
 .use-location-icon.active,
   .use-location-btn.active .use-location-icon {
-    background-image: url(icons/location-active.svg);
+    background-image: url("/wp-content/themes/msawheels/icons/location-active.svg");
 }
 @media (max-width: 767px) {
   /*Store Locator*/

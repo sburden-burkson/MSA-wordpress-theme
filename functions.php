@@ -35,17 +35,18 @@ function msawheels_theme_styles() {
     wp_enqueue_style( 'googlefont_css', 'https://fonts.googleapis.com/css?family=Barlow+Condensed:300,400,500|Open+Sans:300' );
 
     if ( is_archive( 'gallery' ) ) {
-        wp_enqueue_style( 'gallery_css', get_template_directory_uri() . '/gallery.css' );
+        wp_enqueue_style( 'gallery_css', get_template_directory_uri() . '/css/gallery.css' );
         wp_enqueue_style( 'chosen_css', get_template_directory_uri() . '/inc/chosen/chosen.customized.css' );
     }
 
     if ( is_page_template( 'page-locator.php' ) ) {
-        wp_enqueue_style( 'locator_css', get_template_directory_uri() . '/locator.css' );
+        wp_enqueue_style( 'locator_css', get_template_directory_uri() . '/css/locator.css' );
     }
 
     wp_enqueue_style( 'slick_css', get_template_directory_uri() . '/js/slick/slick.css' );
     wp_enqueue_style( 'slick-theme_css', get_template_directory_uri() . '/js/slick/slick-theme.css' );
     wp_enqueue_style( 'fontawesome_css', get_template_directory_uri() . '/css/fontawesome-all.min.css' );
+    wp_enqueue_style( 'search_css', get_template_directory_uri() . '/css/search.css' );
     wp_enqueue_style( 'msa-wheels-style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'msawheels_theme_styles' );
@@ -77,6 +78,8 @@ function msawheels_theme_js() {
 
     wp_enqueue_script( 'slick_js', get_template_directory_uri() . '/js/slick/slick.min.js', '', '', true );
 
+    wp_enqueue_script( 'search_js', get_template_directory_uri() . '/js/search-min.js', array('jquery'), '', true );
+
     wp_enqueue_script( 'msa_js', get_template_directory_uri() . '/js/msa-min.js', array('jquery', 'matchHeight_js', 'slick_js' ), '', true );
 
     if ( is_post_type_archive( 'gallery' ) ) {
@@ -89,17 +92,13 @@ function msawheels_theme_js() {
     if ( is_product() ) {
         wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery'), '', true );
     }
-    
+
     if ( is_product_category() ) {
         wp_enqueue_script( 'collection_js', get_template_directory_uri() . '/js/collection-min.js', array('jquery'), '', true );
     }
-    
+
     if ( is_checkout() ) {
         wp_enqueue_script( 'checkout_js', get_template_directory_uri() . '/js/checkout-min.js', array('jquery'), '', true );
-    }
-
-    if ( get_post_type() == 'legacy' || get_post_type() == 'monoblock' ) {
-        wp_enqueue_script( 'product_js', get_template_directory_uri() . '/js/product-min.js', array('jquery', 'chosen_js'), '', true );
     }
 
 }
@@ -129,7 +128,7 @@ function msawheels_widgets_init() {
     //   'before_title'  => '',
     //   'after_title'   => '',
     // ) );
-    
+
     register_sidebar( array(
        'name'          => __( 'Shop Filters' ),
        'id'            => 'shop-filters',
@@ -359,26 +358,26 @@ function custom_variation_price( $price, $product ) {
 add_filter( 'woocommerce_dropdown_variation_attribute_options_html', 'override_color_variation_display', 10, 2);
 function override_color_variation_display( $html, $args ) {
     $html_orig = $html;
-    
+
     /* Example $html values:
-       
+
          1) <select id="wheel-size" class="" name="attribute_wheel-size" data-attribute_name="attribute_wheel-size" data-show_option_none="yes"><option value="">Choose an option</option><option value="14x7 0mm" >14x7 0mm</option><option value="15x7 0mm" >15x7 0mm</option></select>
-         
+
          2) <select id="bolt-pattern" class="" name="attribute_bolt-pattern" data-attribute_name="attribute_bolt-pattern" data-show_option_none="yes"><option value="">Choose an option</option><option value="4x110" >4x110</option><option value="4x137" >4x137</option><option value="4x156" >4x156</option></select>
-         
+
          3) <select id="ring-color" class="" name="attribute_ring-color" data-attribute_name="attribute_ring-color" data-show_option_none="yes"><option value="">Choose an option</option><option value="Satin Black" >Satin Black</option></select>
     */
-    
+
     $html = str_replace('class="', 'style="display: none;" class="hidden ', $html);
-    
+
     $html .= "\n\n".'<!--'."\n".'==============';
-    
+
     //global $product;
     //$html .= "\n".'$product->ID = '.$product->id."\n";
-    
+
     $html .= "\n".'$html = '.$html_orig."\n";
     $html .= "\n".'$args = '.json_encode($args)."\n";
-    
+
     // Attribute name
     $attrSlug = $args['attribute'];
     $html .= "\n".'$attrSlug = '.$attrSlug."\n";
@@ -386,7 +385,7 @@ function override_color_variation_display( $html, $args ) {
     // Attribute options
     $options = $args['options'];
     $html .= "\n".'$options = '.json_encode($options)."\n";
-    
+
     // Attribute names
     $attrTerms = get_the_terms( get_the_id(), $attrSlug );
     $options_more = [];
@@ -408,9 +407,9 @@ function override_color_variation_display( $html, $args ) {
         }
     }
     $html .= "\n".'$options_more = '.json_encode($options_more)."\n";
-    
+
     $html .= '============== -->'."\n\n";
-    
+
     foreach($options_more as $attr){
         if(isset($attr['swatch_color'])){
             $html .= '<a href="#" class="pa-option pa-color-swatch hover-tooltip-trigger" data-attrslug="'.$attrSlug.'" data-attrvalue="'.$attr['value'].'" data-tooltip="'.$attr['name'].'"><i class="myCircle" style="background-color:'.$attr['swatch_color'].';"></i></a>';
@@ -429,7 +428,7 @@ add_action( 'woocommerce_product_after_variable_attributes', function( $loop, $v
     $abcdefgh_i = $loop;
     // Add filter to update field name
     add_filter( 'acf/prepare_field', 'acf_prepare_field_update_field_name' );
-    
+
     // Loop through all field groups
     $acf_field_groups = acf_get_field_groups();
     foreach( $acf_field_groups as $acf_field_group ) {
@@ -444,7 +443,7 @@ add_action( 'woocommerce_product_after_variable_attributes', function( $loop, $v
             }
         }
     }
-    
+
     // Remove filter
     remove_filter( 'acf/prepare_field', 'acf_prepare_field_update_field_name' );
 }, 10, 3 );
@@ -455,7 +454,7 @@ function  acf_prepare_field_update_field_name( $field ) {
     $field['name'] = preg_replace( '/^acf\[/', "acf[$abcdefgh_i][", $field['name'] );
     return $field;
 }
-    
+
 // Save variation data
 add_action( 'woocommerce_save_product_variation', function( $variation_id, $i = -1 ) {
     // Update all fields for the current variation
@@ -482,11 +481,11 @@ add_filter( 'wc_add_to_cart_message_html', 'filter_wc_add_to_cart_message_html',
 
 
 /* SET MOST RECENT CART ITEM */
-function filter_woocommerce_add_cart_item_data( $cart_item_data, $product_id, $variation_id ) { 
-    
+function filter_woocommerce_add_cart_item_data( $cart_item_data, $product_id, $variation_id ) {
+
     global $woo_added_variation_id;
     $woo_added_variation_id = $variation_id;
-    
+
     return $cart_item_data;
 }
 add_filter( 'woocommerce_add_cart_item_data', 'filter_woocommerce_add_cart_item_data', 10, 3 );
@@ -508,17 +507,17 @@ function add_cart_item_custom_data_vase( $cart_item_meta, $product_id ) {
   global $woocommerce;
   //$cart_item_meta['test_field'] = $_POST['test_field'];
   $cart_item_meta['install_kit'] = false;
-  return $cart_item_meta; 
+  return $cart_item_meta;
 }
 
 //Get it from the session and add it to the cart variable
 function get_cart_items_from_session( $item, $values, $key ) {
     if ( array_key_exists( 'install_kit', $values ) )
         $item[ 'install_kit' ] = $values['install_kit'];
-    
+
     // Not sure if this is better or worse
     //$item[ 'install_kit' ] = (array_key_exists( 'install_kit', $values ))? $values['install_kit'] : false;
-    
+
     return $item;
 }
 add_filter( 'woocommerce_get_cart_item_from_session', 'get_cart_items_from_session', 1, 3 );
@@ -528,7 +527,7 @@ add_filter( 'woocommerce_get_cart_item_from_session', 'get_cart_items_from_sessi
 /* CART LINK / NUM OF ITEMS IN NAV MENU */
 add_filter( 'wp_nav_menu_items', 'add_cart_to_primary_nav', 10, 2 );
 function add_cart_to_primary_nav ( $items, $args ) {
-    
+
     if ($args->theme_location == 'primary') {
         $items .= '<li id="menu-item-cart" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-cart"><a title="Cart" href="'.get_permalink( wc_get_page_id( 'cart' ) ).'">Cart <span class="nav-cart-box">'.WC()->cart->get_cart_contents_count().'</span></a></li>';
         /* MAKE SURE THIS HTML MATCHES BELOW (woocommerce_header_add_to_cart_fragment) */
@@ -618,4 +617,3 @@ function df_terms_clauses( $clauses, $taxonomy, $args ) {
 
 add_filter( 'terms_clauses', 'df_terms_clauses', 10, 3 );
 */
-

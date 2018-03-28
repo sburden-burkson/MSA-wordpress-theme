@@ -59,7 +59,7 @@ class Footer_Navwalker extends Walker_Nav_menu {
 		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
 		$item_output .= ( $args->walker->has_children ) ? '</a> <span class="visible-xs pull-right"><a aria-controls="collapse'.$item->ID.'"
 			aria-expanded="false" class="collapsed" data-parent="#footerAccordion" data-toggle="collapse" href="#collapse'.$item->ID.'" role=
-			"button"><i class="fal fa-plus"></i></a></span></h4></div>
+			"button"><i class="fal fa-plus"></i><i class="fal fa-minus"></i></a></span></h4></div>
 			<div aria-labelledby="heading'.$item->ID.'" class="panel-collapse collapse" id="collapse'.$item->ID.'" role="tabpanel"><div class="panel-body">' : '</a>';
 		$item_output .= $args->after;
 		$output .= apply_filters ( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );

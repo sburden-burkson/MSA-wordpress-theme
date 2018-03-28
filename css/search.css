@@ -1,0 +1,192 @@
+.admin-bar .full-page-overlay {
+    margin-top: 32px;
+}
+
+@media only screen and (max-width: 767px) {
+    .admin-bar .full-page-overlay {
+        margin-top: 46px;
+    }
+}
+
+.full-page-overlay {
+    background-color: #191919;
+    height: 100%;
+    left: 0;
+    padding: 40px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.full-page-overlay.fade {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear;
+}
+
+.full-page-overlay.in {
+    filter: alpha(opacity=96);
+    opacity: .96;
+}
+
+.full-page-overlay .overlay-close {
+    color: #888;
+    font-size: 16px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px #888 solid;
+}
+
+.full-page-overlay a.overlay-close:after {
+    font-family: "Font Awesome 5 Pro";
+    content: "\f00d";
+    top: 2px;
+    left: 5px;
+    position: absolute;
+}
+
+.full-page-overlay .overlay-close:hover, .full-page-overlay .overlay-close:active, .full-page-overlay .overlay-close:focus {
+    text-decoration: none;
+}
+
+.full-page-overlay form {
+    width: 100%;
+    position: relative;
+    font-family: "Barlow Condensed", sans-serif;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.full-page-overlay form .glyphicon-search, .full-page-overlay form .fa-search {
+    color: #888;
+    font-size: 20px;
+    position: absolute;
+    margin-top: -10px;
+    top: 50%;
+}
+
+.full-page-overlay form input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #888;
+    color: #888;
+    height: 50px;
+    letter-spacing: 0.1em;
+    outline: 0;
+    padding: 15px 50px 12px 35px;
+    width: 100%;
+}
+
+.full-page-overlay form .overlay-clear {
+    color: #888;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 16px;
+}
+
+.full-page-overlay form.filled-in .overlay-clear {
+    display: block;
+}
+
+.full-page-overlay:after {
+    background-image: url("/wp-content/themes/msawheels/images/sidenav-logo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: 26px;
+    left: 0;
+    margin: 25px auto;
+    /* opacity: 0.5; */
+    position: absolute;
+    right: 0;
+    width: 98px;
+}
+
+.full-page-overlay .search-results-panel {
+    height: calc(100% - 110px);
+    margin-top: 20px;
+    padding: 20px 15px;
+    overflow: auto;
+    background-color: #333;
+    display: none;
+}
+
+.full-page-overlay .search-result-item {
+    border-top: 1px solid #f9f9f9;
+    color: #dedede;
+    letter-spacing: 0.8px;
+    font-family: "Barlow Condensed", sans-serif;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.full-page-overlay .search-result-item .search-result-header {
+    font-weight: 500;
+    font-size: 15px;
+    font-family: "Barlow Condensed", sans-serif;
+    color: red;
+}
+
+.full-page-overlay .search-result-item .search-result-content {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.full-page-overlay .search-result-item:first-child {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  .full-page-overlay {
+      padding: 80px 100px;
+  }
+
+  .full-page-overlay .overlay-close {
+      font-size: 18px;
+      right: 30px;
+      top: 30px;
+      width: 28px;
+      height: 28px;
+      line-height: 21px;
+  }
+
+  .full-page-overlay a.overlay-close:after {
+      top: 3px;
+      left: 6px;
+  }
+
+  .full-page-overlay form {
+      font-size: 17px;
+  }
+
+  .full-page-overlay form input {
+      height: 60px;
+  }
+
+  .full-page-overlay form .overlay-clear {
+      top: 20px;
+  }
+
+  .full-page-overlay:after {
+      height: 32px;
+      width: 121px;
+  }
+
+  .full-page-overlay .search-results-panel {
+      height: calc(100% - 80px);
+  }
+}
