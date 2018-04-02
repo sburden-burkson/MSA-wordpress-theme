@@ -13,7 +13,7 @@
 <!-- Top Section No Background -->
 <div class="section container no-banner <?php echo $centered_text . $width_restriction; ?>">
   <?php echo $section_content; ?>
-  <?php if ($tag_name): ?>
+  <?php if (isset($tag_name)): ?>
     <h4 class="text-uppercase fw-300">#<?php echo $tag_name; ?></h4>
   <?php endif; ?>
   <?php if ($add_a_button): ?>
@@ -22,7 +22,7 @@
   <?php if ($scroll_down_arrow): ?>
     <div class="<?php echo $centered_text ?>down-arrows">
       <a href="javascript:void(0)" class="trans-white-md">
-        <img src="/wp-content/uploads/2018/03/chevron-grey.png" alt="">
+        <img src="/wp-content/themes/msawheels/icons/chevron-grey.png" alt="">
       </a>
     </div>
   <?php endif; ?>

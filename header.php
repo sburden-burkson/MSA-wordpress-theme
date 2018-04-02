@@ -5,17 +5,20 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <?php
-        $root_url = get_home_url();
-        if ( get_post_type() === 'monoblock' && is_single() ) {
-            echo '<meta name="searchimage" content="'.$root_url.'/wp-content/themes/msawheels/fonts/detailed-rims/png/rim-10.png">' . "\n";
-        } elseif ( get_post_type() === 'legacy' && is_single() ) {
-            echo '<meta name="searchimage" content="'.$root_url.'/wp-content/themes/msawheels/fonts/detailed-rims/png/rim-4.png">' . "\n";
-        } elseif ( get_post_type() === 'post' && is_single() ) {
-            echo '<meta name="searchimage" content="'.$root_url.'/wp-content/themes/msawheels/icons/blog.png">' . "\n";
-        }
-         elseif ( is_post_type_archive( 'gallery' ) ) {
-            echo '<meta name="searchimage" content="'.$root_url.'/wp-content/themes/msawheels/icons/gallery.png">' . "\n";
-        }
+      global $woocommerce;
+      $cart_url = $woocommerce->cart->get_cart_url();
+      $root_url = get_home_url();
+      if ( get_post_type() === 'post' && is_single() ) {
+          echo '<meta name="searchimage" content="'.$root_url.'/wp-content/themes/msawheels/icons/blog.png">' . "\n";
+      }
+      if ( is_post_type_archive( 'gallery' ) ) {
+          echo '<meta name="searchimage" content="'.$root_url.'/wp-content/themes/msawheels/icons/gallery.png">' . "\n";
+      }
+      // vars
+      $custom_logo_id = get_theme_mod( 'custom_logo' );
+      $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+      global $display_logo;
+      $display_logo = esc_url( $logo[0] );
   ?>
   <?php wp_head(); ?>
 </head>
@@ -36,15 +39,16 @@
 		<div id="header">
 			<div class="container-fluid">
 	      <div class="pull-left">
-          <a class="text-uppercase" href="<?php echo $left_link['url']; ?>" target="<?php echo $left_link['target']; ?>"><?php echo $left_link['title']; ?></a>
-					<span class="navbar-divider">|</span>
-					  <a href="javascript:void(0)"><i class="far fa-search"></i></a>
+          <a class="text-uppercase hidden-xs" href="<?php echo $left_link['url']; ?>" target="<?php echo $left_link['target']; ?>"><?php echo $left_link['title']; ?></a>
+					<span class="navbar-divider hidden-xs">|</span>
+					  <a href="javascript:void(0)" class="nav-search-icon"><i class="far fa-search"></i></a>
 				</div>
 				<div class="pull-right">
 					  <a class="text-uppercase" href="<?php echo $right_link['url']; ?>" target="<?php echo $right_link['target']; ?>"><?php echo $right_link['title']; ?></a>
 					<span class="navbar-divider">|</span>
-					<a class="text-uppercase" href="<?php echo $facebook; ?>" class="icon"><i class="fab fa-facebook"></i></a>
-					<a class="text-uppercase" href="<?php echo $instagram; ?>" class="icon"><i class="fab fa-instagram"></i></a>
+					<a class="hidden-xs" href="<?php echo $facebook; ?>" class="icon"><i class="fab fa-facebook"></i></a>
+					<a class="hidden-xs" href="<?php echo $instagram; ?>" class="icon"><i class="fab fa-instagram"></i></a>
+          <a href="<?php echo $cart_url; ?>" class="icon visible-xs-inline"><i class="fal fa-shopping-cart"></i></a>
 				</div>
 			</div>
 		</div>
@@ -57,21 +61,21 @@
         <div class="sidenav-left col-sm-12 col-md-6 col-lg-8">
             <div class="sidenav-logo-wrapper">
                 <a href="#" class="sidenav-logo">
-                    <img alt="MSA Logo" src="<?= content_url('uploads/2018/03/sidenav-logo.jpg'); ?>" />
+                    <img alt="MSA Logo" src="<?php echo $display_logo; ?>" alt="<?php echo get_bloginfo( 'name' ); ?>" />
                 </a>
             </div>
             <div class="sidenav-social-media">
-                <a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
-                <a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
+                <a href="<?php echo $facebook; ?>" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
+                <a href="<?php echo $instagram; ?>" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
             </div>
         </div>
         <div class="sidenav-right col-sm-12 col-md-6 col-lg-4">
             <div class="sidenav-right-inner">
-                <form class="navbar-form" role="search">
+                <!-- <form class="navbar-form" role="search">
                     <div class="input-wrapper">
                             <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
                     </div>
-                </form>
+                </form> -->
                 <?php
                   wp_nav_menu( array(
                      'menu'              => 'sidenav',
@@ -86,10 +90,10 @@
                   ));
                 ?>
                 <div class="sidenav-social-media">
-                    <a href="javascript:void(0)" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
-                    <a href="javascript:void(0)" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="<?php echo $facebook; ?>" class="icon"><i class="fab fa-facebook fa-2x"></i></a>
+                    <a href="<?php echo $instagram; ?>" class="icon"><i class="fab fa-instagram fa-2x"></i></a>
                 </div>
-                <div class="sidenav-copyright">MSA COPYRIGHT &copy; 2018</div>
+                <div class="sidenav-copyright">MSA COPYRIGHT &copy; <?php echo date('Y'); ?></div>
             </div>
             <div class="sidenav-right-texture"></div>
         </div>
@@ -110,11 +114,6 @@
         <div class="navbar-header">
           <a class="navbar-brand" href="<?php echo get_bloginfo( 'url' ); ?>">
             <?php
-                // vars
-                $custom_logo_id = get_theme_mod( 'custom_logo' );
-                $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-                global $display_logo;
-                $display_logo = esc_url( $logo[0] );
                 if ( has_custom_logo() ) {
                     echo '<img src="'. $display_logo .'" alt="' . get_bloginfo( 'name' ) . '" id="navLogo">';
                 } else {

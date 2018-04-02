@@ -42,7 +42,7 @@ get_header(); ?>
 		$texture_bottom = get_field('featured_image_texture_bottom');
 	?>
 
-	<div class="section article-featured-image half-bg texture-section" style="background-image: url('<?php echo $featured_image; ?>');">
+	<div class="section article-featured-image half-bg fixed-bg texture-section" style="background-image: url('<?php echo $featured_image; ?>');">
 		<div class="texture-top" style="background-image: url('<?php echo $texture_top; ?>');');"></div>
     <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
   </div>

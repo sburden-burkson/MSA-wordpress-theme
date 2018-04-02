@@ -20,7 +20,7 @@
 <div class="section <?php echo $parallax . $shade_of_background;?>texture-section" style="background-image: url('<?php echo $background_image; ?>');">
       <div class="<?php echo $centered_text . $overlay; ?>" id="<?php echo $vertical_padding; ?>">
         <?php echo $section_content; ?>
-        <?php if ($tag_name): ?>
+        <?php if (isset($tag_name)): ?>
           <h4 class="text-uppercase fw-300">#<?php echo $tag_name; ?></h4>
         <?php endif; ?>
         <?php if ($add_a_button): ?>
@@ -29,12 +29,12 @@
         <?php if ($scroll_down_arrow): ?>
           <div class="down-arrows pad-bottom">
             <a href="javascript:void(0)" class="trans-white-md">
-              <img src="/wp-content/uploads/2018/03/chevron-<?php echo $scroll_down_arrow_color; ?>.png" alt="">
+              <img src="/wp-content/themes/msawheels/icons/chevron-<?php echo $scroll_down_arrow_color; ?>.png" alt="">
             </a>
           </div>
         <?php endif; ?>
       </div>
-    <div class="texture-top" style="background-image: url('/wp-content/uploads/2018/03/top-gradient.png');"></div>
+    <div class="texture-top" style="background-image: url('/wp-content/themes/msawheels/textures/top-gradient.png');"></div>
     <div class="texture-bottom" style="background-image: url('<?php echo $texture_bottom; ?>');"></div>
   </div>
 <!-- /Top Section -->

@@ -19,16 +19,19 @@ Text Domain: msa-wheels
 }
 
 @media only screen and (max-width: 767px) {
-  .admin-bar .affix {
-    margin-top: 0px;
+  .admin-bar .affix, .admin-bar #sidenav {
+    margin-top: 46px;
   }
 }
 @media only screen and (max-width: 480px) {
   .admin-bar .affix-top {
-    top: 40px;
+    top: 0px;
+  }
+  .admin-bar .affix {
+    margin-top: 0;
   }
   .admin-bar #sidenav {
-    margintop: 40px;
+    margin-top: 46px;
   }
 }
 
@@ -139,6 +142,9 @@ input.form-control {
 
 .wp-btn-extra-long {
   padding: 10px 15px 10px 30px !important; }
+
+.wp-btn-no-arrow {
+  padding: 10px 30px 10px 30px; }
 
 .woocommerce button.button,
 #add_payment_method .wc-proceed-to-checkout a.checkout-button,
@@ -669,29 +675,27 @@ ul.slick-dots li {
   padding-bottom: 15%;
   width: 100%; }
 
-/* Constant Contact Forms
+/* Constant Contact & Contact 7 Forms
    ================== */
+.wpcf7 .screen-reader-response {
+  display: none; }
+
 .black-footer .ctct-inline-form {
-  margin-top: 30px;
-}
+  margin-top: 30px; }
 
 .black-footer div.ctct-form-embed div.ctct-form-defaults div.ctct-form-success {
-  padding-top: 10px;
-}
+  padding-top: 10px; }
 
 .black-footer div.ctct-form-embed form.ctct-form-custom, .section div.ctct-form-embed form.ctct-form-custom {
-  min-height: 0;
-}
+  min-height: 0; }
 
 .black-footer .ctct-inline-form .g-recaptcha, .black-footer .ctct-inline-form label, .section .ctct-inline-form .g-recaptcha, .section .ctct-inline-form label  {
-  display: none !important
-}
+  display: none !important }
 
 .black-footer .ctct-inline-form, .section .ctct-inline-form {
   font-family: "Barlow Condensed", sans-serif;
   position: relative;
-  background: transparent;
-}
+  background: transparent; }
 
 .black-footer div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
   font-family: Font Awesome\ 5 Pro;
@@ -707,8 +711,7 @@ ul.slick-dots li {
   line-height: .75em;
   vertical-align: -.0667em;
   border-radius: 0;
-  background-color: transparent !important;
-}
+  background-color: transparent !important; }
 
 .section div.ctct-form-embed form.ctct-form-custom button.ctct-form-button {
   font-family: Font Awesome\ 5 Pro;
@@ -725,22 +728,19 @@ ul.slick-dots li {
   vertical-align: -.0667em;
   border-radius: 0;
   padding: 15.5px;
-  background-color: transparent !important;
-}
+  background-color: transparent !important; }
 
 .black-footer .ctct-inline-form .ctct-form-button:hover, .black-footer .ctct-inline-form .ctct-form-button:focus {
   background: transparent !important;
   border: 0 !important;
-  color: #333 !important;
-}
+  color: #333 !important; }
 
 .section .ctct-inline-form .ctct-form-button:hover, .section .ctct-inline-form .ctct-form-button:focus {
   background-image: url("/wp-content/themes/msawheels/icons/red-bg-sm.png");
   border: 0 !important;
   color: rgba(255, 255, 255, 0.97) !important;
   bac
-  kground-color: transparent !important;
-}
+  kground-color: transparent !important; }
 .black-footer .ctct-inline-form input {
   font-family: "Barlow Condensed", sans-serif !important;
   background: black  !important;
@@ -749,8 +749,7 @@ ul.slick-dots li {
   width: 100%  !important;
   color: rgba(255, 255, 255, 0.97) !important;
   font-weight: 600 !important;
-  padding-right: 45px !important;
-}
+  padding-right: 45px !important; }
 
 .section .ctct-inline-form input {
   font-family: "Barlow Condensed", sans-serif !important;
@@ -761,24 +760,20 @@ ul.slick-dots li {
   padding-right: 50px !important;
   font-size: 18px !important;
   letter-spacing: 1px !important;
-  font-weight: 500 !important;
-}
+  font-weight: 500 !important; }
 
 .black-footer .ctct-form-container .ctct-form-defaults, .section .ctct-form-container .ctct-form-defaults {
   padding: 0 0 0 0;
-  background-color: transparent !important;
-}
+  background-color: transparent !important; }
 
 .black-footer div.ctct-form-embed form.ctct-form-custom input.ctct-form-element:focus, .section div.ctct-form-embed form.ctct-form-custom input.ctct-form-element:focus {
   border-color: #66afe9;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-}
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6); }
 
 .black-footer div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage, .black-footer .ctct-form-defaults .ctct-form-footer, .section div.ctct-form-embed form.ctct-form-custom .ctct-form-errorMessage, .section .ctct-form-defaults .ctct-form-footer {
-  display: none !important;
-}
+  display: none !important; }
 
 .black-footer div.ctct-form-embed div.ctct-form-defaults h2.ctct-form-header {
   font-family: "Barlow Condensed", sans-serif !important;
@@ -786,16 +781,14 @@ ul.slick-dots li {
   color: rgba(255, 255, 255, 0.97);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-weight: 500;
-}
+  font-weight: 500; }
 .section div.ctct-form-embed div.ctct-form-defaults h2.ctct-form-header {
   font-family: "Barlow Condensed", sans-serif !important;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 500;
   font-size: 22px;
-  color: rgba(0, 0, 0, 0.97);
-}
+  color: rgba(0, 0, 0, 0.97); }
 
 .black-footer .ctct-form-defaults .ctct-form-text {
   color: rgba(255, 255, 255, 0.54) !important;
@@ -803,16 +796,14 @@ ul.slick-dots li {
   font-family: "Open Sans", sans-serif !important;
   line-height: 2em;
   letter-spacing: 0.15em;
-  font-weight: 300;
-}
+  font-weight: 300; }
 
 .section .ctct-form-defaults .ctct-form-text {
   font-family: "Open Sans", sans-serif !important;
   color: #888 !important;
   line-height: 2em !important;
   letter-spacing: 0.15em;
-  font-weight: 600 !important;
-}
+  font-weight: 600 !important; }
 
 /* Headings
    ================== */
@@ -895,7 +886,7 @@ header {
   padding: 10px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
   header a {
-    color: rgba(0, 0, 0, 0.54);
+    color: rgba(0, 0, 0, 0.54) !important;
     letter-spacing: 0.15em;
     padding-left: 15px;
     padding-right: 15px;
@@ -1153,6 +1144,8 @@ nav {
     font-family: "Barlow Condensed", sans-serif;
     font-size: 18px;
     color: #888; }
+  #sidenav .current-menu-item {
+    text-decoration: line-through; }
 
 /* Links
    ================== */
@@ -2419,6 +2412,9 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
   width: 80%;
   margin: 0px auto 50px; }
 
+.stagger-top {
+  margin-top: -30px; }
+
 /* ===================================
    11) FAQ PAGE
    =================================== */
@@ -2428,6 +2424,12 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
   margin-top: 5px;
   margin-bottom: 5px;
   background-color: transparent; }
+
+#faqAccordion a[aria-expanded=true] .panel-heading .fa-plus {
+    display: none; }
+
+#faqAccordion a[aria-expanded=false] .panel-heading .fa-minus {
+    display: none; }
 
 #faqAccordion .panel-heading, #faqAccordion .panel, #faqAccordion .panel-body, #faqAccordion .panel-group {
   border: 0;
@@ -2462,6 +2464,9 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
       margin-right: -30px; }
   #faqAccordion .panel-heading .fa, #faqAccordion .panel-heading .fal, #faqAccordion .panel-heading .far, #faqAccordion .panel-heading .fab, #faqAccordion .panel-heading .fas, #faqAccordion .panel-heading svg {
     font-size: 14px; }
+
+  #faqAccordion .panel.panel-default {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important; }
 
 /* ===================================
    12) ABOUT PAGE
@@ -2515,6 +2520,10 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
     margin-top: 0; }
   .wp-btn-extra-long {
     padding: 10px 15px 10px 45px !important;
+    font-size: 14px;
+    font-weight: 300; }
+  .wp-btn-no-arrow {
+    padding: 10px 45px 10px 45px !important;
     font-size: 14px;
     font-weight: 300; }
   .woocommerce button.button,
@@ -2713,6 +2722,8 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
   footer {
     padding-left: 30px;
     padding-right: 30px; }
+  header a {
+    padding-left: 0; }
   h1 {
     font-size: 56px; }
   h2 {
@@ -2804,6 +2815,10 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
       padding-right: 15px; }
     footer .featured-blog-more {
       padding-bottom: 20px; }
+  #footerAccordion a[aria-expanded=true] .fa-plus {
+     display: none; }
+  #footerAccordion a[aria-expanded=false] .fa-minus {
+     display: none; }
   #footerAccordion #footerH1 {
     border-top: 1px solid rgba(255, 255, 255, 0.2); }
   #footerAccordion .panel-heading {
@@ -2933,16 +2948,16 @@ body.woocommerce-page.woocommerce-checkout #order_review table.shop_table {
     font-size: 16px; }
   p {
     font-size: 12.5px; }
-  header {
+  /* header {
     height: 0 !important;
     display: none;
     padding: 0;
-    border-bottom: 0; }
-  .navbar-default {
+    border-bottom: 0; } */
+  /* .navbar-default {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1001; }
+    z-index: 1001; } */
   .home-video-wrapper {
     overflow-x: hidden; }
   .home-video-wrapper iframe,

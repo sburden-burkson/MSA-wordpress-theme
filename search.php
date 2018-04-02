@@ -1,15 +1,14 @@
 <?php get_header(); ?>
 
-		<div class="main">
-			<div class="container">
 			<?php if ( have_posts() ) : ?>
-
-				<h1 class="page-title"><?php
+				<div class="section container no-banner">
+					<h1 class="pad-bottom"><?php
 					/* translators: %s: search query. */
 					printf( esc_html__( 'Search Results for: %s', 'test' ), '<span>' . get_search_query() . '</span>' );
-				?></h1>
-			<!-- .page-header -->
+					?></h1><!-- .page-header -->
+				</div>
 
+			<div class="container pad-bottom">
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -24,15 +23,12 @@
 			endwhile;
 
 			// the_posts_navigation();
-			echo paginate_links();
-
+			echo paginate_links(); ?>
+		</div>
+		<?php
 		else :
-
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-	</div>
-</div>
-
 
 <?php get_footer(); ?>
