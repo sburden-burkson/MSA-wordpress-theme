@@ -347,10 +347,10 @@ add_filter('woocommerce_available_variation', function ($value, $object = null, 
 // Change variation prices to be just the minimum price
 add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
 function custom_variation_price( $price, $product ) {
-    //if ( ! empty($product->min_variation_price) ) {
+    if( !is_admin() ) {
         $price = '<span class="from">' . _x('BASE MODEL: ', 'min_price', 'woocommerce') . ' </span>';
         $price .= woocommerce_price($product->get_price());
-    //}
+    }
 
     return $price;
 }
